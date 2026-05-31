@@ -66,14 +66,14 @@ Create the python environment first with
 
 *** Figure 1 - Grid overview
 
-Run =./scripts/grid_success.py= manually to create:
+Run [[./scripts/grid_success.py]] manually to create:
 
 [[./manuscript/figures/overview_grid.png]]
 
 *** Figure 2 - Multipanel
 
 Individual panels can be generated from the notebook
-=scritps/grid_plots.ipynb=. Run =scripts/multi_panel.py= to generate the
+[[scritps/grid_plots.ipynb]]. Run [[scripts/multi_panel.py]] to generate the
 multipanel figure.
 
 **** Herzsprung-Russel diagram
@@ -94,17 +94,17 @@ multipanel figure.
 
 *** Figure 3 - Entropy profile
 
-Run =scripts/entropy.py= to generate
+Run [[scripts/entropy.py]] to generate
 [[./manuscript/figures/entropy_grid.png]]
 
 *** Figure 4 - Tayler-Spruit generated magnetic fields
 
-Run =scripts/B-fields.py= to generate
+Run [[scripts/B-fields.py]] to generate
 [[./manuscript/figures/B_grid.png]]
 
 *** Figure 5 - Compactness
 
-Run =scripts/xi_M.py= to generate
+Run [[scripts/xi_M.py]] to generate
 [[./manuscript/figures/xi_M.png]]
 
 *** Table 1
