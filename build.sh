@@ -30,6 +30,7 @@ if ask "Generate figures?"; then
             # echo "  Running $f..."
             # python "$f"
 	done
+	cd ..
 	echo "✓ Figures done."
     else
 	echo "CHE_jet python environment not found"

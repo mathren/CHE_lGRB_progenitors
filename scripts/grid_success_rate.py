@@ -41,3 +41,5 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$\omega_{\rm ZAMS}/\omega_{\rm crit}$')
     plt.tight_layout()
     plt.savefig('../manuscript/figures/overview_grid.pdf')
+    # for README rendering
+    plt.savefig('../manuscript/figures/overview_grid.png')
