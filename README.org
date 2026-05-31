@@ -79,8 +79,18 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 
 *** Figure 1
 
+
+
+
 *** Figure 2
 
+*** Table 1
+The table header and caption are prepared in =./manuscript/table.tex=,
+the content can be generated with [[./scripts/make_table_content.py]] and
+manually copied in that file.
+
+The =build.sh= script assumes =./manuscript/table.tex= is ready to be
+compiled.
 
 ** TODO
 - [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
