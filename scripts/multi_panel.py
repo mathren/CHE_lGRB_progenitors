@@ -125,3 +125,4 @@ if __name__ == "__main__":
 
     fig.align_ylabels()
     plt.savefig('../manuscript/figures/multipanel_grid.pdf')
+    plt.savefig('../manuscript/figures/multipanel_grid.png')

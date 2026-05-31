@@ -3,15 +3,12 @@ import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
-import matplotlib.colors as mcolors
-
 
 
 if __name__ == "__main__":
     models_tried = 11*71   # see ./setup_single_CHE.py
 
     root = "../data/" # final / needed
-    hfiles = sorted(glob.glob(root+"*/LOGS/history.data"))
     models = sorted(glob.glob(root+"*.*/"))
 
     success = len(models)/models_tried
@@ -41,5 +38,4 @@ if __name__ == "__main__":
     ax.set_ylabel(r'$\omega_{\rm ZAMS}/\omega_{\rm crit}$')
     plt.tight_layout()
     plt.savefig('../manuscript/figures/overview_grid.pdf')
-    # for README rendering
     plt.savefig('../manuscript/figures/overview_grid.png')

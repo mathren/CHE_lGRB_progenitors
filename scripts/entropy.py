@@ -27,10 +27,10 @@ if __name__ == "__main__":
                 src, col = get_src_col(small_net)
                 m = src[:, col.index("mass")]
                 ye = src[:, col.index('ye')]
-                ax1.plot(m, ye, c='k', ls='-.', lw=1,
+                ax.plot(m, ye, c='k', ls='-.', lw=1,
                          zorder=10,
                          label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
-                ax1.legend(fontsize=20, handletextpad=0.1, frameon=True)
+                ax.legend(fontsize=20, handletextpad=0.1, frameon=True)
             except:
                 print("No small net model")
                 print("This model is available at https://zenodo.org/records/11375523")
@@ -42,4 +42,5 @@ ax.set_xlim(0, 4)
 ax.set_ylim(0.44, 0.505)
 ax.set_ylabel(r"$Y_e=\sum_j\,X_j Z_j / A_j$")
 ax.set_xlabel(r"$m\ [M_{\odot}]$")
-plt.savefig('../manuscript/figures/Ye_grid.pdf')
+plt.savefig('../manuscript/figures/entropy.pdf')
+plt.savefig('../manuscript/figures/entropy.png')
