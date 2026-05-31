@@ -32,8 +32,6 @@
 \affiliation{\todo{somewhere}}
 \email{\todo{someone@somewhere.edu}}
 
-%% Ore? Leon? Koushik, Aldana, Neev, Matteo, Jared? Carl?
-
 \begin{abstract}
   %
   The understanding of stellar collapse and explosion has rapidly
@@ -502,7 +500,8 @@ phases of a core collapse.
 
 \begin{figure}[tbp]
   \includegraphics[width=0.5\textwidth]{xi_M}
-  \caption{Compactness as a function initial mass and rotation rate for single CHE models. \todo{make Mzams top axis and Mfe bottom axis}}
+  \caption{Compactness as a function initial mass and rotation rate
+    for single CHE models.}
   \label{fig:xi_M}
 \end{figure}
 
@@ -511,10 +510,7 @@ phases of a core collapse.
   \label{eq:compactness}
   \xi_{\mathcal{M}}=\frac{\mathcal{M}/M_{\odot}}{r(\mathcal{M})/1000\,\mathrm{km}} \ \ ,
 \end{equation}
-against the initial mass ($M_{\rm ZAMS}$, top axis) and iron core mass
-($M_{\rm Fe}$, bottom axis), defined as the outermost location where
-the mass fraction $X(^{28}\mathrm{Si})<0.1$ and $\sum_{j} X_{j}>0.1$
-where the sum runs over all species with $A_{j}>46$. We use
+against the initial mass $M_{\rm ZAMS}$. We use
 $\mathcal{M}=1.75\,M_{\odot}$ to calculate the compactness following
 \cite{burrows:24}, highlighted also by the vertical black dashed line
 in the top right panel of \Figref{fig:multipanel}. Large values of
@@ -524,13 +520,21 @@ the accretion rate on the shock, and consequently the neutrino
 luminosity thought to drive the shock correlate positively with
 $\xi_{1.75}$ \cite[e.g.,][]{kuroda:18, ott:18, burrows:25}.
 
-The colors in \Figref{fig:xi_M} indicate the initial rotation rate,
-and we see the typical correlation between iron core-mass and
-compactness found in non-rotating models \citep[e.g.,][]{sukhbold:16,
-  limongi:18}. Rotation introduces perturbations on this trend, and it
-appears that initially faster rotating models (darker points) tend to
-have a larger $\xi_{1.75}$, but this trend is not true at all masses
--- likely because of the high non-linearity of stellar evolution.
+The colors in \Figref{fig:xi_M} indicate the initial rotation rate.
+Overall, slower rotation (darker colors) tend leads to higher
+compactness, while increasing rotational support decreases slightly
+the core density and decreases $\xi_{1.75}$, but the trend is not
+always respected, likely due to the high non-linearity of stellar
+evolution.
+
+We report in \Tabref{tab:explodability} the values of
+the mass coordinate where the specific entropy drops below
+$s=4\,k_{B}N_{A}$ ($M_{4}$) and the mass gradient at that location
+$\mu_{4}=dm/dr(m=M_{4})$ which can be used to construct a
+two-parameter explodability criterion \citep{ertl:16, ertl:20}.
+Unsurprisingly for the mass regime considered here, all models lie
+above the critical line for BH formation, regardless of the adopted
+calibration from \cite{ertl:20}.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -776,10 +780,10 @@ initializing self-consistent (non-MLT) convection velocity profiles
 \cite[e.g.,][]{cote:20, yadav:20, fields:22, issa:25, griffiths:26,
   issa:26}
 
-Finally, \texttt{scripts.tar.xz} contains the \texttt{python} scripts
-used in the analysis of our grid, including an
-\texttt{environment.yml} file, to ensure the full reproducibility of
-our results \todo{finalize figures, upload to zenodo, make public}.
+Finally, \texttt{scripts.tar.xz} contains thescripts used in the
+analysis of our grid, including an \texttt{environment.yml} file, to
+ensure the full reproducibility of our results. \todo{finalize figures,
+  upload to zenodo, make public}.
 
 
 % \begin{figure}[htbp]

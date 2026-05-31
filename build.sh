@@ -10,7 +10,7 @@ ask() {
 # --- Download data ---
 if ask "Download data?" ; then
     echo "▶ Downloading data with helper script"
-    bash ./scripts/data_prep.sh || echo "Data preparation failed"
+    bash ./scripts/data_prep.sh || echo "✘ Data preparation failed"
 else
     echo "⏭ Skipping downloading data/"
     echo "You can manually download the data and unpack them in ./data"
@@ -20,7 +20,7 @@ fi
 # --- Figures ---
 if ask "Generate figures?"; then
     if mamba env list | grep -q "^CHE_jet"; then
-	echo "CHE_jet python environment found"
+	echo "✓ CHE_jet python environment found"
 	cd ./scripts
 	echo "▶ Generating figures..."
 	echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
@@ -36,7 +36,7 @@ if ask "Generate figures?"; then
 	cd ..
 	echo "✓ Figures done."
     else
-	echo "CHE_jet python environment not found"
+	echo "✘ CHE_jet python environment not found"
 	echo "Please create with mamba env create -f ./scripts/environment.yml"
     fi
 else
@@ -55,7 +55,7 @@ if ask "Build manuscript?"; then
     cd ..
     echo "✓ Done → manuscript/CHE_GRB_progenitors.pdf"
     if ask "Open manuscript"; then
-	xdg-open manuscript/CHE_GRB_progenitors.pdf
+	xdg-open manuscript/CHE_GRB_progenitors.pdf &
     fi
 else
     echo "⏭ Skipping manuscript."
