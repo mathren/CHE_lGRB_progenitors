@@ -53,7 +53,8 @@ if __name__ == "__main__":
         ax2.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
         zx.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
-            ax2.plot(m, logrho, lw=3, c='C1', zorder=10)
+            ax2.plot(m, logrho, lw=3, c='C1', zorder=10,
+                     label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
             zx.plot(m, logrho, lw=3, c='C1', zorder=10)
 
         # AM profile --------------------------------------------------
@@ -83,17 +84,17 @@ if __name__ == "__main__":
                 r = 10.0**logr
                 omega = src[:, col.index("omega")]
                 j_specific = r*r*omega
-                ax1.plot(m, ye, c='k', ls='-.', lw=0.5, zorder=10,
-                         label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
+                ax1.plot(m, ye, c='k', ls='-.', lw=0.5, zorder=10)
                 ax2.plot(m, logrho, lw=0.5, c='k', ls='-.', zorder=10)
                 zx.plot(m, logrho, lw=0.5, ls='-.', c='k', zorder=10)
                 ax3.plot(m, j_specific, lw=0.5, c='k', ls='-.', zorder=10)
-                ax1.legend(fontsize=20, handletextpad=0.1, frameon=True)
                 hfile =  "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/history.data"
                 src, col = get_src_col(hfile)
                 logT = src[:, col.index("log_Teff")]
                 logL = src[:, col.index("log_L")]
-                ax0.plot(logT, logL, lw=0.5, ls='-.', c='k',zorder=10)
+                ax0.plot(logT, logL, lw=0.5, ls='-.', c='k', zorder=10,
+                         label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
+                ax0.legend(fontsize=20, handletextpad=0.1, frameon=True)
             except FileNotFoundError:
                 print("No small net model")
                 print("This model is available at https://zenodo.org/records/11375523")
