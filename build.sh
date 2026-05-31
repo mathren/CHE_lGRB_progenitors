@@ -26,7 +26,9 @@ if ask "Generate figures?"; then
 	echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
 	# mamba run -n CHE_jet python grid_success_rate.py
 	echo "  ▶ Figure 2: ./scripts/multi_panel.py"
-	mamba run -n CHE_jet python multi_panel.py
+	# mamba run -n CHE_jet python multi_panel.py
+	echo "  ▶ Figure 3: ./scripts/entropy.py"
+	mamba run -n CHE_jet python entropy.py
 	cd ..
 	echo "✓ Figures done."
     else

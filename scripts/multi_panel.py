@@ -3,7 +3,6 @@ import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
-import matplotlib.colors as mcolors
 
 def my_mark_inset(parent_axes, inset_axes, loc1a=1, loc1b=1, loc2a=2, loc2b=2, **kwargs):
     from mpl_toolkits.axes_grid1.inset_locator import TransformedBbox, BboxPatch, BboxConnector
