@@ -23,13 +23,10 @@ if ask "Generate figures?"; then
 	echo "CHE_jet python environment found"
 	cd ./scripts
 	echo "▶ Generating figures..."
-	for f in scripts/*.py; do
-	    # load python env, adapt if needed
-	    echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
-	    mamba run -n CHE_jet python grid_success_rate.py
-            # echo "  Running $f..."
-            # python "$f"
-	done
+	echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
+	# mamba run -n CHE_jet python grid_success_rate.py
+	echo "  ▶ Figure 2: ./scripts/multi_panel.py"
+	mamba run -n CHE_jet python multi_panel.py
 	cd ..
 	echo "✓ Figures done."
     else
