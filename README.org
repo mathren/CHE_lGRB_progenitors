@@ -89,8 +89,9 @@ Create the python environment first with
 
 Run =./scripts/grid_success.py= manually to create:
 
-[[https://raw.githubusercontent.com/mathren/CHE_lGRB_progenitors/blob/main/manuscript/figures/overview_grid.pdf]]
+[[https://raw.githubusercontent.com/mathren//blob/main/manuscript/figures/overview_grid.pdf]]
 
+https://raw.githubusercontent.com/mathren/CHE_lGRB_progenitors/main/manuscript/figures/overview_grid.pdf
 
 *** Figure 2
 
