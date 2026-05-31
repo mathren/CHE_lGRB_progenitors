@@ -2,7 +2,7 @@ import numpy as np
 import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
-from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
+from MESAreader import get_src_col, get_model_initial_values
 
 if __name__ == "__main__":
     root = "../data/" # final / needed
