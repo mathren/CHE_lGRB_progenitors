@@ -137,7 +137,8 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 #+END_SRC
 
 ** TODO lGRB progenitors
-- [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
+- [X] make [[./scripts/data_prep.sh]] download only =grid.tar=
 - [ ] make download and unpack ask for confirmation
-- [ ] Confirm OS on =rusty=
-- [ ] add Leon
+- [ ] Confirm OS on =rusty= (@matteocantiello)
+- [X] add Leon
+- [ ] how do address MESA r24.03.1 bug in nuclear reaction networks (@debraheem?)

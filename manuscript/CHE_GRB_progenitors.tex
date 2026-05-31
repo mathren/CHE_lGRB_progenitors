@@ -57,17 +57,15 @@
   accuracy to understand possibly-jetted stellar explosions, MHD-SNe,
   and long $\gamma$-ray bursts.
 \end{abstract}
-
 \keywords{
-  \uat{High Energy astrophysics}{} ---
-  \uat{Massive stars}{} ---
-  \uat{Stellar evolution}{} ---
-  \uat{Stellar rotation}{} ---
-  \uat{Rotationally induced mixing}{} ---
-  \uat{Collapsars}{} ---
-  \uat{Supernovae}{} ---
-  \uat{Long gamma-ray bursts}}
-
+  \uat{High Energy astrophysics}{739} ---
+  \uat{Massive stars}{732} ---
+  \uat{Stellar evolution}{1599} ---
+  \uat{Stellar rotation}{1608} ---
+  \uat{Rotationally induced mixing}{1400} ---
+  \uat{Collapsars}{2066} ---
+  \uat{Supernovae}{1668} ---
+  \uat{Long gamma-ray bursts}{181}}
 \section{Introduction}
 \label{sec:intro}
 
@@ -80,27 +78,29 @@ of time-domain astronomy has lead to variations on this theme
 motivated by all kinds of astronomical transients
 \citep[e.g.,][]{cano:17}.
 
-The core structure of a stellar progenitor determines the initial
-conditions for expensive multi-dimensional, multi-physics, (and often
-multi-million-CPUh) simulations. Specifically, the profile (of
-density, entropy, velocity, angular momentum, magnetic fields,
-etc.,~as a function of Lagrangian mass coordinate or radius)
+The core structure of a stellar progenitor at the onset of collapse
+determines the initial conditions for expensive multi-dimensional,
+multi-physics (and often multi-million-CPUh) simulations
+\citep[e.g.,][]{janka:12, mueller:16rev, vartanyan:21, gottlieb:25}. Specifically,
+the profile (of density, entropy, velocity, angular momentum, magnetic
+fields, etc.,~as a function of Lagrangian mass coordinate or radius)
 determines the dynamics of the infalling gas, and the ``over-burden''
-encountered by a putative nascent outflow. Therefore, ultimately, it
-is the structure of the progenitor that determines whether a stellar
-model explodes or not, separately, whether it leaves behind a neutron
-star (NS) or a black hole (BH), and the properties of both the
-outflows, associated transients, and remnant \citep[e.g.,][]{janka:12,
-  burrows:24, gottlieb:25}.
+encountered by a putative nascent outflow. Therefore, it is the
+structure of the collapsing progenitor that determines whether a
+stellar model explodes or not; separately, whether it leaves behind a
+neutron star (NS) or a black hole (BH), either directly or through a
+proto-NS phase; and ultimately the properties of both the outflows,
+the associated transients, and final remnants
+\citep[e.g.,][]{kuroda:18, ott:18, vartanyan:19, burrows:24}.
 
-Recent progress in core-collapse supernova (SN) theory has produce
-unprecedented agreement among groups performing numerical simulations
-of neutrino-radiative transfer \citep[e.g.,][]{janka:12, ott:18, vartanyan:19,
-  burrows:25, nakamura:25}. While the impact of ingredients other than
-neutrino heating remains debated \cite[e.g.,][]{soker:24}, a consensus
-on the fact that uncertainties in the stellar progenitor structure are
-dominant is emerging \citep[e.g.,][]{sukhbold:16, limongi:18,
-  boccioli:24, burrows:25, griffiths:26}.
+Recent progress supernova (SN) theory has produced unprecedented
+agreement among numerical simulations of neutrino-radiative transfer
+of core collapse \citep[e.g.,][]{janka:12, burrows:25, nakamura:25}.
+While the impact of ingredients other than neutrino heating remains
+debated \cite[e.g.,][]{soker:24}, a consensus on the fact that
+uncertainties in the stellar progenitor structure are dominant is
+emerging \citep[e.g.,][]{sukhbold:16, limongi:18, boccioli:24,
+  burrows:25, griffiths:26}.
 
 The capability to study the origin of transients and compact objects
 is ever more important in the era of large time-domain surveys (e.g.,
@@ -129,93 +129,109 @@ and angular momentum profile. Any star evolving through silicon core
 burning will experience copious amounts of electron captures
 \cite[e.g.,][]{arnett:77,hix:93,hix:99,grichener:25} which
 progressively de-leptonize the core (i.e., decrease the amount of free
-electrons). These occur at a significant rate even in the late
-hydrostatic stellar evolution, and before a model is sufficiently
-evolved by the criterion \emph{i}. The notable exceptions to this are
-``electron-capture'' SN progenitors which collapse with a ONeMg-rich
-core (however, these too require appropriate treatment of the weak
-reactions, including URCA processes, \citealt{nomoto:84,
-  takahashi:13}) and progenitors above the pair-instability gap
-\citep[e.g.,][]{rakavy:67, woosley:17, renzo:24} which collapse
-because of the photodisintegration instability in an oxygen-rich core
-\citep[e.g.,][]{bond:84, gottlieb:25}.
+electrons). The notable exceptions to this are ``electron-capture'' SN
+progenitors which collapse with a ONeMg-rich core (however, these too
+require appropriate treatment of the weak reactions, including URCA
+processes, \citealt{nomoto:84, takahashi:13}) and progenitors above
+the pair-instability gap \citep[e.g.,][]{rakavy:67, woosley:17,
+  renzo:24} which collapse because of the photodisintegration
+instability in an oxygen-rich core \citep[e.g.,][]{bond:84,
+  gottlieb:25}. In both these cases, the stars bypass silicon
+core-burning.
 
-To decrease the computing time and number of models stopped by
-numerical issues in a grid of stellar progenitors, a commonly adopted
-shortcut is to use small ($\sim$20-isotope) nuclear reaction networks
-\citep[e.g.,][]{pols:95, timmes:00}. These bypass the complex nuclear
-physics of silicon core burning by lumping all weak interactions in a
-custom compound reaction (see \citealt{grichener:25}), effectively
+In all other progenitors, electron-captures occur at a significant
+rate even in the late hydrostatic phases of evolution, and before a
+model is sufficiently evolved by the criterion \emph{i}. Even adopting
+``quasi-statistical equilibrium'' approximations, the weak reactions
+do not reach a steady-state since most occur when matter is still
+transparent to neutrinos. Capturing these weak interactions in
+sufficient detail to characterize the stellar \emph{structure} at the
+onset of collapse requires considering $N\sim100$ of isotopes
+\citep[e.g.,][]{farmer:16, grichener:25}. To decrease the computing
+time and number of models stopped by numerical issues in a grid of
+stellar progenitors, a commonly adopted shortcut is to use small
+($N\sim$20-isotope) nuclear reaction networks \citep[e.g.,][]{pols:95,
+  timmes:00}. These bypass the complex nuclear and weak physics of
+silicon core burning by lumping all weak interactions in a custom
+compound reaction (see \citealt{grichener:25}), effectively
 sacrificing the accuracy of the core structure that decides the
 explosion. Even if such compound reaction is tuned on the central
 value of the electron fraction $Y_{e}$ from models with more accurate
 nuclear reaction networks \citep[e.g.,][]{aguilera-dena:18,
   schneider:21, schneider:24}, small networks cannot predict the
 \emph{profile} $Y_{e}(m)$ of the collapsing core in the region where
-the explosions are decided. While this is an acceptable trade-off to
-study, for example, electromagnetic observables determined at the
-surface \citep[e.g.,][]{morozova:15}, it is not sufficient if one want
-to investigate the driving of the explosions, the pre-explosions and
-explosive neutrino signals, the nuclear yields, and the resulting
-compact object properties (whether considering non-rotating --
-\citealt{farmer:16} -- or rotating progenitors -- \citealt{renzo:24}). The
-reason is that the effective Chandrasekhar mass of the collapsing core
-scales with $\propto Y_{e}^{2}$, or in other words, the contribution
-of electron-degeneracy-pressure to the support of the core amplifies
-small imprecision in the core structure to a level significant for the
-collapse and explosion dynamics.
+the explosions are decided.
+
+The use of small nuclear reaction networks is an acceptable trade-off
+to study, for example, electromagnetic observables determined at the
+surface \citep[e.g.,][]{morozova:15} or for the application of
+semi-analytic explodability criteria based on existing detailed
+simulations \citep[e.g.,][]{mueller:16}. However, it is not sufficient
+if one want to investigate the driving of the explosions, the
+pre-explosions and explosive neutrino signals, the nuclear yields, and
+the resulting compact object properties (whether considering
+non-rotating -- \citealt{farmer:16} -- or rotating progenitors --
+\citealt{renzo:24}). The reason is that the effective Chandrasekhar
+mass of the collapsing core scales with $\propto Y_{e}^{2}$, or in
+other words, the contribution of electron-degeneracy-pressure to the
+support of the core amplifies small imprecision in the core structure
+to a level significant for the collapse and explosion dynamics
+\citep[e.g.,][]{janka:12, grichener:25}.
 
 Few grids of stellar progenitors evolved sufficiently late (\emph{i})
 and with \emph{detailed} nuclear physics (\emph{ii}) exist, mostly
-from closed-source codes (e.g., \textsc{KEPLER}
-\citealt{weaver:78, woosley:02, woosley:06, woosley:07, sukhbold:16,
-  sukhbold:18}, \textsc{FRANEC}\footnote{ which does not include
-  hydrodynamics and thus cannot reach condition \emph{i}
+from closed-source codes (e.g., \textsc{KEPLER} \citealt{weaver:78,
+  woosley:02, woosley:06, woosley:07, sukhbold:16, sukhbold:18},
+\textsc{FRANEC}\footnote{ which does not include hydrodynamics and
+  thus cannot reach condition \emph{i}
   \citep[e.g.,][]{oconnor:10,limongi:20}.} \citealt{limongi:03,
   limongi:18}, \textsc{HOSHI}, \citealt{takahashi:13}). While these
 stellar models have been invaluable in allowing the progress made so
-far, they do not allow to explore the sensitivity of the results to
-\emph{physical} and \emph{numerical} choices in the evolution of the
-progenitors, that have been shown to influence the core structure and
+far, they do not allow the community to explore the sensitivity of the
+results to \emph{physical} and \emph{numerical} choices in the
+evolution of the progenitors. Approximations introduced at both these
+conceptual levels have been shown to influence the core structure and
 thus explosion outcomes \citep[e.g.,][]{farmer:16, renzo:17,davis:19,
   laplace:21, maltsev:25, myers:26}.
 
 A few public grids of progenitors fulfilling both conditions \emph{i}
 and \emph{ii} computed with the open-source and community-driven code
-\textsc{MESA} exist \citep[e.g.,][]{farmer:16, renzo:17, laplace:21,
-  farag:20, farmer:23, myers:26}. These have largely been under-utilized
-for initializing explosion simulations \citep[see
-however][]{vartanyan:21}. Even fewer open-source models of rotating
-progenitors exist, despite their importance for jetted explosions,
-collapsars, MHD-explosions, and/or long $\gamma$-ray burst (lGRB,
+\textsc{MESA} exist \citep[e.g.,][]{farmer:16, renzo:17, farag:20,
+  laplace:21, farmer:23, myers:26}. These have largely been
+under-utilized for initializing explosion simulations \citep[see
+however][]{vartanyan:21, gottlieb:24, chan:26}. Even fewer open-source
+models of rotating progenitors exist, despite their importance for
+jetted explosions, collapsars, MHD-explosions, and/or long
+$\gamma$-ray burst (lGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}).
 
 The reason for this bottleneck is the significant computational cost
-of evolved massive stars with the necessary large nuclear-reaction
-networks (neglecting the sparsity, the size of the matrix to solve
-scales with $\sim{}N^{2}$ with $N$ number of isotopes),
+of evolved massive stars with the large nuclear-reaction networks
+necessary to follow in details the weak reactions (neglecting
+sparsity, the size of the matrix to solve scales with $\sim{}N^{2}$),
 coupled with the stiffness of the equations (see
 \citealt{grichener:25}), which results in large fractions of
-progenitor grids failing before reaching the desired infall velocity.
+progenitor stars failing before reaching the desired infall velocity.
 
 Development of numerical strategies to address these issues are
-ongoing. In the meantime, we present here a publicly-available grid of
+ongoing \citep[e.g.,][]{jermyn:23,grichener:25,griffiths:25}. In the meantime, we present here a publicly-available grid of
 fast-rotating models fulfilling both criteria (\emph{i}, ``late
 enough'') and (\emph{ii}, ``including enough nuclear physics to
 accurately simulate the structure'') for studies of the collapse and
 possible explosion of fast rotating stellar cores.
 
-In \Secref{sec:methods} we describe the physical assumptions and
+In \Secref{sec:methods} we describe our physical assumptions and
 numerical setup. \Secref{sec:results} presents the computed grid, and
 we contextualize our result in terms of the input and code physics in
 \Secref{sec:discussion_inputs}. In \Secref{sec:scenario} we briefly
 outline the astrophysical scenarios that could be approximated with
-our models. Finally, we conclude in
-\Secref{sec:conclusion}. Appendix~\ref{sec:table} lists some key quantities for the ``explodability'' and surface composition at the onset of collapse, and Appendix~\ref{sec:public_datafiles} describes
-in detail the publicly available input and output files of our
-simulations, available at
+our models. Finally, we conclude in \Secref{sec:conclusion}.
+Appendix~\ref{sec:public_datafiles} describes in detail the input and
+output files of our simulations and our processing scripts, all
+publicly available at
 \href{https://doi.org/10.5281/zenodo.14286306}{doi.org/10.5281/zenodo.14286306}.
-
+Appendix~\ref{sec:table} lists some key quantities for the
+``explodability'' and surface composition at the onset of collapse.
 
 \section{Numerical setup}
 \label{sec:methods}
@@ -223,6 +239,7 @@ simulations, available at
 The grid of models presented here is an extension of (and includes)
 the progenitor star used in \cite{gottlieb:24} and constitutes the
 input for the ``averaged'' progenitor constructed in \cite{chan:26}.
+
 We use the \textsc{MESA} code (version r24.03.1,
 \citealt{paxton:11,paxton:13,paxton:15,paxton:16,paxton:19,jermyn:23}),
 to compute low-metallicity ($Z=0.001$) and fast-rotating stellar
@@ -237,11 +254,11 @@ stellar radius.
 
 We use the \textsc{Skye} equation of state \citep{jermyn:skye}, and
 include electron screening following \citet{Chugunov2007} and thermal
-neutrino losses following \citet{Itoh1996}. In our setup, radiative
+neutrino losses following \citet{Itoh1996}. We adopt radiative
 opacities are primarily from OPAL \citep{Iglesias1993, Iglesias1996}
 and electron conduction opacities are from \citet{Cassisi2007}.
 
-We adopt nuclear reaction rates that are a combination of NACRE
+Nuclear reaction rates are a combination of NACRE
 \citep{Angulo1999}, JINA REACLIB \citep{Cyburt2010}, and
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from \cite{kunz:02},
 plus additional tabulated weak reaction rates \citet{Fuller1985,
@@ -274,10 +291,11 @@ After the formation of a carbon-oxygen core, we prevent the
 development of spurious numerical velocities in the outer layers by
 artificially setting to zero the velocity in any layer that has a
 sound-propagation time from the outer edge of the core, or the
-location where the specific entropy drops below 10.5\,$N_{A}k_{B}$,
-whichever is further in, longer than the current timestep. Similar
-artificial damping exists in most calculations of post-core-carbon
-burning massive stars \citep[e.g.,][]{aguilera-dena:18}.
+location where the specific entropy drops below
+$s\le10.5\,k_{B}N_{A}$, whichever is further in, longer than the
+current timestep. Similar artificial damping exists in most
+calculations of post-core-carbon burning massive stars
+\citep[e.g.,][]{aguilera-dena:18}.
 
 To produce progenitors sufficiently close to core-bounce (condition
 \emph{i} in \Secref{sec:intro}), we evolve each model until the infall
@@ -288,7 +306,9 @@ by the numerical experiments performed in \cite{gottlieb:24} where we
 showed that the physical time remaining between this point and the
 canonical threshold of $-1000\,\mathrm{km \ s^{-1}}$ is much shorted
 than the timescale governing the local evolution of the rotation and
-magnetic fields.
+magnetic fields. We re-implement the checks on the infall velocity in
+our \texttt{run\_star\_extras.f90} to avoid known bugs (already fixed
+in newer \textsc{MESA} versions).
 
 Numerical resolution should always be tested in stellar models
 \citep[e.g.,][]{farmer:16}. We refer readers to the appendix of
@@ -299,7 +319,30 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
 \section{Results}
 \label{sec:results}
 
-\begin{figure}[htb]
+Our grid consists initially of 11 values of
+$\omega_{\rm ZAMS}/\omega_{\rm crit}$ times 71 $M_{\rm ZAMS}$ values,
+for a total of 781 stellar models. Of these, 113 successfully reach
+the onset of core-collapse and pass our visual inspection to remove
+models experiencing large $L$ and effective temperature
+($T_{\rm eff}$) excursions. These may be manifestations of physical
+processes in the envelope \citep[e.g.,][for red-supergiant
+stars]{heger:97} and/or numerical artifacts amplified by the small
+timesteps necessary in late evolutionary phases (since the
+acceleration term in the momentum equation is calculated as
+$\Delta v/\Delta t$, it can become extremely large for small
+$\Delta t$).
+
+Because of the fast initial rotation and assumed rotational mixing,
+our models do not develop extended hydrogen envelopes, and our setup
+is not designed to properly capture physical phenomena in the outer
+layers this late in the evolution. Furthermore, large $L$ and
+$T_{\rm eff}$ excursions feedback non-linearily on the core structure
+in structurally significant ways, motivating our choice to exclude
+models showing this numerical behavior from our grid. Overall, our
+grid has a 14\% success rate, relatively high for models that are
+\emph{not} manually mentored in any way.
+
+\begin{figure}[bp]
   \includegraphics[width=0.5\textwidth]{figures/overview_grid}
   \caption{Overview of the grid success rate. Green check marks
     correspond to successful models. Red crosses correspond to models
@@ -310,30 +353,23 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
   \label{fig:grid_success}
 \end{figure}
 
-Our grid consists initially of 11 values of
-$\omega_{\rm ZAMS}/\omega_{\rm crit}$ per each of the 71
-$M_{\rm ZAMS}$ values, for a total of 781 stellar models. Of these,
-113 successfully reach the onset of core-collapse and pass our visual
-inspection to remove models experiencing large $L$ and effective
-temperature ($T_{\rm eff}$) excursions. These may be manifestations of
-physical processes in the envelope \citep[e.g.,][for red-supergiant
-stars]{heger:97} and/or numerical artifacts amplified by
-the small timesteps necessary in late evolutionary phases (since the
-acceleration term in the momentum equation is calculated as
-$\Delta v/\Delta t$, it can become extremely large for small
-$\Delta t$). Our setup is not designed to properly capture physical
-phenomena in the outer envelopes this late in the evolution, and large
-$L$ and $T_{\rm eff}$ can feedback on the core structure, motivating
-our choice to exclude these models from our grid. Overall, our grid
-has a 14\% success rate, relatively high for models that are
-\emph{not} manually mentored in any way.
+As shown in \Figref{fig:grid_success}, successful models in our grid
+sample relatively uniformly the parameter space
+$30\,M_{\odot}\lesssim M_{\rm ZAMS}\lesssim 60\,M_{\odot}$ across all
+rotation rates explored
+($0.5\lesssim \omega_{\rm ZAMS}/\omega_{\rm crit}\lesssim 0.99$), and
+the number of successes decrease at larger initial masses and rotation
+rates. However, there is no particular threshold beyond which models
+systematically fail: this suggests most issues are related to
+numerical errors in the solution of the stiff equations rather than
+physical hypothesis.
 
 \begin{figure*}[htbp]
   \centering
   \includegraphics[width=\textwidth]{multipanel_grid.pdf}
   \caption{\emph{Top left}: Herzsprung-Russel diagram of
     rotationally-induced chemically-homogeneous evolving single star
-    models. \emph{Top right:} Inner electron fraction $Y_{e}$ profile
+    models. \emph{Top right:} Inner electron fraction $Y_{e}(m)$ profile
     as a function of mass, the thin black dot-dashed line is the
     $40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$
     computed with a 22-isotope network from \cite{renzo:24} available
@@ -352,35 +388,27 @@ has a 14\% success rate, relatively high for models that are
 \end{figure*}
 
 
-As shown in \Figref{fig:grid_success}, successful models in our grid
-sample relatively uniformly the parameter space
-$30\,M_{\odot}\lesssim M_{\rm ZAMS}\lesssim 60\,M_{\odot}$ across all
-rotation rates explored
-($0.5\lesssim \omega_{\rm ZAMS}/\omega_{\rm crit}\lesssim 0.99$), and
-the number of successes decrease at larger initial masses and rotation
-rates. However, there is no particular threshold beyond which models
-systematically fail: this suggests most failures come from numerical
-errors in the solution of the stiff equations describing late stellar
-evolution rather than physical hypothesis and/or their algorithmic
-representation.
-
 From this point onward, we focus on the analysis of the successful
-models. \Figref{fig:multipanel} shows an overview of this grid, with
-each thin blue line corresponding to one star. The thick
-orange lines correspond to the model used as progenitor in
-\cite{gottlieb:24}, highlighted to guide the eye.
+models (green checkmarks in \Figref{fig:grid_success}).
+\Figref{fig:multipanel} shows an overview of their evolution and
+structure at the onset of core-collapse, with each thin blue line
+corresponding to one star. The thick orange lines correspond to the
+model used as progenitor in \cite{gottlieb:24}, highlighted as a
+guideline.
 
 The top left panel shows a Herzsprung-Russel diagram, where models
-evolve from the bottom right towards the top left, as indicated by the
-arrow. Because of the large rotation imposed at birth, these models
-experience CHE (\citealt{maeder:00, yoon:06, demink:09}). Rotational
-mixing (dominated by meridional circulations) prevents the formation
-of a chemical stratification and the emergence of a core/envelope
-boundary during the hydrogen-core burning main sequence. The entire
-star is enriched in $^{4}\mathrm{He}$ (and $^{14}\mathrm{N}$ at the expenses of $^{12}\mathrm{C}$ and $^{16}\mathrm{O}$ because of the CNO cycle, \citealt{bethe:39}), reducing the envelope opacity
-and preventing the red-ward evolution and radial expansion.
-Nevertheless, the increase in mean-molecular weight leads to an
-increase in luminosity \citep[e.g.,][]{kippenhahn:13, xin:2022}. % As noted in
+evolve from the bottom right towards the top left. Because of the
+large rotation imposed at birth, these models experience CHE
+(\citealt{maeder:00, yoon:06, demink:09}). Rotational mixing
+(dominated by meridional circulations) prevents the formation of a
+chemical stratification and the emergence of a core/envelope boundary
+during the hydrogen-core burning main sequence. The entire star is
+enriched in $^{4}\mathrm{He}$ (and $^{14}\mathrm{N}$ at the expenses
+of $^{12}\mathrm{C}$ and $^{16}\mathrm{O}$ because of the CNO cycle,
+\citealt{bethe:39}), reducing the envelope opacity and preventing the
+red-ward evolution and radial expansion. Nevertheless, the increase in
+mean-molecular weight leads to an increase in luminosity
+\citep[e.g.,][]{kippenhahn:13, xin:2022}. % As noted in
 % \cite{gottlieb:24}, with the large initial rotation assumed, the main
 % sequence evolution leads to CHE even with the stronger angular
 % momentum transport by \cite{fuller:19} and \cite{fuller:22}.
@@ -406,16 +434,17 @@ by the burning impede further mixing \citep[e.g.,][]{heger:00,
 core, and a ``onion''-like structure.
 
 The remaining evolution occurs roughly right-to-left at constant
-luminosity, with wind mass-loss progressively removing mass, and
-revealing hotter inner layers of the star. The hottest point and
-smallest radius is reached roughly at core Neon ignition
-\citep{gottlieb:24}, after which stars typically expand slightly
-again. We note that the majority of the models failing (red crosses in
+luminosity, with wind mass-loss progressively revealing hotter inner
+layers of the star. The hottest point and smallest radius is reached
+roughly at core Neon ignition \citep{gottlieb:24}, after which stars
+typically expand slightly again because of the enhanced core
+contraction as neutrino cooling and nuclear neutrino losses increase.
+We note that the majority of the models failing (red crosses in
 \Figref{fig:grid_success}, excluded from \Figref{fig:multipanel} and
 beyond) occur during or after Neon core burning. This is because this
 burning phase occurs through photodisintegration
 $^{20}\mathrm{Ne}(\gamma, \alpha)^{16}\mathrm{O}$ which produces
-$\alpha$ particles which have extremely high reaction rates at the
+$\alpha$ particles which have extremely high reaction rates at these
 temperatures ($T \gtrsim 1.5\times10^{9}\,\mathrm{K}$,
 \citealt{kippenhahn:13}), and thus the equations for the evolution of
 the core composition become significantly stiffer and numerically
@@ -424,21 +453,20 @@ challenging.
 The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
 is the mass fraction of the $j$-th isotope with charge $+Z_{j}e$ and
-atomic mass $A_{j}$, in the innermost $m\le4\,M_{\odot}$ at
-the onset of core-collapse. Outside
-this mass coordinate $Y_e\simeq0.5$, while inside, weak-reactions, treated explicitly our nuclear reaction network, lead to
-deleptonization and lower the $Y_{e}$ creating a profile consistent
-with the thermodynamical conditions in the evolving cores. We also
-show with a thin black dot-dashed line the $40\,M_{\odot}$,
-$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model from \cite{renzo:24}
-computed with a small 22-isotope network and an otherwise identical
-setup, for comparison with the thick solid orange line corresponding
-to the same initial conditions in our grid using a 128-isotope
-network. The difference between these two $Y_{e}$ profiles is larger
-than the difference between models of varying mass and initial
-rotations: the systematic error from using a small nuclear reaction
-network biases conclusions on the connection between progenitors,
-explosions, and remnants \citep{farmer:16, renzo:24}.
+atomic mass $A_{j}$, in the innermost $m\le4\,M_{\odot}$ at the onset
+of core-collapse. Outside this mass coordinate $Y_e\simeq0.5$, while
+inside, weak-reactions deleptonize the core and lower the $Y_{e}$
+creating a profile consistent with the thermodynamical conditions in
+the evolving cores. We also show with a thin black dot-dashed line the
+$40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model from
+\cite{renzo:24} computed with a small 22-isotope network and an
+otherwise identical setup, for comparison with the thick solid orange
+line corresponding to the same initial conditions in our grid using a
+128-isotope network. The difference between these two $Y_{e}$ profiles
+is larger than the difference between models of varying mass and
+initial rotations: the systematic error from using a small nuclear
+reaction network biases conclusions on the connection between
+progenitors, explosions, and remnants \citep{farmer:16, renzo:24}.
 
 In \Figref{fig:multipanel}, the bottom left panel shows the full
 density profiles at the onset of collapse as a function of
@@ -710,31 +738,6 @@ of rotating massive stars.\\
 \bibliography{CHE_GRB_progenitors.bib}
 
 \appendix
-
-\section{Explodability metrics and surface composition}
-\label{sec:table}
-
-\Tabref{tab:explodability} lists for each successful model in our grid
-a few key quantities related to their ``explodability'' and their
-surface composition. Specifically, we list $\xi_{1.75}$ and
-$M_{\rm Fe}$ shown also in \Figref{fig:xi_M}, $M_{4}$ is the outermost
-mass coordinate where the specific entropy is $s=4\,k_{B}N_A$ and the
-mass-gradient at that location $\mu_{4}$, which together can be
-combined in the two-parameter explodability criterion by
-\cite{ertl:16, ertl:20}.
-
-The last three columns provide the surface mass fractions of the most
-abundant elements, which are Helium
-$Y_{\rm surf}\equiv X_{\rm surf}(^{4}\mathrm{He})$, Carbon, and
-Oxygen. These do not necessarily sum to 1 because of other isotopes
-present in our calculations, and are presumably sensitive to the wind
-mass-loss rates and mixing processes. Interestingly, most of our
-models still retain significant amount of helium at the surface (plus,
-some helium-rich material can appear in the core very late due to
-photodisintegration of iron-group nuclei).
-
-\input{table.tex}
-
 \section{Description of the data products}
 \label{sec:public_datafiles}
 
@@ -792,42 +795,33 @@ initializing self-consistent (non-MLT) convection velocity profiles
 
 Finally, \texttt{scripts.tar.xz} contains thescripts used in the
 analysis of our grid, including an \texttt{environment.yml} file, to
-ensure the full reproducibility of our results. \todo{finalize figures,
-  upload to zenodo, make public}.
+ensure the full reproducibility of our results. This entire paper can
+be reproduced with the dataset provided with the in \texttt{grid.tar}
+and the scripts available at
+\href{https://github.com/mathren/CHE_lGRB_progenitors}{github.com/mathren/CHE\_lGRB\_progenitors}.
+\section{Explodability metrics and surface composition}
+\label{sec:table}
 
+\Tabref{tab:explodability} lists for each successful model in our grid
+a few key quantities related to their ``explodability'' and their
+surface composition. Specifically, we list $\xi_{1.75}$ and
+$M_{\rm Fe}$ shown also in \Figref{fig:xi_M}, $M_{4}$ is the outermost
+mass coordinate where the specific entropy is $s=4\,k_{B}N_A$ and the
+mass-gradient at that location $\mu_{4}$, which together can be
+combined in the two-parameter explodability criterion by
+\cite{ertl:16, ertl:20}.
 
-% \begin{figure}[htbp]
-%   \includegraphics[width=0.5\textwidth]{HRD_grid}
-%   \caption{Herzsprung-Russel diagram of rotationally-induced CHE
-%     single star models. The orange thick line marks a representative
-%     $40M_{\odot}$, $\omega=0.6\omega_{\rm crit}$ model to guide the
-%     eye.}
-%   \label{fig:HRD}
-% \end{figure}
+The last three columns provide the surface mass fractions of the most
+abundant elements, which are Helium
+$Y_{\rm surf}\equiv X_{\rm surf}(^{4}\mathrm{He})$, Carbon, and
+Oxygen. These do not necessarily sum to 1 because of other isotopes
+present in our calculations, and are presumably sensitive to the wind
+mass-loss rates and mixing processes. Interestingly, most of our
+models still retain significant amount of helium at the surface (plus,
+some helium-rich material can appear in the core very late due to
+photodisintegration of iron-group nuclei).
 
-
-
-% \begin{figure}[htbp]
-%   \includegraphics[width=0.5\textwidth]{rho_grid}
-%   \caption{Density profiles as a function of Lagrangian mass
-%     coordinate for rotationally-induced CHE
-%     single star models. The orange thick line marks a representative
-%     $40M_{\odot}$, $\omega=0.6\omega_{\rm crit}$ model to guide the
-%     eye. The inset focuses on the innermost $m\le5\,M_{\odot}$.}
-%   \label{fig:rho}
-% \end{figure}
-
-
-
-% \begin{figure}[htbp]
-%   \includegraphics[width=0.5\textwidth]{j_grid}
-%   \caption{Specific angular momentum $j=r\omega^{2}$ profiles as a
-%     function of Lagrangian mass coordinate for rotationally-induced
-%     CHE single star models. The orange thick line marks a
-%     representative $40M_{\odot}$, $\omega=0.6\omega_{\rm crit}$ model
-%     to guide the eye.}
-%   \label{fig:rho}
-% \end{figure}
+\input{table.tex}
 
 
 \end{document}

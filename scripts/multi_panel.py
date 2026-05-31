@@ -44,6 +44,24 @@ if __name__ == "__main__":
         if M==40 and o==0.6:
             ax0.plot(logT, logL, lw=3, c='C1',zorder=10)
 
+        # density -----------------------------
+        logrho = src[:, col.index("logRho")]
+        m = src[:, col.index("mass")]
+        ax2.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
+        zx.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
+        if M==40 and o==0.6:
+            ax2.plot(m, logrho, lw=3, c='C1', zorder=10)
+            zx.plot(m, logrho, lw=3, c='C1', zorder=10)
+
+        # AM profile --------------------------------------------------
+        logr = np.log10((10.**(src[:, col.index("logR")]))*Rsun_cm)
+        r = 10.0**logr
+        omega = src[:, col.index("omega")]
+        j_specific = r*r*omega
+        m = src[:, col.index("mass")]
+        ax3.plot(m, j_specific, c='C0', alpha=0.3, lw=0.5)
+        if M==40 and o==0.6:
+            ax3.plot(m, j_specific, lw=3, c='C1', zorder=10)
 
         # Ye ----------------------------------------------------
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
@@ -69,24 +87,6 @@ if __name__ == "__main__":
                 print("Download and unpack in ./data/SMALL_NET/")
                 pass
 
-        # density -----------------------------
-        logrho = src[:, col.index("logRho")]
-        m = src[:, col.index("mass")]
-        ax2.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
-        zx.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
-        if M==40 and o==0.6:
-            ax2.plot(m, logrho, lw=3, c='C1', zorder=10)
-            zx.plot(m, logrho, lw=3, c='C1', zorder=10)
-
-        # AM profile --------------------------------------------------
-        logr = np.log10((10.**(src[:, col.index("logR")]))*Rsun_cm)
-        r = 10.0**logr
-        omega = src[:, col.index("omega")]
-        j_specific = r*r*omega
-        m = src[:, col.index("mass")]
-        ax3.plot(m, j_specific, c='C0', alpha=0.3, lw=0.5)
-        if M==40 and o==0.6:
-            ax3.plot(m, j_specific, lw=3, c='C1', zorder=10)
 
 
     ax0.invert_xaxis()
