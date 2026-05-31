@@ -95,7 +95,7 @@ multipanel figure.
 *** Figure 3 - Entropy profile
 
 Run =scripts/entropy.py= to generate
-[[./manuscript/figures/entropy.png]]
+[[./manuscript/figures/entropy_grid.png]]
 
 *** Figure 4 - Tayler-Spruit generated magnetic fields
 
