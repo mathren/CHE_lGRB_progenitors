@@ -42,7 +42,10 @@ if ask "Build manuscript?"; then
     pdflatex CHE_GRB_progenitors.tex
     pdflatex CHE_GRB_progenitors.tex
     cd ..
-    echo "✓ Done → manuscript/main.pdf"
+    echo "✓ Done → manuscript/CHE_GRB_progenitors.pdf"
+    if ask "Open manuscript"; then
+	xdg-open manuscript/CHE_GRB_progenitors.pdf
+    fi
 else
     echo "⏭ Skipping manuscript."
 fi

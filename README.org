@@ -10,20 +10,48 @@
 </p>
 #+END_html
 
+** How to reproduce the simulations
 
-** How to reproduce
+These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
+=x86_64-linux-23.7.3= on =Rocky OS 7=.
 
-The scripts to build the figures assume the data exist and are
-unpacked in [[./data]]. Download from the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar=
-and unpack it in =./data=.
+*WARNING*: the exact code used is available on zenodo in
+=template.tar.xz=, the code in the repository may not correspond exactly
+due to further small experiments run after the grid.
 
+** How to reproduce the paper
+
+TL;DR: run =build.sh=.
+
+This package is structured as follows:
 #+BEGIN_SRC bash
-  cd ./data
-  wget -qO- https://zenodo.org/api/records/14286306 | jq -r '.files[].links.self' | xargs -n1 wget -q --content-disposition
-  cd ../
+❯ tree -d
+.
+├── data
+├── manuscript
+│   ├── auto
+│   └── figures
+├── MESA_setup
+│   ├── make
+│   └── src
+└── scripts
+
+9 directories
 #+END_SRC
 
-Run the script [[./build.sh]].
+The python scripts in [[./scripts]] to build the figures assume the data
+exist and are unpacked in [[./data]]. You can download them manually from
+the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar= and unpack in =./data=.
+
+To plot the model from [[https://ui.adsabs.harvard.edu/abs/2024RNAAS...8..152R/abstract][Renzo et al. 2024]], one stellar model is fetched
+from [[https://doi.org/10.5281/zenodo.11375523][this other zenodo repository]]. The python scripts will =pass= if
+this is missing.
+
+*WARNING*: the compressed dataset is ~ 8GB, and becomes ~15GB once
+unpacked.
+
+The =build.sh= script can call [[./script/data_prep.sh]] and download and
+unpack for you.
 
 ** Dependencies
 
@@ -47,9 +75,12 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
   BibTeX 0.99d (TeX Live 2025/dev/Debian)
 #+end_src
 
-
-
 ** Figure-by-figure
+
+*** Figure 1
+
+*** Figure 2
+
 
 ** TODO
 - [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
