@@ -1,6 +1,7 @@
 \documentclass[linenumbers,trackchanges,twocolumn]{aastex701}
 \usepackage{graphicx}
 \usepackage{multirow}
+\usepackage{hyperref}
 \graphicspath{{figures/}}
 \newcommand{\todo}[1]{{$\blacksquare$~\textbf{\color{red}#1}~$\blacksquare$}}
 
@@ -240,7 +241,7 @@ The grid of models presented here is an extension of (and includes)
 the progenitor star used in \cite{gottlieb:24} and constitutes the
 input for the ``averaged'' progenitor constructed in \cite{chan:26}.
 
-We use the \textsc{MESA} code (version r24.03.1,
+We use the \textsc{MESA} code (version \texttt{r24.03.1},
 \citealt{paxton:11,paxton:13,paxton:15,paxton:16,paxton:19,jermyn:23}),
 to compute low-metallicity ($Z=0.001$) and fast-rotating stellar
 models. Our grid spans initial masses $M_{\rm ZAMS}=30-90\,M_{\odot}$
@@ -495,8 +496,8 @@ Finally, the density profile is also related to the angular momentum
 profile via the mass-continuity equation relating $\rho(m)$ and the
 radial distribution of mass $r(m)$. Based on the comparison between
 the two $40\,M_{\odot}$, $\omega=0.6\,\omega_{\rm crit}$ models, the
-collapse dynamics expected may be completely different
-based on the weak interactions treatment.
+collapse dynamics expected may be completely different based on the
+weak interactions treatment.
 
 The bottom right panel of \Figref{fig:multipanel} shows the specific
 angular momentum per unit mass $j=r^{2}\omega$ at the onset of
@@ -504,7 +505,12 @@ core-collapse. This can be compared to the angular momentum of the
 innermost stable circular orbit of a putative seed BH to decide
 whether a disk will form at collapse \cite[e.g.,][]{macfadyen:94,
   perna:18}, or whether a fast-spinning magnetar needs to form first
-\citep[e.g.,][]{kasen:10, gottlieb:24}.
+\citep[e.g.,][]{kasen:10, gottlieb:24}. On the scale of this panel, no
+visible difference exists between the thin black dot-dashed line for
+the 22-isotope network $40\,M_{\odot}$,
+$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model and the thick orange
+line corresponding to the 128-isotope model, we refer interested
+readers to the comparison in \cite{renzo:24} for more details.
 
 \begin{figure}[htbp]
   \centering
@@ -579,14 +585,15 @@ the core density and decreases $\xi_{1.75}$, but the trend is not
 always respected, likely due to the high non-linearity of stellar
 evolution.
 
-We report in \Tabref{tab:explodability} the values of
-the mass coordinate where the specific entropy drops below
-$s=4\,k_{B}N_{A}$ ($M_{4}$) and the mass gradient at that location
+We report in \Tabref{tab:explodability} the values of the mass
+coordinate where the specific entropy drops below $s=4\,k_{B}N_{A}$
+($M_{4}$) and the mass gradient at that location
 $\mu_{4}=dm/dr(m=M_{4})$ which can be used to construct a
 two-parameter explodability criterion \citep{ertl:16, ertl:20}.
 Unsurprisingly for the mass regime considered here, all models lie
 above the critical line for BH formation, regardless of the adopted
-calibration from \cite{ertl:20}.
+engine calibration. Nevertheless, some of our models may retain too
+much angular momentum to directly collapse in a BH.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -596,34 +603,35 @@ calibration from \cite{ertl:20}.
 
 The existence of direct observational evidence (e.g., from stellar
 spectroscopy) for rotationally-induced chemically-homogeneous
-evolution is still debated, although this evolutionary path becomes
-more likely at very high stellar masses and low metallicities
-\citep[e.g.,][]{yoon:06}. To produce fast-rotating collapsar
-progenitors, we construct our stellar models at $Z=0.001$ and
-\emph{assuming} extremely fast initial rotation rates. These are
-prohibitively rare regardless of $Z$ in in young massive star
-populations the local Universe \citep[e.g.,][]{hunter:08,
-  ramirez-agudelo:13, ramirez-agudelo:15, dufton:19, galan-dieguez:26,
-  lennon:26}. While there is growing evidence for relatively fast
-($\gtrsim 250\,\mathrm{km\ s^{1}}$) primordial rotation
-\citep[e.g.,][]{naze:23, britavskiy:24, naze:25}, these still have
-$\omega\lesssim 0.3-0.4\,\omega_{\rm crit}$ and are not as fast as we
-are assuming here. The fastest-rotating known O-type stars reach
-$v\sin(i)\sim600\,\mathrm{km\ s^{-1}}$, likely in the regime
-considered here, and are most likely accretor stars in interacting
-binaries \citep{cantiello:07, ramirez-agudelo:15, renzo:21}. The
-accretion process can change the core-envelope boundary in ways that
-are not accounted for in our single-star models
+evolution is still debated \cite[e.g.,][]{hunter:08, martins:09,
+  martins:13,almeida:15, mahy:20, sharpe:24}, although this
+evolutionary path becomes more likely at very high stellar masses and
+low metallicities \citep[e.g.,][]{yoon:06}. To produce fast-rotating
+collapsar progenitors, we construct our stellar models at $Z=0.001$
+and \emph{assuming} extremely fast initial rotation rates. Such
+initial rotations are prohibitively rare regardless of $Z$ in in young
+massive star populations in the local Universe
+\citep[e.g.,][]{hunter:08, ramirez-agudelo:13, ramirez-agudelo:15,
+  dufton:19, galan-dieguez:26, lennon:26}. While there is growing
+evidence for relatively fast ($\gtrsim 250\,\mathrm{km\ s^{1}}$)
+primordial rotation \citep[e.g.,][]{naze:23, britavskiy:24, naze:25},
+these still have $\omega\lesssim 0.3-0.4\,\omega_{\rm crit}$ and are
+not as fast as we are assuming here. The fastest-rotating known O-type
+stars reach $v\sin(i)\sim600\,\mathrm{km\ s^{-1}}$, likely in the
+regime considered here, and are most likely accretor stars in
+interacting binaries \citep{cantiello:07, ramirez-agudelo:15,
+  renzo:21}. The accretion process can change the core-envelope
+boundary in ways that are not accounted for in our single-star models
 \citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, shah:26}.
 
-/Nevertheless, the observation of jetted explosions and lGRBs suggest
+Nevertheless, the observation of jetted explosions and lGRBs suggest
 that somehow, some stars reach core collapse with sufficient angular
 momentum to form accretion disks onto a seed compact object. This
 could be the product of accretion on the secondary in an interacting
 binary system \citep[e.g.,][]{cantiello:07}, stellar mergers retaining
 angular momentum \citep[e.g.,][]{chatzopoulos:20,renzo:20c}, tidal
 spin up in post-common envelope massive binaries
-\cite{bavera:20,bavera:22,sen:25}, or possibly inefficient angular
+\citep{bavera:20,bavera:22,sen:25}, or possibly inefficient angular
 momentum transport in stars, leading to spin up of the core as it
 evolves and contracts. We do not consider here the possibility of disk
 formation from stochastic angular momentum in extended convective
@@ -651,15 +659,19 @@ adopting a combination of \cite{nieuwenhuijzen:90}
 \citep[e.g.,][]{aguilera-dena:18, aguilera-dena:20} . For angular
 momentum transport, we adopt a Tayler-Spruit dynamo in radiative
 regions \citep{spruit:02}. As noted in \cite{gottlieb:24} based on the
-$40\,M_{\odot}$ model with $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ (orange line in \Figref{fig:multipanel}-\ref{fig:B}),
-adopting the stronger magnetic field saturation of the Tayler-Spruit
-instability suggested in \cite{fuller:19, fuller:22} results in
-slowly-rotating cores at collapse that do not produce accretion disks.
-All these processes are highly uncertain in stellar context (see,
-e.g., \citealt{smith:14, renzo:17, romagnolo:26} for wind-related
-uncertainties, \citealt{spruit:99, cantiello:14, fuller:19,
-  denhartogh:20, skoutnev:24, skoutnev:25} for angular momentum
-transport uncertainties), and active topics of research.
+$40\,M_{\odot}$ model with $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$
+(orange line in \Figref{fig:multipanel}-\ref{fig:B}), adopting the
+stronger magnetic field saturation of the Tayler-Spruit instability
+suggested in \cite{fuller:19, fuller:22} still results in CHE, but at
+the onset of core-collapse, the cores are too slowly rotating to
+produce accretion disks.
+
+Both stellar winds and angular momentum transport processes are highly
+uncertain in stellar context (see, e.g., \citealt{smith:14, renzo:17,
+  romagnolo:26} for wind-related uncertainties, \citealt{spruit:99,
+  cantiello:14, fuller:19, denhartogh:20, skoutnev:24, skoutnev:25}
+for angular momentum transport uncertainties), and active topics of
+research.
 
 The 128-isotope nuclear reaction network we adopt is sufficient to
 resolve the density structure of the core. Increasing further the
@@ -677,8 +689,12 @@ $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
 \citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, shen:23,
   noll:25, tong:26} and our choice certainly influences the
 pre-collapse structures presented here (like any other stellar models
-in the literature).
-
+in the literature). We note that since the release of \textsc{MESA}
+version \texttt{r24.03.1} used here, a small bug in the calculation of
+some reverse reaction rates has been fixed. The impact of this may be
+significant for detailed nucleosynthesis studies (for which our
+network size is anyways sub-optimal) but should not affect
+significantly the \emph{structure} of the progenitors at collapse.
 
 As any set of stellar evolution calculations, the representation of
 the inherently three-dimensional convective flow
@@ -712,21 +728,20 @@ described their evolution on the Herzsprung-Russel diagram and
 characterized their internal profiles at the onset of core-collapse,
 and discussed physical and numerical limitations of our calculations.
 
-The evolution of these initially fast-rotating models represents
-directly a presumably extremely rare evolutionary path based on
-observations of initial rotation rates in the local Universe and rates
-of astrophysical transients, and could approximate to a certain degree
-more common evolutionary paths where rotation is produced, for
-example, by binary interactions. Further studies to compare the
-outcome of these pathways with single-fast rotating models are
-necessary.
+The evolution of these initially fast-rotating models represents a
+presumably extremely rare evolutionary path based on observations of
+initial rotation rates in the local Universe and rates of
+astrophysical transients. Our models could approximate to a certain
+degree more common evolutionary paths where rotation is produced by
+binary interactions. Further studies to compare the outcome of these
+pathways with single-fast rotating models are necessary.
 
 Despite the inevitable algorithmic and input physics limitations
 inherent in numerical models (especially of astrophysical systems
-represented by very stiff sets of equations), our models constitutes a
-significant update in input physics and numerical accuracy for
-fast-rotating collapsing stellar progenitors. We hope that our
-publicly available results (at
+represented by very stiff sets of equations), our progenitor grid
+constitutes a significant update in input physics and numerical
+accuracy for fast-rotating collapsing stellar progenitors. We hope
+that our publicly available results (at
 \href{https://doi.org/10.5281/zenodo.14286306}{doi.org/10.5281/zenodo.14286306})
 will be adopted for numerical experiments in studying the explosions
 of rotating massive stars.\\
