@@ -1,0 +1,13 @@
+name: CHE_jet
+channels:
+  - conda-forge
+dependencies:
+  - jupyter=1.0.0
+  - joblib=1.2.0
+  - matplotlib=3.7.2
+  - matplotlib-base=3.7.2
+  - numpy=1.26.0
+  - python=3.11.5
+  - pip=26.*
+  - pip:
+    - git+https://github.com/mathren/compare_workdir_MESA/
