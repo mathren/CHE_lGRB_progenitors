@@ -138,3 +138,4 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 - [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
 - [ ] make download and unpack ask for confirmation
 - [ ] Confirm OS on =rusty=
+- [ ] add Leon
