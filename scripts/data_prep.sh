@@ -9,7 +9,10 @@ echo "   Unpacking data"
 echo "     Warning: this will use ~15GB"
 # tar xzvf grid.tar
 echo "   Downloading data from https://doi.org/10.5281/zenodo.11375523"
+mkdir -p ./SMALL_NET/
+cd ./SMALL_NET
 wget -U firefox https://zenodo.org/records/11375523/files/40_rot0.6_small_net.tar.xz
 echo "   Upacking "
 tar xzvf 40_rot0.6_small_net.tar.xz
+cd ..
 cd ../

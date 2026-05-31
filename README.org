@@ -87,10 +87,13 @@ Create the python environment first with
 
 *** Figure 1
 
-#+CAPTION: Run =./scripts/grid_success.py= manually to create:
-[[[[./manuscript/figures/overview_grid.png]]]]
+Run =./scripts/grid_success.py= manually to create:
+
+[[./manuscript/figures/overview_grid.png]]
 
 *** Figure 2
+
+
 
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
