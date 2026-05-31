@@ -85,15 +85,37 @@ Create the python environment first with
   mamba activate CHE_jet
 #+END_SRC
 
-*** Figure 1
+*** Figure 1 - Grid overview
 
 Run =./scripts/grid_success.py= manually to create:
 
 [[./manuscript/figures/overview_grid.png]]
 
-*** Figure 2
+*** Figure 2 - Multipanel
 
+Individual panels can be generated from the notebook
+=scritps/grid_plots.ipynb=. Run =scripts/multi_panel.py= to generate the
+multipanel figure.
 
+**** Herzsprung-Russel diagram
+
+[[./manuscript/figures/HRD_grid.png]]
+
+**** Electron fraction Y_{e}
+
+[[./manuscript/figures/Ye_grid.png]]
+
+**** Density profiles
+
+[[./manuscript/figures/rho_grid.png]]
+
+**** Specific angular momentum profiles
+
+[[./manuscript/figures/j_grid.pdf]]
+
+*** Figure 3 - Entropy profile
+
+[./manuscript/figures/]
 
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
