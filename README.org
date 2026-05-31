@@ -10,18 +10,10 @@
 </p>
 #+END_html
 
-** How to reproduce the simulations
+** How to build the paper
 
-These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
-=x86_64-linux-23.7.3= on =Rocky OS 7=.
-
-*WARNING*: the exact code used is available on zenodo in
-=template.tar.xz=, the code in the repository may not correspond exactly
-due to further small experiments run after the grid.
-
-** How to reproduce the paper
-
-TL;DR: run =build.sh=.
+*TL;DR*: run =build.sh=, it will interactively ask whether to download the
+data from zenodo, re-make the figures, and compile the pdf.
 
 This package is structured as follows:
 #+BEGIN_SRC bash
@@ -53,27 +45,14 @@ unpacked.
 The =build.sh= script can call [[./script/data_prep.sh]] and download and
 unpack for you.
 
-** Dependencies
+** How to reproduce the simulations
 
-*** System dependencies
+These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
+=x86_64-linux-23.7.3= on =Rocky OS 7=.
 
-#+BEGIN_SRC bash
-  ❯ wget --version
-  GNU Wget 1.25.0 built on linux-gnu.
-  ❯ tar --version
-  tar (GNU tar) 1.35
-#+END_SRC
-
-*** Python
-Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
-*** Latex
-#+begin_src bash
-  ❯ pdflatex --version
-  pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
-  kpathsea version 6.4.0/dev
-  ❯ bibtex --version
-  BibTeX 0.99d (TeX Live 2025/dev/Debian)
-#+end_src
+*WARNING*: the exact code used is available on zenodo in
+=template.tar.xz=, the code in the repository may not correspond exactly
+due to further small experiments run after the grid.
 
 ** Figure-by-figure
 
@@ -111,11 +90,22 @@ multipanel figure.
 
 **** Specific angular momentum profiles
 
-[[./manuscript/figures/j_grid.pdf]]
+[[./manuscript/figures/j_grid.png]]
 
 *** Figure 3 - Entropy profile
 
-[./manuscript/figures/]
+Run =scripts/entropy.py= to generate
+[[./manuscript/figures/entropy.png]]
+
+*** Figure 4 - Tayler-Spruit generated magnetic fields
+
+Run =scripts/B-fields.py= to generate
+[[./manuscript/figures/B-grid.png]]
+
+*** Figure 5 - Compactness
+
+Run =scripts/xi_M.py= to generate
+[[./manuscript/figures/xi_M.png]]
 
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
@@ -124,6 +114,25 @@ manually copied in that file.
 
 The =build.sh= script assumes =./manuscript/table.tex= is ready to be
 compiled.
+
+** Dependencies
+*** Python
+Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
+*** Latex
+#+begin_src bash
+  ❯ pdflatex --version
+  pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
+  kpathsea version 6.4.0/dev
+  ❯ bibtex --version
+  BibTeX 0.99d (TeX Live 2025/dev/Debian)
+#+end_src
+*** System dependencies
+#+BEGIN_SRC bash
+  ❯ wget --version
+  GNU Wget 1.25.0 built on linux-gnu.
+  ❯ tar --version
+  tar (GNU tar) 1.35
+#+END_SRC
 
 ** TODO
 - [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
