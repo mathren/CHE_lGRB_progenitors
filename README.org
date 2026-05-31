@@ -1,0 +1,32 @@
+#+title: A grid of fast-rotating, chemically-homogeneous, supernova and/or long-GRB progenitors
+#+author: [[mrenzo@arizona.edu][Mathieu Renzo]] et al.
+
+#+BEGIN_html
+<p align="center">
+<a href="https://github.com/mathren/CHE_lGRB_progenitors/manuscript/CHE_GRB_progenitors.tex">
+<img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
+</a>
+<a href="https://doi.org/10.5281/zenodo.14286306"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7343715.svg" alt="DOI"></a>
+</p>
+#+END_html
+
+
+** How to reproduce
+
+Run the script [[./build.sh]].
+
+*** Dependencies
+
+Python environment managed with =mamba 2.1.1=, see
+[[./scripts/environment.yml]].
+
+LaTeX environment
+
+#+begin_src bah
+$ pdflatex --version
+  pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
+$ bibtex --version
+  BibTeX 0.99d (TeX Live 2025/dev/Debian)
+#+end_src
+
+** Figure-by-figure
