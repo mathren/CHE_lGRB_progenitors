@@ -6,7 +6,7 @@
 <a href="https://github.com/mathren/CHE_lGRB_progenitors/blob/main/manuscript/CHE_GRB_progenitors.pdf">
 <img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
 </a>
-<a href="https://doi.org/10.5281/zenodo.14286306"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.7343715.svg" alt="zenodo-DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.14286306"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14286306.svg" alt="zenodo-DOI"></a>
 </p>
 #+END_html
 
@@ -31,6 +31,12 @@ This package is structured as follows:
 9 directories
 #+END_SRC
 
+You can locally work on the =*.tex= files inside =manuscript=, or work on
+the scripts and/or MESA setup as you would normally, without worrying
+about reproducibility until the article is almost ready, and adapt the
+top level [[./build.sh]] to call the scripts to re-make all the figures
+and compile the pdf of the article at the end.
+
 The python scripts in [[./scripts]] to build the figures assume the data
 exist and are unpacked in [[./data]]. You can download them manually from
 the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar= and unpack in =./data=.
@@ -46,6 +52,16 @@ overwritten by the next.
 
 The =build.sh= script can call [[./script/data_prep.sh]] and download and
 unpack for you.
+
+*⚠️ WARNING*: The zenodo repository is not publicly accessible yet.
+Before running the =build.sh= script (or, specifically, the =data_prep.sh=
+script) you need to:
+
+1. make sure you have access by contacting me
+2. run =export ZENODO_TOKEN=<your token>=
+
+=data_prep.sh= is designed to use a customized header passing the token
+at this stage.
 
 ** How to reproduce the simulations
 
