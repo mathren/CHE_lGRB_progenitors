@@ -24,15 +24,15 @@ if ask "Generate figures?"; then
 	cd ./scripts
 	echo "▶ Generating figures..."
 	echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
-	mamba run -n CHE_jet python grid_success_rate.py
+	# mamba run -n CHE_jet python grid_success_rate.py
 	echo "  ▶ Figure 2: ./scripts/multi_panel.py"
 	mamba run -n CHE_jet python multi_panel.py
 	echo "  ▶ Figure 3: ./scripts/entropy.py"
-	mamba run -n CHE_jet python entropy.py
+	# mamba run -n CHE_jet python entropy.py
 	echo "  ▶ Figure 4: ./scripts/B-fields.py"
-	mamba run -n CHE_jet python B-fields.py
+	# mamba run -n CHE_jet python B-fields.py
 	echo "  ▶ Figure 5: ./scripts/xi_M.py"
-	mamba run -n CHE_jet python xi_M.py
+	# mamba run -n CHE_jet python xi_M.py
 	cd ..
 	echo "✓ Figures done."
     else
