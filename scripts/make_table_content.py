@@ -3,7 +3,7 @@ import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
-
+from scipy.interpolate import interp1d
 
 def compute_profile_quantities(pfile, M_compact=1.75, s_thresh=4.0):
     """
@@ -36,7 +36,11 @@ def compute_profile_quantities(pfile, M_compact=1.75, s_thresh=4.0):
     entropy = entropy[idx]
 
     # 1. Compactness xi = (M/Msun) / (R(M) / 1000 km)
-    R_at_M = radius[np.argmin(np.absolute(mass - M_compact))] * Rsun_cm / 1e8
+    # nearest R
+    # R_at_M = radius[np.argmin(np.absolute(mass - M_compact))] * Rsun_cm / 1e8
+    # interpolate
+    R_interp = interp1d(mass, radius * Rsun_cm / 1e8, bounds_error=False)  # R in 1000 km
+    R_at_M = R_interp(M_compact)
     xi = M_compact / R_at_M
 
     # 2. Mass below entropy threshold s <= s_thresh
