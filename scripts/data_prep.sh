@@ -4,12 +4,11 @@ set -e
 cd ./data
 echo "   Downloading data from https://doi.org/10.5281/zenodo.14286306"
 echo "    ⚠️ Warning: this will use ~8GB"
-wget -U firefox -c --header="Authorization: Bearer $ZENODO_TOKEN" \
+wget -U firefox -c -O grid.tar --header="Authorization: Bearer $ZENODO_TOKEN" \
   "https://zenodo.org/api/records/14286306/draft/files/grid.tar/content" || \
     echo "The repo may still be private. Remember to export ZENODO_TOKEN=<your token> and verify you have access."
 echo "   Unpacking data"
-mv content grid.tar
-tar xzvf grid.tar
+tar xvf grid.tar
 echo "    ⚠️ Warning: this will use ~15GB"
 for f in *.*rot*.tar.xz; do
     echo "     Create subfolder and unpack $f"
