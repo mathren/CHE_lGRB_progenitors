@@ -13,20 +13,44 @@
 
 ** How to reproduce
 
+The scripts to build the figures assume the data exist and are
+unpacked in [[./data]]. Download from the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar=
+and unpack it in =./data=.
+
+#+BEGIN_SRC bash
+  cd ./data
+  wget -qO- https://zenodo.org/api/records/14286306 | jq -r '.files[].links.self' | xargs -n1 wget -q --content-disposition
+  cd ../
+#+END_SRC
+
 Run the script [[./build.sh]].
 
-*** Dependencies
+** Dependencies
 
-Python environment managed with =mamba 2.1.1=, see
-[[./scripts/environment.yml]].
+*** System dependencies
 
-LaTeX environment
+#+BEGIN_SRC bash
+  ❯ wget --version
+  GNU Wget 1.25.0 built on linux-gnu.
+  ❯ tar --version
+  tar (GNU tar) 1.35
+#+END_SRC
 
-#+begin_src bah
-$ pdflatex --version
+*** Python
+Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
+*** Latex
+#+begin_src bash
+  ❯ pdflatex --version
   pdfTeX 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian)
-$ bibtex --version
+  kpathsea version 6.4.0/dev
+  ❯ bibtex --version
   BibTeX 0.99d (TeX Live 2025/dev/Debian)
 #+end_src
 
+
+
 ** Figure-by-figure
+
+** TODO
+- [ ] make [[./scripts/data_prep.sh]] download only =grid.tar=
+- [ ] make download and unpack ask for confirmation

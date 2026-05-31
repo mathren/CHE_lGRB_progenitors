@@ -7,6 +7,16 @@ ask() {
     [[ "$answer" =~ ^[Yy]$ ]]
 }
 
+# --- Download data ---
+if ask "Download data?" ; then
+    echo "▶ Downloading data with helper script"
+    bash ./scripts/data_prep.sh || echo "Data preparation failed"
+else
+    echo "⏭ Skipping downloading data/"
+    echo "You can manually download the data and unpack them in ./data"
+    echo "Assume ./data is populated from now on"
+fi
+
 # --- Figures ---
 if ask "Generate figures?"; then
     echo "▶ Generating figures..."
