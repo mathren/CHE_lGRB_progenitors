@@ -65,7 +65,7 @@ if __name__ == "__main__":
         m = src[:, col.index("mass")]
         ax3.plot(m, j_specific, c='C0', alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
-            ax3.plot(m, j_specific, lw=3, c='C1', zorder=10)
+            ax3.plot(m, j_specific, lw=3, c='C1', zorder=8)
 
         # Ye ----------------------------------------------------
         m = src[:, col.index("mass")]
