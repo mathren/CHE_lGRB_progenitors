@@ -56,7 +56,7 @@ if __name__ == "__main__":
             ax1.plot(m, ye, lw=3, c='C1', zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
             ax1.axvline(1.75, 0,1,ls='--', lw=2, zorder=9, c='k')
             try:
-                small_net = "../SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
+                small_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
                 src, col = get_src_col(small_net)
                 m = src[:, col.index("mass")]
                 ye = src[:, col.index('ye')]
