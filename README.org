@@ -100,7 +100,7 @@ Run =scripts/entropy.py= to generate
 *** Figure 4 - Tayler-Spruit generated magnetic fields
 
 Run =scripts/B-fields.py= to generate
-[[./manuscript/figures/B-grid.png]]
+[[./manuscript/figures/B_grid.png]]
 
 *** Figure 5 - Compactness
 
