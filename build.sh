@@ -19,15 +19,22 @@ fi
 
 # --- Figures ---
 if ask "Generate figures?"; then
-    echo "▶ Generating figures..."
-    for f in scripts/*.py; do
-	# load python env, adapt if needed
-	mamba activate CHE_jet
-	echo "I should be making figs"
-        # echo "  Running $f..."
-        # python "$f"
-    done
-    echo "✓ Figures done."
+    if mamba env list | grep -q "^CHE_jet"; then
+	echo "CHE_jet python environment found"
+	cd ./scripts
+	echo "▶ Generating figures..."
+	for f in scripts/*.py; do
+	    # load python env, adapt if needed
+	    echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
+	    mamba run -n CHE_jet python grid_success_rate.py
+            # echo "  Running $f..."
+            # python "$f"
+	done
+	echo "✓ Figures done."
+    else
+	echo "CHE_jet python environment not found"
+	echo "Please create with mamba env create -f ./scripts/environment.yml"
+    fi
 else
     echo "⏭ Skipping figures."
 fi

@@ -15,7 +15,7 @@ if __name__ == "__main__":
     models = sorted(glob.glob(root+"*.*/"))
 
     success = len(models)/models_tried
-    print(f"Success rate: {success:.2f}")
+    print(f"Total grid success rate: {success:.2f}")
 
     fig = plt.figure()
     gs = gridspec.GridSpec(150, 110)
