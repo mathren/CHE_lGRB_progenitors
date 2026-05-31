@@ -156,4 +156,4 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 - [X] make [[./scripts/data_prep.sh]] download only =grid.tar=
 - [X] how do address MESA =r24.03.1= bug in nuclear reaction networks (@debraheem?)
 - [ ] Confirm OS on =rusty= (@matteocantiello)
-- [ ] make download and unpack ask for confirmation
+- [ ] fix download script for when repo is public
