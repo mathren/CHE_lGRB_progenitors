@@ -27,10 +27,10 @@ if ask "Build manuscript?"; then
     echo "▶ Building manuscript..."
     cd manuscript
     # adapt to your Latex configuration if needed
-    pdflatex CHE_GRB_progenitors_new.tex
-    bibtex CHE_GRB_progenitors_new
-    pdflatex CHE_GRB_progenitors_new.tex
-    pdflatex CHE_GRB_progenitors_new.tex
+    pdflatex CHE_GRB_progenitors.tex
+    bibtex CHE_GRB_progenitors
+    pdflatex CHE_GRB_progenitors.tex
+    pdflatex CHE_GRB_progenitors.tex
     cd ..
     echo "✓ Done → manuscript/main.pdf"
 else
