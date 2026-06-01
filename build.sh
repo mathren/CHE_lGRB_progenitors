@@ -17,6 +17,18 @@ else
     echo "Assume ./data is populated from now on"
 fi
 
+# --- Create the python environment ---
+if ask "Create python environment?" ; then
+    echo "▶ Generating CHE_jet python environment ..."
+    cd ./scripts/
+    mamba create -f environment.yml
+    echo "✓ python environment created."
+    cd ..
+else
+    echo "⏭ Skipping creating environment"
+    echo "Assume CHE_jet environment exists and mamba is available"
+fi
+
 # --- Figures ---
 if ask "Generate figures?"; then
     if mamba env list | grep -q "^CHE_jet"; then
@@ -36,7 +48,7 @@ if ask "Generate figures?"; then
 	cd ..
 	echo "✓ Figures done."
     else
-	echo "✘ CHE_jet python environment not found"
+	echo "✘ python environment CHE_jet not found"
 	echo "Please create with mamba env create -f ./scripts/environment.yml"
     fi
 else
@@ -58,5 +70,5 @@ if ask "Build manuscript?"; then
 	xdg-open manuscript/CHE_GRB_progenitors.pdf &
     fi
 else
-    echo "⏭ Skipping manuscript."
+    echo "⏭ Skipping building manuscript."
 fi

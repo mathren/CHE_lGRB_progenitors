@@ -43,19 +43,20 @@ the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar
 
 To plot the model from [[https://ui.adsabs.harvard.edu/abs/2024RNAAS...8..152R/abstract][Renzo et al. 2024]], one stellar model is fetched
 from [[https://doi.org/10.5281/zenodo.11375523][this other zenodo repository]]. The python scripts will =pass= if
-this is missing.
+this is missing. The =build.sh= script can call [[./script/data_prep.sh]]
+and download and unpack for you.
 
-*⚠️ WARNING*: the compressed dataset is ~ 8GB, and becomes ~15GB once
+*** ⚠️ Warning ⚠️
+The compressed dataset is ~ 8GB, and becomes ~15GB once
 unpacked. If uncompressing manually, make sure to create a folder per
 each tarball in =grid.tar=, otherwise data from each model will be
 overwritten by the next.
 
-The =build.sh= script can call [[./script/data_prep.sh]] and download and
-unpack for you.
-
-*⚠️ WARNING*: The zenodo repository is not publicly accessible yet.
-Before running the =build.sh= script (or, specifically, the =data_prep.sh=
-script) you need to:
+Zenodo has been experiencing performance issues.
+*** ⚠️ Warning ⚠️
+The zenodo repository is not publicly accessible /yet/. As of
+now, before running the =build.sh= script (or, specifically, the
+=data_prep.sh= script) you need to:
 
 1. make sure you have access by contacting me
 2. run =export ZENODO_TOKEN=<your token>=
@@ -68,12 +69,12 @@ at this stage.
 These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
 =x86_64-linux-23.7.3= on =Rocky OS 7=.
 
-*⚠️ WARNING*: the exact code used is available on zenodo in
-=template.tar.xz=, the code in the repository may not correspond exactly
-due to further small experiments run after the grid.
+*** ⚠️ Warning ⚠️
+The exact code used is available on zenodo in =template.tar.xz=, the
+code in the repository may not correspond exactly due to further small
+experiments run after the grid.
 
 ** Figure-by-figure
-
 Create the python environment first with
 
 #+BEGIN_SRC
