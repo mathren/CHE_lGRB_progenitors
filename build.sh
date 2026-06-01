@@ -26,13 +26,15 @@ EOF
 }
 
 # --- Parse arguments ---
-YES_ALL=false
-NO_DOWNLOAD=false
-BUILD_ENV=false
-NO_FIGURES=false
-NO_LATEX=false
+YES_ALL=false        # default to interactive
+NO_DOWNLOAD=false    # default download yes
+BUILD_ENV=false      # default don't build env (only needed once,
+		     # likely to happen before automatic builds)
+NO_FIGURES=false     # default remake figures (they may be in the repo)
+NO_LATEX=false       # default recompile article
+OPEN_PDF=false       # default do not open
+
 # Loop over command line arguments
-# --yes or -y result in auto-answering yes to all the prompts
 for arg in "$@"; do
     case "$arg" in
         --yes|-y)          YES_ALL=true ;;
@@ -40,6 +42,7 @@ for arg in "$@"; do
 	--create-env)      BUILD_ENV=true ;;
 	--no-figures|-nf)  NO_FIGURES=true ;;
 	--no-latex|-nt)    NO_LATEX=true ;;
+	--open-pdf|-o)     OPEN_PDF=true ;;
 	--help|-h)         usage; exit 0 ;;
     esac
 done
@@ -55,6 +58,7 @@ ask() {
 }
 
 # --- Download data ---
+# if NO_DOWNLOAD is true, bypass ask and go to else
 if ! $NO_DOWNLOAD && ask "Download data?" ; then
     echo "▶ Downloading data with helper script"
     bash ./scripts/data_prep.sh || echo "✘ Data preparation failed"
@@ -65,6 +69,7 @@ else
 fi
 
 # --- Create the python environment ---
+# if BUILD_ENV is false, bypass ask and go to else
 if  $BUILD_ENV && ask "Create python environment?" ; then
     echo "▶ Generating CHE_jet python environment ..."
     cd ./scripts/
@@ -77,6 +82,7 @@ else
 fi
 
 # --- Figures ---
+# if NO_FIGURES is true, bypass ask and go to else
 if ! $NO_FIGURES && ask "Generate figures?"; then
     if mamba env list | grep -q "^CHE_jet"; then
 	echo "✓ CHE_jet python environment found"
@@ -104,6 +110,7 @@ else
 fi
 
 # --- LaTeX ---
+# if NO_LATEX is true, bypass ask and go to else
 if ! $NO_LATEX && ask "Build manuscript?"; then
     echo "▶ Building manuscript..."
     cd manuscript
@@ -114,7 +121,7 @@ if ! $NO_LATEX && ask "Build manuscript?"; then
     pdflatex CHE_GRB_progenitors.tex
     cd ..
     echo "✓ Done → manuscript/CHE_GRB_progenitors.pdf"
-    if ask "Open manuscript"; then
+    if $OPEN_PDF ask "Open manuscript"; then
 	xdg-open manuscript/CHE_GRB_progenitors.pdf &
     fi
 else
