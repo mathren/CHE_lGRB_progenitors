@@ -12,8 +12,15 @@
 
 ** How to build the paper
 
-*TL;DR*: run =build.sh=, it will interactively ask whether to download the
-data from zenodo, re-make the figures, and compile the pdf.
+*TL;DR*: run =build.sh=, it will interactively ask whether to download
+the data from zenodo, create a python environment, re-make the
+figures, and compile the pdf.
+
+If you have enough disk space (>15Gb), have =mamba= installed, and
+don't want to stare at the build prompts, run =build.sh --yes=.
+
+If you want to run the full build except one of the steps you can pas
+
 
 This package is structured as follows:
 #+BEGIN_SRC bash
@@ -46,14 +53,15 @@ from [[https://doi.org/10.5281/zenodo.11375523][this other zenodo repository]]. 
 this is missing. The =build.sh= script can call [[./script/data_prep.sh]]
 and download and unpack for you.
 
-*** ⚠️ Warning ⚠️
+**** ⚠️ Warning ⚠️
 The compressed dataset is ~ 8GB, and becomes ~15GB once
 unpacked. If uncompressing manually, make sure to create a folder per
 each tarball in =grid.tar=, otherwise data from each model will be
 overwritten by the next.
 
 Zenodo has been experiencing performance issues.
-*** ⚠️ Warning ⚠️
+
+**** ⚠️ Warning ⚠️
 The zenodo repository is not publicly accessible /yet/. As of
 now, before running the =build.sh= script (or, specifically, the
 =data_prep.sh= script) you need to:
@@ -62,14 +70,26 @@ now, before running the =build.sh= script (or, specifically, the
 2. run =export ZENODO_TOKEN=<your token>=
 
 =data_prep.sh= is designed to use a customized header passing the token
-at this stage.
+at this stage with this hack:
+
+#+begin_src bash
+wget -U firefox -c -O grid.tar --header="Authorization: Bearer $ZENODO_TOKEN" \
+  "https://zenodo.org/api/records/14286306/draft/files/grid.tar/content" || \
+    echo "The repo may still be private. Remember to export ZENODO_TOKEN=<your token> and verify you have access."
+#+end_src
+
+which will reduce to
+#+begin_src bash
+wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/14286306/files/grid.tar"
+#+end_src
+when the zenodo repo becomes public.
 
 ** How to reproduce the simulations
 
 These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
 =x86_64-linux-23.7.3= on =Rocky OS 7=.
 
-*** ⚠️ Warning ⚠️
+**** ⚠️ Warning ⚠️
 The exact code used is available on zenodo in =template.tar.xz=, the
 code in the repository may not correspond exactly due to further small
 experiments run after the grid.
