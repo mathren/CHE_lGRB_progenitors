@@ -1,14 +1,61 @@
 #!/bin/bash
 set -e
 
+# --- Usage ---
+usage() {
+    cat <<EOF
+Usage: $(basename "$0") [OPTIONS]
+
+Interactively reproduce the paper: download data, build the python
+environment with mamba, generate figures, and compile the manuscript.
+
+Options:
+  -y,  --yes          Answer yes to all prompts (non-interactive)
+  -nd, --no-download  Skip downloading data
+       --create-env   Create mamba env (skipped by default)
+  -nf, --no-figures   Skip generating figures
+  -nt, --no-latex     Skip building the manuscript
+  -h,  --help         Show this help message and exit
+
+Examples:
+  $(basename "$0")                        # fully interactive
+  $(basename "$0") --yes                  # auto-accept all steps
+  $(basename "$0") --yes --no-download    # skip download, auto-accept rest
+  $(basename "$0") --yes --create-env     # auto-accept all steps, build env
+EOF
+}
+
+# --- Parse arguments ---
+YES_ALL=false
+NO_DOWNLOAD=false
+BUILD_ENV=false
+NO_FIGURES=false
+NO_LATEX=false
+# Loop over command line arguments
+# --yes or -y result in auto-answering yes to all the prompts
+for arg in "$@"; do
+    case "$arg" in
+        --yes|-y)          YES_ALL=true ;;
+	--no-download|-nd) NO_DOWNLOAD=true ;;
+	--create-env)      BUILD_ENV=true ;;
+	--no-figures|-nf)  NO_FIGURES=true ;;
+	--no-latex|-nt)    NO_LATEX=true ;;
+	--help|-h)         usage; exit 0 ;;
+    esac
+done
+
 # --- Helpers ---
 ask() {
+    if $YES_ALL; then
+        echo "$1 [y/N] y (auto)"
+        return 0
+    fi
     read -r -p "$1 [y/N] " answer
     [[ "$answer" =~ ^[Yy]$ ]]
 }
 
 # --- Download data ---
-if ask "Download data?" ; then
+if ! $NO_DOWNLOAD && ask "Download data?" ; then
     echo "▶ Downloading data with helper script"
     bash ./scripts/data_prep.sh || echo "✘ Data preparation failed"
 else
@@ -18,7 +65,7 @@ else
 fi
 
 # --- Create the python environment ---
-if ask "Create python environment?" ; then
+if  $BUILD_ENV && ask "Create python environment?" ; then
     echo "▶ Generating CHE_jet python environment ..."
     cd ./scripts/
     mamba create -f environment.yml
@@ -30,7 +77,7 @@ else
 fi
 
 # --- Figures ---
-if ask "Generate figures?"; then
+if ! $NO_FIGURES && ask "Generate figures?"; then
     if mamba env list | grep -q "^CHE_jet"; then
 	echo "✓ CHE_jet python environment found"
 	cd ./scripts
@@ -53,11 +100,11 @@ if ask "Generate figures?"; then
     fi
 else
     echo "⏭ Skipping figures."
-    echo "I can try building the manuscript assuming the figures are in ./manuscript/figures/."
+    echo "Continue assuming the figures are in ./manuscript/figures/"
 fi
 
 # --- LaTeX ---
-if ask "Build manuscript?"; then
+if ! $NO_LATEX && ask "Build manuscript?"; then
     echo "▶ Building manuscript..."
     cd manuscript
     # adapt to your Latex configuration if needed
