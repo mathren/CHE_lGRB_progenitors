@@ -64,19 +64,17 @@ now, before running the =build.sh= script (or, specifically, the
 =data_prep.sh= is designed to use a customized header passing the token
 at this stage.
 
-
-
 ** How to reproduce the simulations
 
 These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
 =x86_64-linux-23.7.3= on =Rocky OS 7=.
 
-*⚠️ WARNING*: the exact code used is available on zenodo in
-=template.tar.xz=, the code in the repository may not correspond exactly
-due to further small experiments run after the grid.
+*** ⚠️ Warning ⚠️
+The exact code used is available on zenodo in =template.tar.xz=, the
+code in the repository may not correspond exactly due to further small
+experiments run after the grid.
 
 ** Figure-by-figure
-
 Create the python environment first with
 
 #+BEGIN_SRC
