@@ -62,7 +62,19 @@ now, before running the =build.sh= script (or, specifically, the
 2. run =export ZENODO_TOKEN=<your token>=
 
 =data_prep.sh= is designed to use a customized header passing the token
-at this stage.
+at this stage with this hack:
+
+#+begin_src bash
+wget -U firefox -c -O grid.tar --header="Authorization: Bearer $ZENODO_TOKEN" \
+  "https://zenodo.org/api/records/14286306/draft/files/grid.tar/content" || \
+    echo "The repo may still be private. Remember to export ZENODO_TOKEN=<your token> and verify you have access."
+#+end_src
+
+which will reduce to
+#+begin_src bash
+wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/14286306/files/grid.tar"
+#+end_src
+when the zenodo repo becomes public.
 
 ** How to reproduce the simulations
 
