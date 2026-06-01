@@ -14,7 +14,7 @@ if ask "Download data?" ; then
 else
     echo "⏭ Skipping downloading data/"
     echo "You can manually download the data and unpack them in ./data"
-    echo "Assume ./data is populated from now on"
+    echo "Continue assuming ./data is populated from now on"
 fi
 
 # --- Create the python environment ---
@@ -26,7 +26,7 @@ if ask "Create python environment?" ; then
     cd ..
 else
     echo "⏭ Skipping creating environment"
-    echo "Assume CHE_jet environment exists and mamba is available"
+    echo "Continue assuming CHE_jet environment exists and mamba is available"
 fi
 
 # --- Figures ---
@@ -53,6 +53,7 @@ if ask "Generate figures?"; then
     fi
 else
     echo "⏭ Skipping figures."
+    echo "I can try building the manuscript assuming the figures are in ./manuscript/figures/."
 fi
 
 # --- LaTeX ---
