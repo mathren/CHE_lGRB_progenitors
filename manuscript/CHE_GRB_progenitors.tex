@@ -168,7 +168,7 @@ to study, for example, electromagnetic observables determined at the
 surface \citep[e.g.,][]{morozova:15,paxton:18,goldberg:19} or for the application of
 semi-analytic explodability criteria based on existing detailed
 simulations \citep[e.g.,][]{mueller:16,laplace:25}. However, it is not sufficient
-if one want to investigate the driving of the explosions, the
+if one wants to investigate the driving of the explosions, the
 pre-explosions and explosive neutrino signals, the nuclear yields, and
 the resulting compact object properties (whether considering
 non-rotating -- \citealt{farmer:16} -- or rotating progenitors --
@@ -256,8 +256,8 @@ stellar radius.
 We use the \textsc{Skye} equation of state \citep{jermyn:skye}, and
 include electron screening following \citet{Chugunov2007} and thermal
 neutrino losses following \citet{Itoh1996}. We adopt radiative
-opacities are primarily from OPAL \citep{Iglesias1993, Iglesias1996}
-and electron conduction opacities are from \citet{Cassisi2007}.
+opacities primarily from OPAL \citep{Iglesias1993, Iglesias1996}
+and electron conduction opacities from \citet{Cassisi2007}.
 
 Nuclear reaction rates are a combination of NACRE
 \citep{Angulo1999}, JINA REACLIB \citep{Cyburt2010}, and
@@ -305,7 +305,7 @@ $v_{\rm infall}\le-300\,\mathrm{km\ s^{-1}}$
 \citep[e.g.,][]{farmer:23, gottlieb:24}. This threshold is motivated
 by the numerical experiments performed in \cite{gottlieb:24} where we
 showed that the physical time remaining between this point and the
-canonical threshold of $-1000\,\mathrm{km \ s^{-1}}$ is much shorted
+canonical threshold of $-1000\,\mathrm{km \ s^{-1}}$ is much shorter
 than the timescale governing the local evolution of the rotation and
 magnetic fields. We re-implement the checks on the infall velocity in
 our \texttt{run\_star\_extras.f90} to avoid known bugs (already fixed
@@ -435,7 +435,7 @@ timescale speeds up significantly owing to the lower energy release
 per nucleon for heavier nuclear fuels, and chemical gradients seeded
 by the burning impede further mixing \citep[e.g.,][]{heger:00,
   yoon:06, chieffi:13}. The stars develop a distinct carbon-oxygen
-core, and a ``onion''-like structure.
+core, and an ``onion''-like structure.
 
 The remaining evolution occurs roughly right-to-left at constant
 luminosity, with wind mass-loss progressively revealing hotter inner
@@ -559,7 +559,7 @@ phases of a core collapse.
 \begin{figure}[tbp]
   \includegraphics[width=0.5\textwidth]{xi_M}
   \caption{Compactness as a function initial mass and rotation rate
-    for single CHE models.}
+    for single CHE models. Higher values of compactness tend to, but do not always, favor BH formation.}
   \label{fig:xi_M}
 \end{figure}
 
@@ -607,7 +607,7 @@ evolution is still debated \cite[e.g.,][]{hunter:08, martins:09,
   martins:13,almeida:15, mahy:20, sharpe:24}, although this
 evolutionary path becomes more likely at very high stellar masses and
 low metallicities \citep[e.g.,][]{yoon:06}. To produce fast-rotating
-collapsar progenitors, we construct our stellar models at $Z=0.001$
+collapsar progenitors, we construct our stellar models with initial metallicity $Z=0.001$
 and \emph{assuming} extremely fast initial rotation rates. Such
 initial rotations are prohibitively rare regardless of $Z$ in in young
 massive star populations in the local Universe
@@ -700,12 +700,13 @@ evolution of our models. However, our choice of free parameters
 ($\alpha_{\rm MLT}$ and $\alpha_{\rm ov}$) to match existing
 literature \citep[e.g.,][]{brott:11, aguilera-dena:18,
   aguilera-dena:20} may not be appropriate for every convective layer
-in the stars \citep[e.g.,][]{griffiths:26}, and does not include the
-latest updates from stellar hydrodynamics simulations
-\citep[e.g.][]{anders:22, rizzuti:23, johnston:24}.
+in the stars \citep[e.g.,][]{goldberg:22,ma:25,griffiths:26}, 
+or every stellar environment \citep[e.g.][]{joyce:18,chun:18}, 
+and does not include the latest updates from stellar hydrodynamics simulations
+\citep[e.g.][]{schultz:20,anders:22, rizzuti:23, johnston:24}.
 
 Maybe more importantly, our models adopt an artificial strategy to
-expunge envelope velocities in the outer layers, possibly seeded by
+expunge envelope velocities in the outer layers which are possibly seeded by
 numerical noise in the fast-paced late burning evolution. Significant
 efforts to improve \textsc{MESA} to address these is ongoing.
 
