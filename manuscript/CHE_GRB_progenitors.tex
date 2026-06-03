@@ -182,7 +182,7 @@ to a level significant for the collapse and explosion dynamics
 Few grids of stellar progenitors evolved sufficiently late (\emph{i})
 and with \emph{detailed} nuclear physics (\emph{ii}) exist, mostly
 from closed-source codes (e.g., \textsc{KEPLER} \citealt{weaver:78,
-  woosley:02, woosley:06, woosley:07, sukhbold:16, sukhbold:18},
+  woosley:02, sukhbold:16, sukhbold:18},
 \textsc{FRANEC}\footnote{which does not include hydrodynamics and
   thus cannot reach condition \emph{i}
   \citep[e.g.,][]{oconnor:10,limongi:20}.} \citealt{limongi:03,
@@ -202,16 +202,18 @@ and \emph{ii} computed with the open-source and community-driven code
 under-utilized for initializing explosion simulations \citep[see
 however][]{vartanyan:21, gottlieb:24, chan:26}.
 
-Even fewer model grids for rotating progenitors exist, despite their
-importance for jetted explosions, collapsars, MHD-explosions, and/or
-long $\gamma$-ray burst (lGRB,
-\citealt{woosley:93,macfadyen:94,gottlieb:25b}). Commonly adopted
-progenitors were computed by \cite{woosley:06} using the adaptive
-nuclear reaction network from \cite{heger:00} (fulfilling condition
-\emph{i}) until $v_{infall}\le800\,\mathrm{km\ s^{-1}}$ (condition
-\emph{ii}), and the stellar models by \cite{aguilera-dena:18,
-  aguilera-dena:20} which adopt a small reaction network that cannot
-fulfill condition \emph{i}.
+Despite their importance for jetted explosions, collapsars,
+MHD-explosions, and/or long $\gamma$-ray burst (lGRB,
+\citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
+fast-rotating progenitors exist: to the best of our knowledge only a
+set of \textsc{KEPLER} models from \cite{woosley:06} using the
+adaptive nuclear reaction network from \cite{heger:00}, and the
+\textsc{MESA} models by \cite{aguilera-dena:18, aguilera-dena:20}
+which adopt a small nuclear reaction network that cannot fulfill
+condition \emph{ii}. Alternatively, non-rotating stellar models
+endowed with ad-hoc angular momentum and magnetic field profiles that
+are not consistent with the progenitor evolution are often used
+\cite[e.g.,][]{siegel:22, gottlieb:25}.
 
 The reason for this bottleneck is the significant computational cost
 of evolved massive stars with the large nuclear-reaction networks
