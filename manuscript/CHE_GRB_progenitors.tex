@@ -70,18 +70,18 @@
 \section{Introduction}
 \label{sec:intro}
 
-Since the connection between massive-star populations and supernovae
+Since the connection between massive-star populations and supernovae (SNe) was established
 \citep{baade:34}, understanding how massive stars' iron cores collapse
 and, at least in some cases, how the collapse successfully reverts into an
 explosion has remained a capstone problem in astrophysics. In the past
 $\sim$century, the increased cadence, wavelength coverage, and depth
-of time-domain astronomy has lead to variations on this theme
-motivated by all kinds of astronomical transients
+of time-domain astronomy have transformed this foundational question into a
+family of related problems, spanning a diversity of astronomical transients
 \citep[e.g.,][]{cano:17}.
 
 The core structure of a stellar progenitor model at the onset of collapse
 determines the initial conditions for expensive multi-dimensional,
-multi-physics (and often multi-million-CPUh) simulations
+multi-physics (and often multi-million-CPU/GPU hours) simulations
 \citep[e.g.,][]{janka:12, mueller:16rev, vartanyan:21, gottlieb:25}. Specifically,
 the profile (of density, entropy, velocity, angular momentum, magnetic
 fields, etc.,~as a function of Lagrangian mass coordinate or radius)
@@ -94,7 +94,7 @@ proto-NS phase; and ultimately the properties of both the outflows,
 the associated transients, and final remnants
 \citep[e.g.,][]{kuroda:18, ott:18, vartanyan:19, burrows:24}.
 
-Recent progress supernova (SN) theory has produced unprecedented
+Recent progress in SN theory has produced unprecedented
 agreement among numerical simulations of neutrino-radiative transfer
 of core collapse \citep[e.g.,][]{janka:12, burrows:25, nakamura:25}.
 While the impact of ingredients other than neutrino heating remains
@@ -104,7 +104,7 @@ emerging \citep[e.g.,][]{sukhbold:16, limongi:18, boccioli:24,
   burrows:25, griffiths:26}.
 
 The capability to study the origin of transients and compact objects
-is ever more important in the era of large time-domain surveys (e.g.,
+is even more important in the era of large time-domain surveys (e.g.,
 Rubin/LSST, \citealt{ivezic:19}) and routine detections of
 gravitational-wave mergers \citep[e.g.,][]{abac:25, GWTC-5}. The current
 bottleneck in these studies is the availability of models of stellar
@@ -113,10 +113,10 @@ progenitors computed \emph{i} sufficiently late into the collapse and
 ingredients for the explosion.
 
 Specifically, point \emph{i} requires pushing the stellar evolution
-models well into the sub-sonic phase of the collapse, at least beyond
-when timescales associated to stellar processes are longer than the
-remaining time to core-bounce. This typically means evolving beyond
-iron-core infall velocity
+models well into the sub-sonic phase of the collapse, at least until
+the remaining time to core-bounce becomes shorter than the characteristic
+timescales of all relevant stellar processes. This typically means
+evolving beyond iron-core infall velocity
 $v_{\rm infall} = \min(v) \lesssim -300\,\mathrm{km\ s^{-1}}$
 \citep[e.g.,][]{farmer:23, gottlieb:24} if not
 $-1000\,\mathrm{km\ s^{-1}}$ \citep[e.g.,][]{woosley:02}. Beyond this
@@ -124,9 +124,9 @@ point, matter typically becomes partially optically thick to
 neutrinos, and the thermodynamics exceeds the bounds of tabulated
 equations of state in stellar evolution codes.
 
-For point \emph{ii}, a stellar model to be used to understand the
-explosion physics needs to be as accurate as possible in its density
-and angular momentum profile. Any star evolving through silicon core
+For point \emph{ii}, stellar models used to study the
+explosion physics must accurately capture the progenitor's density
+and angular momentum structure. Any star evolving through silicon core
 burning will experience copious amounts of electron captures
 \cite[e.g.,][]{arnett:77,hix:93,hix:99,grichener:25} which
 progressively de-leptonize the core (i.e., decrease the amount of free
@@ -163,20 +163,18 @@ nuclear reaction networks \citep[e.g.,][]{aguilera-dena:18,
 \emph{profile} $Y_{e}(m)$ of the collapsing core in the region where
 the explosions are decided.
 
-The use of small nuclear reaction networks is an acceptable trade-off
+Using small nuclear reaction networks is an acceptable trade-off
 to study, for example, electromagnetic observables determined at the
 surface \citep[e.g.,][]{morozova:15,paxton:18,goldberg:19} or for the application of
 semi-analytic explodability criteria based on existing detailed
-simulations \citep[e.g.,][]{mueller:16,laplace:25}. However, it is not sufficient
-if one wants to investigate the driving of the explosions, the
-pre-explosions and explosive neutrino signals, the nuclear yields, and
-the resulting compact object properties (whether considering
-non-rotating -- \citealt{farmer:16} -- or rotating progenitors --
-\citealt{renzo:24}). The reason is that the effective Chandrasekhar
+simulations \citep[e.g.,][]{mueller:16,laplace:25}. However, such networks are not sufficient
+for investigations of explosion driving, pre-explosion and explosive neutrino signals, nuclear yields, and
+the resulting compact-object properties, both non-rotating \citep{farmer:16} and rotating
+\citep{renzo:24} progenitors. The reason is that the effective Chandrasekhar
 mass of the collapsing core scales with $\propto Y_{e}^{2}$, or in
 other words, the contribution of electron-degeneracy-pressure to the
 support of the core amplifies small imprecision in the core structure
-to a level significant for the collapse and explosion dynamics
+to a level crucial for the collapse and explosion dynamics
 \citep[e.g.,][]{janka:12, grichener:25}.
 
 Few grids of stellar progenitors evolved sufficiently late (\emph{i})
@@ -188,11 +186,11 @@ from closed-source codes (e.g., \textsc{KEPLER} \citealt{weaver:78,
   \citep[e.g.,][]{oconnor:10,limongi:20}.} \citealt{limongi:03,
   limongi:18}, \textsc{HOSHI}, \citealt{takahashi:13}). While these
 stellar models have been invaluable in allowing the progress made so
-far, they do not allow the community to explore the sensitivity of the
-results to \emph{physical} and \emph{numerical} choices in the
-evolution of the progenitors. Approximations introduced at both these
-conceptual levels have been shown to influence the core structure and
-thus explosion outcomes \citep[e.g.,][]{farmer:16, renzo:17,davis:19,
+far, they do not permit a systematic exploration of how the results
+depend on the underlying \emph{physical} and \emph{numerical} choices
+adopted in modeling progenitor evolution. Approximations at both levels
+have been shown to affect the core structure and thus the explosion
+outcome \citep[e.g.,][]{farmer:16, renzo:17,davis:19,
   laplace:21, maltsev:25, myers:26}.
 
 A few public grids of progenitors fulfilling both conditions \emph{i}
@@ -205,20 +203,20 @@ however][]{vartanyan:21, gottlieb:24, chan:26}.
 Despite their importance for jetted explosions, collapsars,
 MHD-explosions, and/or long $\gamma$-ray burst (lGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
-fast-rotating progenitors exist: to the best of our knowledge only a
-set of \textsc{KEPLER} models from \cite{woosley:06} using the
-adaptive nuclear reaction network from \cite{heger:00}, and the
-\textsc{MESA} models by \cite{aguilera-dena:18, aguilera-dena:20}
+fast-rotating progenitors exist. To the best of our knowledge, these
+are limited to the \textsc{KEPLER} models from \cite{woosley:06}, which
+use the adaptive nuclear reaction network from \cite{heger:00}, and the
+\textsc{MESA} models of \cite{aguilera-dena:18, aguilera-dena:20}
 which adopt a small nuclear reaction network that cannot fulfill
 condition \emph{ii}. Alternatively, non-rotating stellar models
 endowed with ad-hoc angular momentum and magnetic field profiles that
 are not consistent with the progenitor evolution are often used
 \cite[e.g.,][]{siegel:22, gottlieb:25}.
 
-The reason for this bottleneck is the significant computational cost
-of evolved massive stars with the large nuclear-reaction networks
-necessary to follow in details the weak reactions (neglecting
-sparsity, the size of the matrix to solve scales with $\sim{}N^{2}$),
+This bottleneck arises from the substantial computational cost
+of evolving massive stars with the large nuclear-reaction networks
+required to follow weak inreactions in detail (neglecting
+sparsity, the size of the matrix to solve scales as $\sim{}N^{2}$),
 coupled with the stiffness of the equations (see
 \citealt{grichener:25}), which results in large fractions of
 progenitor stars failing before reaching the desired infall velocity.
