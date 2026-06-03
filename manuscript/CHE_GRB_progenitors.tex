@@ -183,7 +183,7 @@ Few grids of stellar progenitors evolved sufficiently late (\emph{i})
 and with \emph{detailed} nuclear physics (\emph{ii}) exist, mostly
 from closed-source codes (e.g., \textsc{KEPLER} \citealt{weaver:78,
   woosley:02, woosley:06, woosley:07, sukhbold:16, sukhbold:18},
-\textsc{FRANEC}\footnote{ which does not include hydrodynamics and
+\textsc{FRANEC}\footnote{which does not include hydrodynamics and
   thus cannot reach condition \emph{i}
   \citep[e.g.,][]{oconnor:10,limongi:20}.} \citealt{limongi:03,
   limongi:18}, \textsc{HOSHI}, \citealt{takahashi:13}). While these
@@ -200,11 +200,18 @@ and \emph{ii} computed with the open-source and community-driven code
 \textsc{MESA} exist \citep[e.g.,][]{farmer:16, renzo:17, farag:20,
   laplace:21, farmer:23, myers:26}. These have largely been
 under-utilized for initializing explosion simulations \citep[see
-however][]{vartanyan:21, gottlieb:24, chan:26}. Even fewer open-source
-models of rotating progenitors exist, despite their importance for
-jetted explosions, collapsars, MHD-explosions, and/or long
-$\gamma$-ray burst (lGRB,
-\citealt{woosley:93,macfadyen:94,gottlieb:25b}).
+however][]{vartanyan:21, gottlieb:24, chan:26}.
+
+Even fewer model grids for rotating progenitors exist, despite their
+importance for jetted explosions, collapsars, MHD-explosions, and/or
+long $\gamma$-ray burst (lGRB,
+\citealt{woosley:93,macfadyen:94,gottlieb:25b}). Commonly adopted
+progenitors were computed by \cite{woosley:06} using the adaptive
+nuclear reaction network from \cite{heger:00} (fulfilling condition
+\emph{i}) until $v_{infall}\le800\,\mathrm{km\ s^{-1}}$ (condition
+\emph{ii}), and the stellar models by \cite{aguilera-dena:18,
+  aguilera-dena:20} which adopt a small reaction network that cannot
+fulfill condition \emph{i}.
 
 The reason for this bottleneck is the significant computational cost
 of evolved massive stars with the large nuclear-reaction networks
@@ -215,11 +222,12 @@ coupled with the stiffness of the equations (see
 progenitor stars failing before reaching the desired infall velocity.
 
 Development of numerical strategies to address these issues are
-ongoing \citep[e.g.,][]{jermyn:23,grichener:25,griffiths:25}. In the meantime, we present here a publicly-available grid of
-fast-rotating models fulfilling both criteria (\emph{i}, ``late
-enough'') and (\emph{ii}, ``including enough nuclear physics to
-accurately simulate the structure'') for studies of the collapse and
-possible explosion of fast rotating stellar cores.
+ongoing \citep[e.g.,][]{jermyn:23,grichener:25,griffiths:25}. In the
+meantime, we present here a publicly-available grid of fast-rotating
+models fulfilling both criteria (\emph{i}, ``late enough'') and
+(\emph{ii}, ``including enough nuclear physics to accurately simulate
+the structure'') for studies of the collapse and possible explosion of
+fast rotating stellar cores.
 
 In \Secref{sec:methods} we describe our physical assumptions and
 numerical setup. \Secref{sec:results} presents the computed grid, and
@@ -462,7 +470,7 @@ $T_{\rm eff}$ are relatively insensitive to the treatment of very late
 burning. Minor differences occur only during thermal-timescale phases
 (e.g., coldest point during the ``hook'') and at the very end, when
 the outer layers of these envelope-less stars can be dynamically
-coupled to the core.
+and/or numerically coupled to the core.
 
 The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
@@ -525,14 +533,16 @@ readers to the comparison in \cite{renzo:24} for more details.
 
 An alternative way to characterize the structure of our models at the
 onset of core collapse is to look at the specific entropy profiles
-$s$, presented in \Figref{fig:entropy}. Flat ``steps'' correspond to
-stellar regions that experience \emph{efficient} convection, resulting
-in a very-nearly adiabatic (i.e., constant $s$) profiles. The
-mass-location of these depends on the detailed evolution of each
-stellar model in our grid. \Figref{fig:entropy} vertical axis is cut
-at $s=15\,k_{B}N_{A}$ to focus the visualization on the inner core
-where stellar explosions are decided, and thus excludes the outer
-(higher-entropy) layers of the stars.
+$s$, presented in \Figref{fig:entropy}. Nearly flat ``steps''
+correspond to stellar regions that have experienced \emph{efficient}
+convection less than a local thermal time-scale before the onset of
+collapse. This results in a very-nearly adiabatic (i.e., constant $s$)
+profile without enough time left to relax. The mass-location of these
+depends on the detailed evolution of each stellar model in our grid.
+\Figref{fig:entropy} vertical axis is cut at $s=15\,k_{B}N_{A}$ to
+focus the visualization on the inner core where stellar explosions are
+decided, and thus excludes the outer (higher-entropy) layers of the
+stars.
 
 
 \begin{figure}[tbp]
@@ -559,7 +569,10 @@ phases of a core collapse.
 \begin{figure}[tbp]
   \includegraphics[width=0.5\textwidth]{xi_M}
   \caption{Compactness as a function initial mass and rotation rate
-    for single CHE models. Higher values of compactness tend to, but do not always, favor BH formation.}
+    for single CHE models. Higher values of compactness
+    $\xi_{\mathcal{M}}$ favor BH formation, but this does not imply
+    without outflows and/or electromagnetic transients
+    \citep[e.g.,][]{burrows:25, chan:26}.}
   \label{fig:xi_M}
 \end{figure}
 
@@ -698,8 +711,8 @@ the inherently three-dimensional convective flow
 The key hypothesis of subsonic flows holds throughout the
 evolution of our models. However, our choice of free parameters
 ($\alpha_{\rm MLT}$ and $\alpha_{\rm ov}$) to match existing
-literature \citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20} 
-may not be appropriate in every stellar environment 
+literature \citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20}
+may not be appropriate in every stellar environment
 \citep[e.g.][]{joyce:18,chun:18} or for every convective layer
 in the stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26},
 and does not include the latest updates from stellar hydrodynamics simulations
@@ -848,7 +861,6 @@ some helium-rich material can appear in the core very late due to
 photodisintegration of iron-group nuclei).
 
 \input{table.tex}
-
 
 \end{document}
 
