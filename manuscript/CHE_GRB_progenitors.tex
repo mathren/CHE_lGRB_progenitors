@@ -198,7 +198,7 @@ under-utilized for initializing explosion simulations \citep[see
 however][]{vartanyan:21, gottlieb:24, chan:26}.
 
 Despite their importance for jetted explosions, collapsars,
-MHD-explosions, and/or long $\gamma$-ray burst (lGRB,
+magnetohydrodynamic-explosions, and/or long $\gamma$-ray burst (lGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
 fast-rotating progenitors exist. To the best of our knowledge, these
 are limited to the \textsc{KEPLER} models from \cite{woosley:06}, which
@@ -591,10 +591,10 @@ much angular momentum to directly collapse into a BH.
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{What astrophysical scenario can these model represent?}
+\subsection{What astrophysical scenario can these models represent?}
 \label{sec:scenario}
 
-The existence of direct observational evidence (e.g., from stellar
+Direct observational evidence (e.g., from stellar
 spectroscopy) for rotationally-induced chemically-homogeneous
 evolution is still debated \cite[e.g.,][]{hunter:08, martins:09,
   martins:13,almeida:15, mahy:20, sharpe:24}, although this
@@ -602,14 +602,14 @@ evolutionary path becomes more likely at very high stellar masses and
 low metallicities \citep[e.g.,][]{yoon:06}. To produce fast-rotating
 collapsar progenitors, we construct our stellar models with initial metallicity $Z=0.001$
 and \emph{assuming} extremely fast initial rotation rates. Such
-initial rotations are prohibitively rare regardless of $Z$ in in young
+initial rotations are prohibitively rare regardless of $Z$ in young
 massive star populations in the local Universe
 \citep[e.g.,][]{hunter:08, ramirez-agudelo:13, ramirez-agudelo:15,
   dufton:19, galan-dieguez:26, lennon:26}. While there is growing
 evidence for relatively fast ($\gtrsim 250\,\mathrm{km\ s^{1}}$)
 primordial rotation \citep[e.g.,][]{naze:23, britavskiy:24, naze:25},
 these still have $\omega\lesssim 0.3-0.4\,\omega_{\rm crit}$ and are
-not as fast as we are assuming here. The fastest-rotating known O-type
+not as fast as we assume here. The fastest-rotating known O-type
 stars reach $v\sin(i)\sim600\,\mathrm{km\ s^{-1}}$, likely in the
 regime considered here, and are most likely accretor stars in
 interacting binaries \citep{cantiello:07, ramirez-agudelo:15,
@@ -617,7 +617,7 @@ interacting binaries \citep{cantiello:07, ramirez-agudelo:15,
 boundary in ways that are not accounted for in our single-star models
 \citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, shah:26}.
 
-Nevertheless, the observation of jetted explosions and lGRBs suggest
+Nevertheless, observations of jetted explosions and lGRBs suggest
 that somehow, some stars reach core collapse with sufficient angular
 momentum to form accretion disks onto a seed compact object. This
 could be the product of accretion on the secondary in an interacting
@@ -629,15 +629,14 @@ momentum transport in stars, leading to spin up of the core as it
 evolves and contracts. We do not consider here the possibility of disk
 formation from stochastic angular momentum in extended convective
 envelopes \citep[e.g.,][]{quataert:19, shishkin:21,antoni:25} because
-lGRBs are associated to type Ic broad-line SNe that require
+lGRBs are associated with type Ic broad-line SNe that require
 hydrogen-free progenitors with compact envelopes.
 
 We do not attempt to investigate the detailed evolutionary scenarios
-leading to fast rotating cores. Instead, we provide a computationally
+leading to fast-rotating cores. Instead, we provide a computationally
 homogeneous grid of single, initially fast-rotating stellar
-progenitors that could \emph{approximate} these scenarios in the hope
-of enabling controlled numerical experiments for stellar collapse
-where rotation and magnetic field are expected to play a role.
+progenitors that could \emph{approximate} these scenarios. The grid is designed to enable systematic numerical experiments on stellar collapse
+in the regimes where rotation and magnetic field are expected to play an important role.
 
 
 \subsection{Known physical and numerical caveats}
@@ -658,8 +657,7 @@ stronger magnetic field saturation of the Tayler-Spruit instability
 suggested in \cite{fuller:19, fuller:22} still results in CHE, but at
 the onset of core-collapse, the cores are too slowly rotating to
 produce accretion disks.
-
-Both stellar winds and angular momentum transport processes are highly
+Both stellar winds and angular momentum transport processes remain highly
 uncertain in stellar context (see, e.g., \citealt{smith:14, renzo:17,
   romagnolo:26} for wind-related uncertainties, \citealt{spruit:99,
   cantiello:14, fuller:19, denhartogh:20, skoutnev:24, skoutnev:25}
@@ -667,12 +665,10 @@ for angular momentum transport uncertainties), and active topics of
 research.
 
 The 128-isotope nuclear reaction network we adopt is sufficient to
-resolve the density structure of the core. Increasing further the
-network size has negligible impact on the electron fraction $Y_{e}$.
-This has been shown both with full stellar models calculations
+resolve the density structure of the core. Increasing the network size further has a negligible impact on the electron fraction $Y_{e}$.
+This has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
-\citep[e.g.,][]{grichener:25}. We note however that the list of
-isotopes adopted here may still under-resolve the pre-collapse
+\citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted here may still under-resolve the pre-collapse
 neutrino flux \citep[e.g.,][]{farag:20} and may not be suitable for
 detailed nucleosynthesis studies \citep[e.g.,][]{myers:26}.
 
@@ -680,11 +676,11 @@ Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
 \citealt{kunz:02}) are under active scrutiny in the community
 \citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, shen:23,
-  noll:25, tong:26} and our choice certainly influences the
-pre-collapse structures presented here (like any other stellar models
-in the literature; see also \citealt{fields:18}).
+  noll:25, tong:26}. Our choice of rates therefore inevitably influences the
+pre-collapse structures presented here, as is true  for any stellar models
+in the literature \citep[see also][]{fields:18}.
 
-As any set of stellar evolution calculations, the representation of
+As with any set of stellar evolution calculations, the representation of
 the inherently three-dimensional convective flow
 \cite[e.g.,][]{jermyn:22,joyce:23} and convective boundaries
 \cite[e.g.,][]{davis:19, myers:26} are potential causes of concern.
@@ -695,18 +691,18 @@ literature \citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20}
 may not be appropriate in every stellar environment
 \citep[e.g.][]{joyce:18,chun:18} or for every convective layer
 in the stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26},
-and does not include the latest updates from stellar hydrodynamics simulations
+and does not include the latest updates from stellar hydrodynamic simulations
 \citep[e.g.][]{schultz:20,anders:22, rizzuti:23, johnston:24}.
 
-Maybe more importantly, our models adopt an artificial strategy to
+Perhaps more importantly, our models adopt an artificial strategy to
 expunge envelope velocities in the outer layers which are possibly seeded by
 numerical noise in the fast-paced late burning evolution. Significant
-efforts to improve \textsc{MESA} to address these is ongoing.
+efforts to improve \textsc{MESA} are aimed at addressing this issue.
 
-Despite these inevitable caveats when producing numerical models
-relying on input physics and physical processes under active
+Despite these inevitable caveats, which are inherent to numerical models
+that depend on input physics and physical processes under active
 investigation, our models provide a significant update in the context
-of fast-rotating CHE stars evolved until the onset of core-collapse.
+of fast-rotating CHE stars evolved to the onset of core collapse.
 
 
 \section{Conclusion}\label{sec:conclusion}
@@ -720,19 +716,18 @@ and discussed physical and numerical limitations of our calculations.
 The evolution of these initially fast-rotating models represents a
 presumably extremely rare evolutionary path based on observations of
 initial rotation rates in the local Universe and rates of
-astrophysical transients. Our models could approximate to a certain
-degree more common evolutionary paths where rotation is produced by
+astrophysical transients. Our models could approximate, to a certain degree, more common evolutionary paths where rotation is produced by
 binary interactions. Further studies to compare the outcome of these
 pathways with single-fast rotating models are necessary.
 
 Despite the inevitable algorithmic and input physics limitations
 inherent in numerical models (especially of astrophysical systems
 represented by very stiff sets of equations), our progenitor grid
-constitutes a significant update in input physics and numerical
-accuracy for fast-rotating collapsing stellar progenitors. We hope
+constitutes a significant update in both input physics and numerical
+accuracy for rapidly rotating collapsing stellar progenitors. By providing controlled pre-collapse models with substantial angular momentum, this grid offers useful initial conditions for numerical studies of rotating massive-star explosions, including magnetohydrodynamic-driven and jetted explosions such as collapsars and long $\gamma$-ray bursts. We hope
 that our publicly available results (at
 \href{https://doi.org/10.5281/zenodo.14286306}{doi.org/10.5281/zenodo.14286306})
-will be adopted for numerical experiments in studying the explosions
+will be adopted in future numerical studies of the explosions
 of rotating massive stars.\\
 
 
@@ -777,7 +772,7 @@ separate tarball for each star, labeled as \texttt{<M>\_rot<O>.tar.xz}
 where \texttt{<M>} is the ZAMS mass in $M_{\odot}$ with one decimal
 digit, and \texttt{<O>} is the initial value of
 $\omega_{\rm ZAMS}/\omega_{\rm crit}$ with two decimal digits. We only
-include the models reaching successfully the onset of core-collapse
+include the models reaching the onset of core-collapse successfully
 ($v_{\rm infall}\lesssim300\,\mathrm{km\ s^{-1}}$) and pass our visual
 inspection (cf.~\Figref{fig:grid_success}).
 
@@ -806,7 +801,7 @@ core Oxygen and Silicon core depletion across the grid with
 
 Profiles and/or \texttt{*.mod} files can be used to initialize
 multi-dimensional simulations at times earlier than the onset of core
-collapse, for example to study pre-collapse shell mergers and/or
+collapse, for example, to study pre-collapse shell mergers and/or
 initializing self-consistent (non-MLT) convection velocity profiles
 \cite[e.g.,][]{cote:20, yadav:20, fields:22, issa:25, griffiths:26,
   issa:26}
@@ -836,7 +831,7 @@ $Y_{\rm surf}\equiv X_{\rm surf}(^{4}\mathrm{He})$, Carbon, and
 Oxygen. These do not necessarily sum to 1 because of other isotopes
 present in our calculations, and are presumably sensitive to the wind
 mass-loss rates and mixing processes. Interestingly, most of our
-models still retain significant amount of helium at the surface (plus,
+models still retain a significant amount of helium at the surface (plus,
 some helium-rich material can appear in the core very late due to
 photodisintegration of iron-group nuclei).
 
