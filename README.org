@@ -16,10 +16,13 @@
 the data from zenodo, create a python environment, re-make the
 figures, and compile the pdf.
 
-If you have enough disk space (>15Gb), have =mamba= installed, and
-don't want to stare at the build prompts, run =build.sh --yes=.
+If =build.sh= is not executable, make it so with =chmod +x build.sh=
+and then run the script.
 
-If you want to run the full build except one of the steps you can pas
+If you have enough disk space (>15Gb), have =mamba= installed, and
+don't want to stare at the build prompts, run =build.sh --yes=.  If
+you want to run the full build except one of the steps you can pass
+arguments to skip one step, see =build.sh --help=.
 
 
 This package is structured as follows:
