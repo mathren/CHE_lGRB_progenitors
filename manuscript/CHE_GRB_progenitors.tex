@@ -312,17 +312,18 @@ neutrino losses following \citet{Itoh1996}. We adopt radiative
 opacities from OPAL \citep{Iglesias1993, Iglesias1996}
 and electron conduction opacities from \citet{Cassisi2007}.
 
-Nuclear reaction rates are a combination of NACRE
-\citep{Angulo1999}, JINA REACLIB \citep{Cyburt2010}, and
+Nuclear reaction rates are a combination of NACRE \citep{Angulo1999},
+JINA REACLIB \citep{Cyburt2010}, and
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from \cite{kunz:02},
 plus additional tabulated weak reaction rates \citet{Fuller1985,
   Oda1994, Langanke2000}. To capture with sufficient accuracy the
 deleptonization of the core from the structural point of view
 (condition (\emph{ii}) in \Secref{sec:intro}), we adopt the
 fully-coupled 128-isotope nuclear reaction network
-\texttt{mesa\_128.net} \citep{farmer:16}. For central
-temperatures above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in
-operator split mode \citep[e.g., Sec.~10 in]{jermyn:23}.
+\texttt{mesa\_128.net} \citep{farmer:16}. For central temperatures
+above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split
+mode, that is we solve for the structure at fixed composition, and
+viceversa iteratively \citep[e.g., Sec.~10 in]{jermyn:23}.
 
 
 Throughout the evolution, we include the wind mass loss rate following
@@ -354,7 +355,7 @@ calculations of post-core-carbon burning massive stars
 \citep[e.g.,][]{aguilera-dena:18}.
 
 To produce progenitors sufficiently close to core-bounce (condition
-\emph{i} in \Secref{sec:intro}), we evolve each model until the infall
+\emph{i}) in \Secref{sec:intro}), we evolve each model until the infall
 velocity in the iron core decreases below
 $v_{\rm infall}\le-300\,\mathrm{km\ s^{-1}}$
 \citep[e.g.,][]{farmer:23, gottlieb:24}. This threshold is motivated
@@ -374,9 +375,21 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
 \section{Results}
 \label{sec:results}
 
+\begin{figure}[htp]
+  \includegraphics[width=0.5\textwidth]{figures/overview_grid}
+  \caption{Overview of the grid success rate. Green checkmarks
+    correspond to successful models. Red crosses correspond to models
+    that either do not reach infall velocities of
+    $-300\,\mathrm{km\ s^{-1}}$ or they exhibit large luminosity and
+    effective temperature excursions that are treated unphysically in
+    our setup and can impact the core-structure.}
+  \label{fig:grid_success}
+\end{figure}
+
+
 Our grid consists initially of 11 values of
 $\omega_{\rm ZAMS}/\omega_{\rm crit}$ times 71 $M_{\rm ZAMS}$ values,
-for a total of 781 stellar models. Of these, 113 successfully reach
+for a total of 781 stellar models (\Figref{fig:grid_success}). Of these, 113 successfully reach
 the onset of core-collapse and pass our visual inspection to remove
 models experiencing large $L$ and effective temperature
 ($T_{\rm eff}$) excursions. These may be manifestations of physical
@@ -397,19 +410,9 @@ models exhibiting this numerical behavior from our grid. Overall, our
 grid has a 14\% success rate, relatively high for models that are
 \emph{not} manually mentored in any way.
 
-\begin{figure}[bp]
-  \includegraphics[width=0.5\textwidth]{figures/overview_grid}
-  \caption{Overview of the grid success rate. Green checkmarks
-    correspond to successful models. Red crosses correspond to models
-    that either do not reach infall velocities of
-    $-300\,\mathrm{km\ s^{-1}}$ or they exhibit large luminosity and
-    effective temperature excursions that are treated unphysically in
-    our setup and can impact the core-structure.}
-  \label{fig:grid_success}
-\end{figure}
 
 As shown in \Figref{fig:grid_success}, successful models in our grid (green checkmarks) sample relatively uniformly the parameter space
-$30\,M_{\odot}\lesssim M_{\rm ZAMS}\lesssim 60\,M_{\odot}$ across all
+$30\,M_{\odot}\lesssim M_{\rm ZAMS}\lesssim 50\,M_{\odot}$ across all
 rotation rates explored
 ($0.5\lesssim \omega_{\rm ZAMS}/\omega_{\rm crit}\lesssim 0.99$), and
 the number of successes decreases at larger initial masses and rotation
@@ -418,19 +421,30 @@ systematically fail: this suggests most issues are related to
 numerical errors in the solution of the stiff equations rather than
 physical hypothesis.
 
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{HRD}
+  \caption{Herzsprung-Russel diagram of
+    rotationally-induced chemically-homogeneous evolving single star
+    models. the orange thick line marks a
+    representative $40M_{\odot}$,
+    $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ used in
+    \cite{gottlieb:24}, and the thin black dot-dashed line shows an
+    otherwise identical model computed with only 22-isotopes from
+    \cite{renzo:24}.}
+\end{figure}
+
+
 \begin{figure*}[htbp]
   \centering
   \includegraphics[width=\textwidth]{multipanel_grid.pdf}
-  \caption{\emph{Top left}: Herzsprung-Russel diagram of
-    rotationally-induced chemically-homogeneous evolving single star
-    models. \emph{Top right:} Inner electron fraction $Y_{e}(m)$
-    profile as a function of mass. The vertical dashed line marks
-    $\mathcal{M}=1.75\,M_{\odot}$ used to calculate the compactness
-    $\xi_{1.75}$. \emph{Bottom left:} Density profiles as a function
-    of Lagrangian mass coordinate $m$ on a logarithmic scale. The
-    inset zooms on the inner region and uses a linear scale.
-    \emph{Bottom right:} Specific angular momentum profiles as a
-    function of $m$. In all panels, the orange thick line marks a
+  \caption{\emph{Top left}: \todo{} \emph{Top right:} Inner electron
+    fraction $Y_{e}(m)$ profile as a function of mass. The vertical
+    dashed line marks $\mathcal{M}=1.75\,M_{\odot}$ used to calculate
+    the compactness $\xi_{1.75}$. \emph{Bottom left:} Density profiles
+    as a function of Lagrangian mass coordinate $m$ on a logarithmic
+    scale. The inset zooms on the inner region and uses a linear
+    scale. \emph{Bottom right:} Specific angular momentum profiles as
+    a function of $m$. In all panels, the orange thick line marks a
     representative $40M_{\odot}$,
     $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ used in
     \cite{gottlieb:24}, and the thin black dot-dashed line shows an
@@ -440,8 +454,8 @@ physical hypothesis.
 \end{figure*}
 
 
-From this point onward, we focus on the analysis of the successful models.
-\Figref{fig:multipanel} shows an overview of their evolution and
+From this point onward, we focus on the analysis of the successful
+models. \Figref{fig:multipanel} shows an overview of their evolution and
 structure at the onset of core-collapse, with each thin blue line
 corresponding to one star. The thick orange lines correspond to the
 $40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model used
