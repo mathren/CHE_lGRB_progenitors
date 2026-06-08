@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if M==40 and o==0.6:
             ax.plot(logT, logL, lw=3, c='C1',zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
     try:
-        sall_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
+        small_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/history.data"
         src, col = get_src_col(small_net)
         logT = src[:, col.index("log_Teff")]
         logL = src[:, col.index("log_L")]
