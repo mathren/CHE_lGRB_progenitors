@@ -90,10 +90,12 @@ if ! $NO_FIGURES && ask "Generate figures?"; then
 	echo "▶ Generating figures..."
 	echo "  ▶ Figure 1: ./scripts/grid_success_rate.py"
 	mamba run -n CHE_jet python grid_success_rate.py
-	echo "  ▶ Figure 2: ./scripts/multi_panel.py"
+	echo "  ▶ Figure 2: ./scripts/HRD.py"
+	mamba run -n CHE_jet python HRD.py
+	echo "  ▶ Figure 3: ./scripts/multi_panel.py"
 	mamba run -n CHE_jet python multi_panel.py
-	echo "  ▶ Figure 3: ./scripts/entropy.py"
-	mamba run -n CHE_jet python entropy.py
+	# echo "  ▶ Figure 3: ./scripts/entropy.py"
+	# mamba run -n CHE_jet python entropy.py
 	echo "  ▶ Figure 4: ./scripts/B-fields.py"
 	mamba run -n CHE_jet python B-fields.py
 	echo "  ▶ Figure 5: ./scripts/xi_M.py"

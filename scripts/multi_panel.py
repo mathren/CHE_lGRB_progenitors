@@ -38,12 +38,12 @@ if __name__ == "__main__":
         M, o = get_model_initial_values(mod)
 
         # HRD ---------------------------------------
-        src, col = get_src_col(hfile)
-        logT = src[:, col.index("log_Teff")]
-        logL = src[:, col.index("log_L")]
-        ax0.plot(logT, logL, lw=0.5, alpha=0.3, c='C0')
-        if M==40 and o==0.6:
-            ax0.plot(logT, logL, lw=3, c='C1',zorder=10)
+        # src, col = get_src_col(hfile)
+        # logT = src[:, col.index("log_Teff")]
+        # logL = src[:, col.index("log_L")]
+        # ax0.plot(logT, logL, lw=0.5, alpha=0.3, c='C0')
+        # if M==40 and o==0.6:
+        #     ax0.plot(logT, logL, lw=3, c='C1',zorder=10)
 
         # density -----------------------------
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
@@ -101,9 +101,9 @@ if __name__ == "__main__":
                 print("Download and unpack in ./data/SMALL_NET/")
                 pass
 
-    ax0.invert_xaxis()
-    ax0.set_xlabel(r"$\log_{10}(T_\mathrm{eff}/[K])$")
-    ax0.set_ylabel(r"$\log_{10}(L/L_\odot)$")
+    # ax0.invert_xaxis()
+    # ax0.set_xlabel(r"$\log_{10}(T_\mathrm{eff}/[K])$")
+    # ax0.set_ylabel(r"$\log_{10}(L/L_\odot)$")
 
     ax1.set_xlim(0, 4)
     ax1.set_ylim(0.44, 0.505)
