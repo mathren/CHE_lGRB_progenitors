@@ -1,8 +1,10 @@
 import numpy as np
 import glob
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 import matplotlib.gridspec as gridspec
-from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
+import matplotlib.cm as cm
+from MESAreader import get_src_col, get_model_initial_values
 
 
 if __name__ == "__main__":
@@ -13,13 +15,18 @@ if __name__ == "__main__":
     gs = gridspec.GridSpec(2, 2)
     ax = fig.add_subplot(gs[:,:])
 
+    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
+    # bounds = np.linspace(0.5, 0.99, 11)-0.01  # for coloring by rotation
+    # cmap = cm.get_cmap("viridis", len(bounds) - 1)   # one color per interval
+    # norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+
     for mod in models:
         hfile = mod+"/LOGS/history.data"
         M, o = get_model_initial_values(mod)
         src, col = get_src_col(hfile)
         logT = src[:, col.index("log_Teff")]
         logL = src[:, col.index("log_L")]
-        ax.plot(logT, logL, lw=0.5, alpha=0.3, c='C0')
+        ax.plot(logT, logL, lw=0.5, alpha=0.3, c="C0") # c=cmap(norm(o)))
         if M==40 and o==0.6:
             ax.plot(logT, logL, lw=3, c='C1',zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
     try:

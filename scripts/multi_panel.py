@@ -34,28 +34,26 @@ if __name__ == "__main__":
     zx = ax2.inset_axes([0.13, 0.11, 0.68, 0.4])
 
     for mod in models:
-        hfile = mod+"/LOGS/history.data"
         M, o = get_model_initial_values(mod)
-
-        # HRD ---------------------------------------
-        # src, col = get_src_col(hfile)
-        # logT = src[:, col.index("log_Teff")]
-        # logL = src[:, col.index("log_L")]
-        # ax0.plot(logT, logL, lw=0.5, alpha=0.3, c='C0')
-        # if M==40 and o==0.6:
-        #     ax0.plot(logT, logL, lw=3, c='C1',zorder=10)
-
-        # density -----------------------------
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
         src, col = get_src_col(pfile)
+
+        # Entropy -----------------------------------
+        m = src[:, col.index("mass")]
+        entropy = src[:, col.index("entropy")]
+        ax0.plot(m, entropy, c='C0', alpha=0.3, lw=0.5, zorder=9)
+        if M==40 and o==0.6:
+            ax0.plot(m, entropy, lw=3, c='C1', zorder=9,
+                     label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
+
+        # density -----------------------------
         logrho = src[:, col.index("logRho")]
         m = src[:, col.index("mass")]
         ax2.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
         zx.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
-            ax2.plot(m, logrho, lw=3, c='C1', zorder=10,
-                     label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
-            zx.plot(m, logrho, lw=3, c='C1', zorder=10)
+            ax2.plot(m, logrho, lw=3, c='C1', zorder=9)
+            zx.plot(m, logrho, lw=3, c='C1', zorder=9)
 
         # AM profile --------------------------------------------------
         logr = np.log10((10.**(src[:, col.index("logR")]))*Rsun_cm)
@@ -65,7 +63,7 @@ if __name__ == "__main__":
         m = src[:, col.index("mass")]
         ax3.plot(m, j_specific, c='C0', alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
-            ax3.plot(m, j_specific, lw=3, c='C1', zorder=8)
+            ax3.plot(m, j_specific, lw=3, c='C1', zorder=9)
 
         # Ye ----------------------------------------------------
         m = src[:, col.index("mass")]
@@ -79,21 +77,18 @@ if __name__ == "__main__":
                 src, col = get_src_col(small_net)
                 m = src[:, col.index("mass")]
                 logrho = src[:, col.index("logRho")]
-                ye = src[:, col.index('ye')]
+                ye = src[:, col.index("ye")]
+                entropy = src[:, col.index("entropy")]
                 logr = src[:, col.index("logR")]
                 r = 10.0**logr
                 omega = src[:, col.index("omega")]
                 j_specific = r*r*omega
+                ax0.plot(m, entropy, c='k', ls='-.', lw=1, zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
                 ax1.plot(m, ye, c='k', ls='-.', lw=1, zorder=10)
                 ax2.plot(m, logrho, lw=1, c='k', ls='-.', zorder=10)
-                zx.plot(m, logrho, lw=1, ls='-.', c='k', zorder=10)
+                zx.plot(m, logrho, lw=1, c='k', ls='-.',  zorder=10)
                 ax3.plot(m, j_specific, lw=1, c='k', ls='-.', zorder=10)
-                hfile =  "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/history.data"
-                src, col = get_src_col(hfile)
-                logT = src[:, col.index("log_Teff")]
-                logL = src[:, col.index("log_L")]
-                ax0.plot(logT, logL, lw=1, ls='-.', c='k', zorder=10,
-                         label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
+                # add legend
                 ax0.legend(fontsize=20, handletextpad=0.1, frameon=True)
             except FileNotFoundError:
                 print("No small net model")
@@ -101,9 +96,11 @@ if __name__ == "__main__":
                 print("Download and unpack in ./data/SMALL_NET/")
                 pass
 
-    # ax0.invert_xaxis()
-    # ax0.set_xlabel(r"$\log_{10}(T_\mathrm{eff}/[K])$")
-    # ax0.set_ylabel(r"$\log_{10}(L/L_\odot)$")
+    ax0.set_xlabel(r"$m\ [M_{\odot}]$")
+    ax0.set_ylabel(r"specific entropy $s$")
+    # ax0.set_xscale('log')
+    ax0.set_xlim(0, 4)
+    ax0.set_ylim(0, 10)
 
     ax1.set_xlim(0, 4)
     ax1.set_ylim(0.44, 0.505)
