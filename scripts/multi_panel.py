@@ -127,11 +127,11 @@ if __name__ == "__main__":
     my_mark_inset(ax2, zx, loc1a=2, loc1b=3, loc2a=1, loc2b=4)
 
     ax3.set_yscale('log')
-    ax3.set_ylim(1e11, 1e19)
+    ax3.set_ylim(1e14, 1e19)
 
     ax3.set_xscale('log')
     ax3.set_xlim(1e-1, 50)
-    ax3.set_yticks([1e12, 1e14, 1e16, 1e18], minor=True)
+    ax3.set_yticks([1e15, 1e17, 1e19], minor=True)
     ax3.set_yticklabels([], minor=True)
     ax3.set_xlabel(r"$m\ [M_{\odot}]$")
     ax3.set_ylabel(r"$\log_{10}(j/\mathrm{[cm^{2}\ s^{-1}]})$")

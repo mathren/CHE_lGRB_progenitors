@@ -58,6 +58,7 @@ if __name__ == "__main__":
     # ax0.set_xticklabels([], minor=True)
     ax0.set_yticks([1e13, 1e11, 1e9, 1e7, 1e5], minor=True)
     ax0.set_yticklabels([], minor=True)
+    ax0.set_xticklabels([])
     ax1.set_ylim(1e4, 1e13)
     ax1.set_yscale('log')
     ax1.set_xscale('log')
