@@ -297,7 +297,7 @@ input for the ``averaged'' progenitor constructed in \cite{chan:26}.
 We use the \textsc{MESA} code (version \texttt{r24.03.1},
 \citealt{paxton:11,paxton:13,paxton:15,paxton:16,paxton:19,jermyn:23}),
 to compute low-metallicity ($Z=0.001$) and fast-rotating stellar
-models. Our grid spans initial masses $M_{\rm ZAMS}=30-90\,M_{\odot}$
+models. Our grid spans initial masses $M_{\rm ZAMS}=30-100\,M_{\odot}$
 and initial (rigid) rotation with angular frequency
 $\omega_{\rm ZAMS}=0.5-0.99\,\omega_{\rm crit}$, where
 $\omega_\mathrm{crit}=\sqrt{(1-L/L_\mathrm{Edd})GM/R^3}$ is the
@@ -431,6 +431,7 @@ physical hypothesis.
     \cite{gottlieb:24}, and the thin black dot-dashed line shows an
     otherwise identical model computed with only 22-isotopes from
     \cite{renzo:24}.}
+  \label{fig:HRD}
 \end{figure}
 
 
@@ -455,31 +456,29 @@ physical hypothesis.
 
 
 From this point onward, we focus on the analysis of the successful
-models. \Figref{fig:multipanel} shows an overview of their evolution and
-structure at the onset of core-collapse, with each thin blue line
-corresponding to one star. The thick orange lines correspond to the
-$40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model used
-as progenitor in \cite{gottlieb:24}, highlighted as a guideline. The thin black dot-dashed line is the same model computed with a 22-isotope
-network from \cite{renzo:24} available from
+models. \Figref{fig:HRD} shows the evolution on the Herzsprung-Russel
+diagram of our rotationally-induced CHE models with each thin blue
+line corresponding to one star. The thick orange lines correspond to
+the $40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model
+used as progenitor in \cite{gottlieb:24}, highlighted as a guideline.
+The thin black dot-dashed line is the same model computed with a
+22-isotope network from \cite{renzo:24} available from
 \href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522},
 shown to illustrate the importance of a comprehensive treatment of
 weak interactions for progenitors at the onset of collapse.
 
-The top left panel shows a Hertzsprung-Russell diagram, where models
-evolve from the bottom right toward the top left. Because of the
-large rotation imposed at birth, these models experience CHE
+The stars evolve from the bottom right toward the top left. Because of
+the large rotation imposed at birth, these models experience CHE
 (\citealt{maeder:00, yoon:06, demink:09}). Rotational mixing
 (dominated by meridional circulations) prevents the formation of a
 chemical stratification and the emergence of a core--envelope boundary
 during the hydrogen-core burning main sequence. The entire star is
-enriched in $^{4}\mathrm{He}$ (and $^{14}\mathrm{N}$ at the expense
-of $^{12}\mathrm{C}$ and $^{16}\mathrm{O}$ because of the CNO cycle,
+enriched in $^{4}\mathrm{He}$ (and $^{14}\mathrm{N}$ at the expense of
+$^{12}\mathrm{C}$ and $^{16}\mathrm{O}$ because of the CNO cycle,
 \citealt{bethe:39}), reducing the envelope opacity and preventing the
-red-ward evolution and radial expansion. Nevertheless, the increase in mean molecular weight leads to an increase in luminosity
-\citep[e.g.,][]{kippenhahn:13, xin:2022}. % As noted in
-% \cite{gottlieb:24}, with the large initial rotation assumed, the main
-% sequence evolution leads to CHE even with the stronger angular
-% momentum transport by \cite{fuller:19} and \cite{fuller:22}.
+red-ward evolution and radial expansion. Nevertheless, the increase in
+mean molecular weight leads to an increase in luminosity
+\citep[e.g.,][]{kippenhahn:13, xin:2022}.
 
 At the end of the hydrogen-core burning main sequence, each track
 shows a characteristic ``hook'': this corresponds to a thermal
@@ -527,6 +526,18 @@ burning. Minor differences occur only during thermal-timescale phases
 the outer layers of these envelope-less stars can be dynamically
 and/or numerically coupled to the core.
 
+
+
+
+\Figref{fig:multipanel} shows an overview of their evolution and
+structure at the onset of core-collapse,
+
+
+% The top left panel shows a Hertzsprung-Russell diagram, where  % As noted in
+% \cite{gottlieb:24}, with the large initial rotation assumed, the main
+% sequence evolution leads to CHE even with the stronger angular
+% momentum transport by \cite{fuller:19} and \cite{fuller:22}.
+
 The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
 is the mass fraction of the $j$-th isotope with charge $+Z_{j}e$ and
@@ -568,17 +579,6 @@ the 22-isotope network $40\,M_{\odot}$,
 $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model and the thick orange
 line corresponding to the 128-isotope model, we refer interested
 readers to the comparison in \cite{renzo:24} for more details.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{entropy_grid}
-  \caption{Specific entropy profiles. The dashed black horizontal line
-    marks the $s=4\,k_{B}N_{A}$ location often used in
-    ``explodability'' criteria \cite[e.g.,][]{ertl:16, ertl:20}. The orange
-    thick line shows the $40M_{\odot}$,
-    $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model from \cite{gottlieb:24}.}
-  \label{fig:entropy}
-\end{figure}
 
 An alternative way to characterize the structure of our models at the
 onset of core collapse is to look at the specific entropy profiles
