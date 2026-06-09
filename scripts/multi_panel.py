@@ -42,6 +42,7 @@ if __name__ == "__main__":
         m = src[:, col.index("mass")]
         entropy = src[:, col.index("entropy")]
         ax0.plot(m, entropy, c='C0', alpha=0.3, lw=0.5, zorder=9)
+        ax0.axhline(4, 0, 1, lw=2, ls='--', c='k', zorder=0)
         if M==40 and o==0.6:
             ax0.plot(m, entropy, lw=3, c='C1', zorder=9,
                      label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
