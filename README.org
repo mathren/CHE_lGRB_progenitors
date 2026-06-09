@@ -179,5 +179,5 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 ** TODO lGRB progenitors
 - [X] make [[./scripts/data_prep.sh]] download only =grid.tar=
 - [ ] Confirm OS on =rusty= (@matteocantiello)
-- [ ] Compare to KEPLER's 35M_{\odot} models from Wooley & Heger 2006
 - [ ] fix download script for when repo is public
+- [ ] add =scripts= tarball to zenodo
