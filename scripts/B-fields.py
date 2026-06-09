@@ -74,4 +74,4 @@ if __name__ == "__main__":
     ax0.set_ylabel(r"$\log_{10}(B_{\varphi}/\mathrm{[G]})$")
     plt.savefig('../manuscript/figures/B_grid.pdf')
     plt.savefig('../manuscript/figures/B_grid.png')
-    plt.show()
+    # plt.show()

@@ -41,4 +41,4 @@ if __name__ == "__main__":
     plt.savefig('../manuscript/figures/xi_M.pdf')
     # for README rendering
     plt.savefig('../manuscript/figures/xi_M.png')
-    plt.show()
+    # plt.show()
