@@ -42,7 +42,7 @@ if __name__ == "__main__":
         m = src[:, col.index("mass")]
         entropy = src[:, col.index("entropy")]
         ax0.plot(m, entropy, c='C0', alpha=0.3, lw=0.5, zorder=9)
-        ax0.axhline(4, 0, 1, lw=2, ls='--', c='k', zorder=0)
+        ax0.axhline(4, 0, 1, lw=2, ls='--', c='r', zorder=0)
         if M==40 and o==0.6:
             ax0.plot(m, entropy, lw=3, c='C1', zorder=9,
                      label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         ax1.plot(m, ye, c='C0', alpha=0.3, lw=0.5, zorder=1)
         if M==40 and o==0.6:
             ax1.plot(m, ye, lw=3, c='C1', zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
-            ax1.axvline(1.75, 0,1,ls='--', lw=2, zorder=9, c='k')
+            ax1.axvline(1.75, 0,1,ls='--', lw=2, zorder=9, c='r')
             try:
                 small_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
                 src, col = get_src_col(small_net)
