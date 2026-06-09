@@ -81,7 +81,7 @@ if __name__ == "__main__":
                 ye = src[:, col.index("ye")]
                 entropy = src[:, col.index("entropy")]
                 logr = src[:, col.index("logR")]
-                r = 10.0**logr
+                r = (10.0**logr)*Rsun_cm
                 omega = src[:, col.index("omega")]
                 j_specific = r*r*omega
                 ax0.plot(m, entropy, c='k', ls='-.', lw=1, zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n small network")
