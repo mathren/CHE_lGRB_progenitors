@@ -543,7 +543,7 @@ time-scale before the onset of collapse. This results in a very nearly
 adiabatic (i.e., constant $s$) profile without enough time left to
 relax. The mass location of these depends on the detailed evolution of
 each stellar model in our grid. The vertical axis is cut at
-$s=15\,k_{B}N_{A}$ to focus the visualization on the inner core where
+$s=15\,k_{B}N_{A}$ to focus on visualizing the inner core where
 stellar explosions are decided, and thus excludes the outer
 (higher-entropy) layers of the stars. The comparison between the solid
 orange line and the thin dash-dotted black line for the two
@@ -645,8 +645,9 @@ $\xi_{1.75}$ are more likely to result in BH formation, but this does
 not imply that the collapse does not result in a successful explosion since the accretion rate on the shock, and consequently the neutrino luminosity, thought to drive the shock, correlates positively with
 $\xi_{1.75}$ \cite[e.g.,][]{kuroda:18, ott:18, burrows:25}.
 % The colors in \Figref{fig:xi_M} indicate the initial rotation rate.
-Overall, slower rotation (darker colors) tends to lead to higher
-compactness, while increasing rotational support decreases the core density slightly and decreases $\xi_{1.75}$, but the trend is not
+Overall, slower rotation (darker colors) tends to result in higher
+compactness, while increasing rotational support decreases the core
+density slightly and decreases $\xi_{1.75}$, but the trend is not
 always respected, likely due to the high non-linearity of stellar
 evolution.
 
@@ -689,8 +690,8 @@ interacting binaries \citep{cantiello:07, ramirez-agudelo:15,
 boundary in ways that are not accounted for in our single-star models
 \citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, shah:26}.
 
-Nevertheless, observations of jetted explosions and lGRBs suggest
-that somehow, some stars reach core collapse with sufficient angular
+Nevertheless, observations of jetted explosions and lGRBs suggest that
+somehow, some stars reach core collapse with sufficient angular
 momentum to form accretion disks onto a seed compact object. This
 could be the product of accretion on the secondary in an interacting
 binary system \citep[e.g.,][]{cantiello:07}, stellar mergers retaining
@@ -702,7 +703,9 @@ evolves and contracts. We do not consider here the possibility of disk
 formation from stochastic angular momentum in extended convective
 envelopes \citep[e.g.,][]{quataert:19, shishkin:21,antoni:25} because
 lGRBs are associated with type Ic broad-line SNe that require
-hydrogen-free progenitors with compact envelopes.
+hydrogen-free progenitors with compact envelopes. We note however that
+all our progenitors retain helium at their surfaces
+(cf.~\Tabref{tab:explodability}).
 
 We do not attempt to investigate the detailed evolutionary scenarios
 leading to fast-rotating cores. Instead, we provide a computationally
@@ -737,20 +740,29 @@ for angular momentum transport uncertainties), and active topics of
 research.
 
 The 128-isotope nuclear reaction network we adopt is sufficient to
-resolve the density structure of the core. Increasing the network size further has a negligible impact on the electron fraction $Y_{e}$.
-This has been shown both with full stellar model calculations
+resolve the density structure of the core. Increasing the network size
+further has a negligible impact on the electron fraction $Y_{e}$. This
+has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
-\citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted here may still under-resolve the pre-collapse
-neutrino flux \citep[e.g.,][]{farag:20} and may not be suitable for
-detailed nucleosynthesis studies \citep[e.g.,][]{myers:26}.
+\citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted
+here may still under-resolve the pre-collapse neutrino flux
+\citep[e.g.,][]{farag:20} and may not be suitable for detailed
+nucleosynthesis studies \citep[e.g.,][]{myers:26}.
 
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
 \citealt{kunz:02}) are under active scrutiny in the community
 \citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, shen:23,
-  noll:25, tong:26}. Our choice of rates therefore inevitably influences the
-pre-collapse structures presented here, as is true  for any stellar models
-in the literature \citep[see also][]{fields:18}.
+  noll:25, tong:26}. Our choice of rates therefore inevitably
+influences the pre-collapse structures presented here, as is true for
+any stellar models in the literature \citep[see also][]{fields:18}.
+
+Finally, we also employ the ``split-burn'' mode of \textsc{MESA}, that
+is we solve separately for the composition (at fixed structure), and
+iterate on the structure (at fixed updated composition). While this
+approach is common in stellar evolution because of the large
+difference in the timescale for nuclear burning and other processes,
+it may introduce small numerical artifacts \citep[e.g.,][]{jermyn:23}.
 
 As with any set of stellar evolution calculations, the representation of
 the inherently three-dimensional convective flow
