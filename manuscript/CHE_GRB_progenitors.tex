@@ -529,13 +529,29 @@ burning. Minor differences occur only during thermal-timescale phases
 the outer layers of these envelope-less stars can be dynamically
 and/or numerically coupled to the core.
 
-
-
-\todo{edit below}
-\Figref{fig:multipanel} shows an overview of their evolution and
-structure at the onset of core-collapse,
-
-
+\Figref{fig:multipanel} shows an overview of their
+evolution and structure at the onset of core-collapse. The top left
+panel shows the specific entropy profiles $s$ of the innermost
+$m\le4\,M_{\odot}$. Nearly flat ``steps'' correspond to stellar
+regions that have experienced \emph{efficient} convection less than a
+local thermal time-scale before the onset of collapse. This results in
+a very nearly adiabatic (i.e., constant $s$) profile without enough
+time left to relax. The mass location of these depends on the detailed
+evolution of each stellar model in our grid. The vertical axis is cut
+at $s=15\,k_{B}N_{A}$ to focus the visualization on the inner core
+where stellar explosions are decided, and thus excludes the outer
+(higher-entropy) layers of the stars. The comparison between the solid
+orange line and the thin dash-dotted black line for the two
+$40\,M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ models
+differing only in size of the nuclear network shows very significant
+differences in the layers where explosions are decided. In this (and
+other) panels, the differences introduced by the simplification of the
+weak interactions is comparable or larger than the difference between
+pairs of models computed with large nuclear reaction networks of
+different mass and initial rotation. Thus, the systematic error
+introduced by a small nuclear reaction network biases inferences about
+the connection between progenitors, explosions, and remnants
+\citep{farmer:16, renzo:24}.
 
 The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
@@ -543,14 +559,8 @@ is the mass fraction of the $j$-th isotope with charge $+Z_{j}e$ and
 atomic mass $A_{j}$, in the innermost $m\le4\,M_{\odot}$ at the onset
 of core-collapse. Outside this mass coordinate $Y_e\simeq0.5$, while
 inside, weak reactions deleptonize the core and lower the $Y_{e}$,
-creating a profile consistent with the thermodynamic conditions in the
-evolving cores. Comparing the thick solid orange line to the black
-dot-dashed line, we see that the difference between these two
-$Y_{e}(m)$ profiles exceeds the variation among large-network models
-spanning different masses and initial rotation rates. Thus, the
-systematic error introduced by a small nuclear reaction network biases
-inferences about the connection between progenitors, explosions, and
-remnants \citep{farmer:16, renzo:24}.
+creating a profile consistent with the thermodynamics in the
+evolving cores.
 
 The bottom left panel of \Figref{fig:multipanel} depicts the full
 density profiles at the onset of collapse as a function of
@@ -566,49 +576,24 @@ initial accretion onto the shock generated at core-bounce, and thus
 the neutrino luminosity \citep[e.g.][]{vartanyan:21, burrows:24}.
 Finally, the density profile is also related to the angular momentum
 profile via the mass-continuity equation relating $\rho(m)$ and the
-radial distribution of mass $r(m)$. The comparison between
-the two $40\,M_{\odot}$, $\omega=0.6\,\omega_{\rm crit}$ models suggests that the collapse dynamics can be completely different from the weak interactions treatment.
+radial distribution of mass $r(m)$. The comparison between the two
+$40\,M_{\odot}$, $\omega=0.6\,\omega_{\rm crit}$ models suggests that
+the collapse dynamics can be completely different in these, creating a
+large systematic uncertainty on explosion models when relying on
+small nuclear reaction networks.
 
 The bottom right panel of \Figref{fig:multipanel} shows the specific
 angular momentum per unit mass $j=r^{2}\omega$ at the onset of
 core-collapse. This can be compared to the angular momentum of the
 innermost stable circular orbit of a putative seed BH to decide
-whether a disk forms before\citep[e.g.,][]{gottlieb:24}, during
+whether a disk forms before \citep[e.g.,][]{gottlieb:24}, during
 \citep[e.g.,][]{kasen:10} or after a proto-NS phase \cite[e.g.,][]{macfadyen:94,
-  perna:18}. On the scale of this panel, no
-visible difference exists between the thin black dot-dashed line for
-the 22-isotope network $40\,M_{\odot}$,
-$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model and the thick orange
-line corresponding to the 128-isotope model, we refer interested
-readers to the comparison in \cite{renzo:24} for more details.
-
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{entropy_grid}
-  \caption{ The orange
-    thick line shows the $40M_{\odot}$,
-    $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model from \cite{gottlieb:24}.}
-  \label{fig:entropy}
-\end{figure}
-
-An alternative way to characterize the structure of our models at the
-onset of core collapse is to look at the specific entropy profiles
-$s$, presented in \Figref{fig:entropy}. Nearly flat ``steps''
-correspond to stellar regions that have experienced \emph{efficient}
-convection less than a local thermal time-scale before the onset of
-collapse. This results in a very nearly adiabatic (i.e., constant $s$)
-profile without enough time left to relax. The mass location of these
-depends on the detailed evolution of each stellar model in our grid.
-\Figref{fig:entropy} vertical axis is cut at $s=15\,k_{B}N_{A}$ to
-focus the visualization on the inner core where stellar explosions are
-decided, and thus excludes the outer (higher-entropy) layers of the
-stars.
-
+  perna:18}.
 
 \begin{figure}[tbp]
   \includegraphics[width=0.5\textwidth]{B_grid.pdf}
-  \caption{Azimuthal (top) and radial (bottom) component of the
-    \emph{local} magnetic field generated by the Spruit-Tayler dynamo
+  \caption{Azimuthal (top) and radial (bottom, local) component of the
+    magnetic field generated by the Spruit-Tayler dynamo
     as a function of Lagrangian mass coordinate. The orange thick line
     shows the $40M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$
     model from \cite{gottlieb:24}.}
@@ -619,7 +604,7 @@ The Tayler-Spruit dynamo responsible for angular momentum transport in
 radiative regions of our CHE models generates magnetic fields.
 \Figref{fig:B} shows the azimuthal ($B_\varphi$, top) and the radial
 ($B_{r}$, bottom) components as a function of mass coordinate on a
-logarithmic scale at the onset of collapse. These magnetic fields are
+logarithmic scale at the onset of collapse. The former are
 \emph{local} and not large-scale coherently organized fields. We refer
 interested readers to \cite{gottlieb:24} (Sec.~2.1) for more details
 and how to calculate the magnetic flux advected during the initial
