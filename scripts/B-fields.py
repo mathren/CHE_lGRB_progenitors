@@ -2,6 +2,8 @@ import numpy as np
 import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import matplotlib as mpl
+import matplotlib.colors as mcolors
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
 
 
@@ -15,18 +17,38 @@ if __name__ == "__main__":
     ax0 = fig.add_subplot(gs[:50, :])
     ax1 = fig.add_subplot(gs[50:, :])
 
+    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
+    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
+    cmap = mpl.colormaps["viridis"].resampled(len(bounds) - 1)   # one color per interval
+    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+
     for mod in models:
+        M, o = get_model_initial_values(mod)
+        # select color
+        c=cmap(norm(o))
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
         src, col = get_src_col(pfile)
         m = src[:, col.index("mass")]
         Bphi = 10.0**(src[:, col.index("dynamo_log_B_phi")])
         Br = 10.0**(src[:, col.index("dynamo_log_B_r")])
-        ax0.plot(m, Bphi, c='C0', alpha=0.3, lw=0.5)
-        ax1.plot(m, Br, c='C0', alpha=0.3, lw=0.5)
-        M, o = get_model_initial_values(mod)
+        ax0.plot(m, Bphi, c=c, alpha=0.3, lw=0.5)
+        ax1.plot(m, Br, c=c, alpha=0.3, lw=0.5)
         if M==40 and o==0.99:
             ax0.plot(m, Bphi, lw=3, c='C1', zorder=10)
             ax1.plot(m, Br, lw=3, c='C1', zorder=10)
+    try:
+        small_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
+        src, col = get_src_col(small_net)
+        m = src[:, col.index("mass")]
+        Bphi = 10.0**(src[:, col.index("dynamo_log_B_phi")])
+        Br = 10.0**(src[:, col.index("dynamo_log_B_r")])
+        ax0.plot(m, Bphi, c='k', ls='-.', lw=1)
+        ax1.plot(m, Br, c='k', ls='-.', lw=1)
+    except FileNotFoundError:
+        print("No small net model")
+        print("This model is available at https://zenodo.org/records/11375523")
+        print("Download and unpack in ./data/SMALL_NET/")
+        pass
 
     ax0.set_ylim(1e4, 1e13)
     ax0.set_yscale('log')
@@ -52,3 +74,4 @@ if __name__ == "__main__":
     ax0.set_ylabel(r"$\log_{10}(B_{\varphi}/\mathrm{[G]})$")
     plt.savefig('../manuscript/figures/B_grid.pdf')
     plt.savefig('../manuscript/figures/B_grid.png')
+    # plt.show()

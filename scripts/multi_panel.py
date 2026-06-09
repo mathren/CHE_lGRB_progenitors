@@ -2,6 +2,8 @@ import numpy as np
 import glob
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
+import matplotlib as mpl
+import matplotlib.colors as mcolors
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
 
 def my_mark_inset(parent_axes, inset_axes, loc1a=1, loc1b=1, loc2a=2, loc2b=2, **kwargs):
@@ -33,15 +35,22 @@ if __name__ == "__main__":
     ax3 = fig.add_subplot(gs[3])
     zx = ax2.inset_axes([0.13, 0.11, 0.68, 0.4])
 
+    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
+    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
+    cmap = mpl.colormaps["viridis"].resampled(len(bounds) - 1)   # one color per interval
+    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+
     for mod in models:
         M, o = get_model_initial_values(mod)
+        # select color for all panels
+        c = cmap(norm(o))
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
         src, col = get_src_col(pfile)
 
         # Entropy -----------------------------------
         m = src[:, col.index("mass")]
         entropy = src[:, col.index("entropy")]
-        ax0.plot(m, entropy, c='C0', alpha=0.3, lw=0.5, zorder=9)
+        ax0.plot(m, entropy, c=c, alpha=0.3, lw=0.5, zorder=1)
         ax0.axhline(4, 0, 1, lw=2, ls='--', c='r', zorder=0)
         if M==40 and o==0.6:
             ax0.plot(m, entropy, lw=3, c='C1', zorder=9,
@@ -50,8 +59,8 @@ if __name__ == "__main__":
         # density -----------------------------
         logrho = src[:, col.index("logRho")]
         m = src[:, col.index("mass")]
-        ax2.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
-        zx.plot(m, logrho, c='C0', alpha=0.3, lw=0.5)
+        ax2.plot(m, logrho, c=c, alpha=0.3, lw=0.5)
+        zx.plot(m, logrho, c=c, alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
             ax2.plot(m, logrho, lw=3, c='C1', zorder=9)
             zx.plot(m, logrho, lw=3, c='C1', zorder=9)
@@ -62,17 +71,17 @@ if __name__ == "__main__":
         omega = src[:, col.index("omega")]
         j_specific = r*r*omega
         m = src[:, col.index("mass")]
-        ax3.plot(m, j_specific, c='C0', alpha=0.3, lw=0.5)
+        ax3.plot(m, j_specific, c=c, alpha=0.3, lw=0.5)
         if M==40 and o==0.6:
             ax3.plot(m, j_specific, lw=3, c='C1', zorder=9)
 
         # Ye ----------------------------------------------------
         m = src[:, col.index("mass")]
         ye = src[:, col.index('ye')]
-        ax1.plot(m, ye, c='C0', alpha=0.3, lw=0.5, zorder=1)
+        ax1.plot(m, ye, c=c, alpha=0.3, lw=0.5, zorder=1)
         if M==40 and o==0.6:
             ax1.plot(m, ye, lw=3, c='C1', zorder=10, label=r"$40\,M_{\odot},\ \frac{\omega_{\rm ZAMS}}{\omega_{\rm crit}}=0.6$"+"\n large network")
-            ax1.axvline(1.75, 0,1,ls='--', lw=2, zorder=9, c='r')
+            ax1.axvline(1.75, 0,1,ls='--', lw=2, zorder=0, c='r')
             try:
                 small_net = "../data/SMALL_NET/40_rot0.6_small_net/LOGS1/CHE_single_core_collapse.data"
                 src, col = get_src_col(small_net)
@@ -135,3 +144,4 @@ if __name__ == "__main__":
     fig.align_ylabels()
     plt.savefig('../manuscript/figures/multipanel_grid.pdf')
     plt.savefig('../manuscript/figures/multipanel_grid.png')
+    # plt.show()
