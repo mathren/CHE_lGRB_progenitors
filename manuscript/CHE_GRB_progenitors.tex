@@ -105,6 +105,7 @@
   \uat{Collapsars}{2066} ---
   \uat{Supernovae}{1668} ---
   \uat{Long gamma-ray bursts}{181}}
+
 \section{Introduction}
 \label{sec:intro}
 
@@ -251,15 +252,15 @@ Despite the importance of fast-rotating progenitors for jetted
 explosions, collapsars, magnetohydrodynamic-explosions, and/or long
 $\gamma$-ray burst (lGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
-such stellar models exist. To the best of our knowledge, these
-are limited to the \textsc{KEPLER} models from \cite{woosley:06},
-which use the adaptive nuclear reaction network from \cite{heger:00},
-and the \textsc{MESA} models of \cite{aguilera-dena:18,
-  aguilera-dena:20}, which adopt a small nuclear reaction network that
-cannot fulfill condition \emph{ii}). Alternatively, non-rotating
-stellar models endowed with ad-hoc angular momentum and magnetic field
-profiles that are not consistent with the progenitor evolution are
-often used \cite[e.g.,][]{siegel:22, gottlieb:25}.
+such stellar models exist. To the best of our knowledge, these are
+limited to the \textsc{KEPLER} models from \cite{woosley:06}, which
+use the adaptive nuclear reaction network from \cite{heger:00}, and
+the \textsc{MESA} models of \cite{aguilera-dena:18, aguilera-dena:20},
+which adopt a small nuclear reaction network that cannot fulfill
+condition \emph{ii}). Alternatively, non-rotating stellar models
+endowed with ad-hoc angular momentum and magnetic field profiles that
+are not consistent with the progenitor evolution are often used
+\cite[e.g.,][]{siegel:22, gottlieb:25}.
 
 This bottleneck arises from the substantial computational cost of
 evolving massive stars with large nuclear-reaction networks required
@@ -308,7 +309,10 @@ $\omega_\mathrm{crit}=\sqrt{(1-L/L_\mathrm{Edd})GM/R^3}$ is the
 surface critical rotation rate accounting for radiative forces, $L$ is
 the stellar luminosity, $L_\mathrm{Edd}$ the Eddington luminosity, $G$
 is the gravitational constant, $M$ is the total mass and $R$ the
-stellar radius.
+stellar radius. We focus on fast-rotating models to minimize numerical
+issues in the envelopes \citep[e.g.][]{joss:73, paxton:13} and produce
+sufficiently fast rotating core-collapse progenitors for explosions
+studies where angular momentum and magnetic field play a role.
 
 We use the \textsc{Skye} equation of state \citep{jermyn:skye}, and
 include electron screening following \citet{Chugunov2007} and thermal
@@ -831,12 +835,13 @@ will be adopted in future numerical studies of the explosions
 of rotating massive stars.\\
 
 
-\software{This study made use of the following software packages:
-  \textsc{MESA} \citep{paxton:11, paxton:13, paxton:15, paxton:19,
-    jermyn:23}, \texttt{python} \citep{python}, \texttt{numpy}
-  \citep{numpy}, \texttt{scipy} \citep{2020SciPy-NMeth,scipy_8079889},
-  and \texttt{matplotlib} \citep{Hunter:2007}. Software citation
-  information aggregated using
+\software{This research has made use of the Astrophysics Data System,
+  funded by NASA under Cooperative Agreement 80NSSC21M00561. We used
+  the following software packages: \textsc{MESA} \citep{paxton:11,
+    paxton:13, paxton:15, paxton:19, jermyn:23}, \texttt{python}
+  \citep{python}, \texttt{numpy} \citep{numpy}, \texttt{scipy}
+  \citep{2020SciPy-NMeth,scipy_8079889}, and \texttt{matplotlib}
+  \citep{Hunter:2007}. Software citation information aggregated using
   \texttt{\href{https://www.tomwagg.com/software-citation-station/}{The
       Software Citation Station}}
   \citep{software-citation-station-paper,software-citation-station-zenodo}.}
