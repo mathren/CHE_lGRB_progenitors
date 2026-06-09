@@ -112,15 +112,20 @@ Run [[./scripts/grid_success.py]] manually to create:
 
 [[./manuscript/figures/overview_grid.png]]
 
-*** Figure 2 - Multipanel
+*** Figure 2 - Herzsprung-Russel diagram
+Run [[./scripts/HRD.py]] manually to create
+
+[[./manuscript/figures/HRD.png]]
+
+*** Figure 3 - Multi-panel
 
 Individual panels can be generated from the notebook
-[[scritps/grid_plots.ipynb]]. Run [[scripts/multi_panel.py]] to generate the
-multipanel figure.
+[[scritps/grid_plots.ipynb]] (⚠️ may be out of date). Run
+[[scripts/multi_panel.py]] to generate the multipanel figure.
 
-**** Herzsprung-Russel diagram
+**** Entropy profiles
 
-[[./manuscript/figures/HRD_grid.png]]
+[[./manuscript/figures/entropy_grid.png]]
 
 **** Electron fraction Y_{e}
 
@@ -133,11 +138,6 @@ multipanel figure.
 **** Specific angular momentum profiles
 
 [[./manuscript/figures/j_grid.png]]
-
-*** Figure 3 - Entropy profile
-
-Run [[scripts/entropy.py]] to generate
-[[./manuscript/figures/entropy_grid.png]]
 
 *** Figure 4 - Tayler-Spruit generated magnetic fields
 
