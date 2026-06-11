@@ -186,19 +186,20 @@ bypassing the hydrostatic silicon core-burning phase.
 
 In all other progenitors, electron captures occur at a significant
 rate even during the hydrostatic silicon core burning phase, and
-before a model is sufficiently evolved according to \emph{i}). Even adopting a ``quasi-statistical equilibrium''
-approximation, the weak reactions do not reach a steady-state since
-most occur when matter is still transparent to neutrinos. Capturing
-these weak interactions in sufficient detail to characterize the
-stellar \emph{structure} at the onset of collapse requires considering
-$N\sim100$ isotopes \citep[e.g.,][]{farmer:16, grichener:25}. To
-decrease the computing time and number of models failing because of
-numerical issues in a grid of stellar progenitors, a commonly adopted
-shortcut is to use small ($N\sim$20-isotope) nuclear reaction networks
+before a model is sufficiently evolved according to \emph{i}). Even
+adopting a ``quasi-statistical equilibrium'' approximation, the weak
+reactions do not reach a steady-state since most occur when matter is
+still transparent to neutrinos. Capturing these weak interactions in
+sufficient detail to characterize the stellar \emph{structure} at the
+onset of collapse requires considering $N\sim100$ isotopes
+\citep[e.g.,][]{farmer:16, grichener:25}. To decrease the computing
+time and number of models failing because of numerical issues in a
+grid of stellar progenitors, a commonly adopted shortcut is to use
+small ($N\sim$20-isotope) nuclear reaction networks
 \citep[e.g.,][]{pols:95, timmes:00}. These bypass the complex nuclear
 and weak physics of silicon core burning by lumping all weak
 interactions in a custom compound reaction (see
-\citealt{grichener:25}), effectively sacrificing the accuracy of the
+\citealt{timmes:00, marchant:19, grichener:25}), effectively sacrificing the accuracy of the
 core structure that decides the explosion. Even if such a compound
 reaction is tuned on the central value of the electron fraction
 $Y_{e, c}$ from models computed with more accurate nuclear reaction
@@ -244,7 +245,7 @@ explosion outcome \citep[e.g.,][]{farmer:16, renzo:17,davis:19,
 progenitors fulfilling both conditions \emph{i}) and \emph{ii})
 computed with the open-source and community-driven code \textsc{MESA}
 \citep[e.g.,][]{farmer:16, renzo:17, farag:20, laplace:21, farmer:23,
-  myers:26} have largely been under-utilized for initializing
+  myers:26} remain largely unexplored in
 explosion simulations \citep[see however][]{vartanyan:21, gottlieb:24,
   chan:26}.
 
@@ -480,9 +481,7 @@ $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model used as progenitor in
 \cite{gottlieb:24}, highlighted as a guideline. The thin black
 dot-dashed line is the same model computed with a 22-isotope network
 from \cite{renzo:24} available from
-\href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522},
-shown to illustrate the importance of a comprehensive treatment of
-weak interactions for progenitors at the onset of collapse.
+\href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522}.
 
 The stars evolve from the bottom right toward the top left. Because of
 the large rotation imposed at birth, these models experience CHE
@@ -564,29 +563,29 @@ differences in the layers where explosions are decided. In this (and
 other) panels, the differences introduced by the simplification of the
 weak interactions is comparable or larger than the difference between
 pairs of models of different mass and initial rotation computed with
-large nuclear reaction networks. Thus, the systematic error
-introduced by a small nuclear reaction network biases inferences about
-the connection between progenitors, explosions, and remnants
+large nuclear reaction networks. Thus, the systematic error introduced
+by a small nuclear reaction network biases inferences about the
+connection between progenitors, explosions, and remnants
 \citep{farmer:16, renzo:24}.
 
 The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
 is the mass fraction of the $j$-th isotope with charge $+Z_{j}e$ and
-atomic mass $A_{j}$, in the innermost $m\le4\,M_{\odot}$ at the onset
+atomic mass $A_{j}$, in the innermost mass coordinate $m\le4\,M_{\odot}$ at the onset
 of core-collapse. Outside this mass coordinate $Y_e\simeq0.5$, while
 inside, weak reactions deleptonize the core and lower the $Y_{e}$,
-creating a profile consistent with the thermodynamics in the
-evolving cores.
+creating a profile consistent with the thermodynamics in the evolving
+cores.
 
 The bottom left panel of \Figref{fig:multipanel} depicts the full
 density profiles at the onset of collapse as a function of
 $\log_{10}(m/M_{\odot})$, to focus on the inner layers of our CHE
-models. The inset panel shows the innermost $m<5\,M_{\odot}$ on a
-linear scale. The density profile $\rho(m)$ in these inner layers
-depends strongly on the $Y_{e}(m)$ because of the contribution of
-electron degeneracy pressure to the support of the core, and it
-determines the infall velocity profile once electron captures (and
-later photodisintegration) remove pressure support
+models. The inset panel shows the innermost mass coordinate
+$m<5\,M_{\odot}$ on a linear scale. The density profile $\rho(m)$ in
+these inner layers depends strongly on the $Y_{e}(m)$ because of the
+contribution of electron degeneracy pressure to the support of the
+core, and it determines the infall velocity profile once electron
+captures (and later photodisintegration) remove pressure support
 \citep[e.g.,][]{janka:12}. Moreover, the density determines the
 initial accretion onto the shock generated at core-bounce, and thus
 the neutrino luminosity \citep[e.g.][]{vartanyan:21, burrows:24}.
@@ -595,8 +594,8 @@ profile via the mass-continuity equation relating $\rho(m)$ and the
 radial distribution of mass $r(m)$. The comparison between the two
 $40\,M_{\odot}$, $\omega=0.6\,\omega_{\rm crit}$ models suggests that
 the collapse dynamics can be completely different in these, creating a
-large systematic uncertainty on explosion models when relying on
-small nuclear reaction networks.
+large systematic uncertainty on explosion models when relying on small
+nuclear reaction networks.
 
 The bottom right panel of \Figref{fig:multipanel} shows the specific
 angular momentum per unit mass $j=r^{2}\omega$ at the onset of
@@ -605,9 +604,9 @@ innermost stable circular orbit of a putative seed BH to decide
 whether a disk forms before \citep[e.g.,][]{gottlieb:24} or during a
 proto-NS phase \citep[e.g.,][]{kasen:10}, or after the formation of
 the BH \cite[e.g.,][]{macfadyen:94, perna:18}. With our modeling
-assumptions, the first two options appear to be more common in our
-grid, meaning our models retain a large amount of angular momentum at
-the onset of collapse.
+assumptions, disk formation before BH formation appears to be more
+common in our grid, meaning our models retain a large amount of
+angular momentum at the onset of collapse.
 
 \begin{figure}[tbp]
   \includegraphics[width=0.5\textwidth]{B_grid.pdf}
@@ -648,7 +647,7 @@ phases of a core collapse.
   \label{eq:compactness}
   \xi_{\mathcal{M}}=\frac{\mathcal{M}/M_{\odot}}{r(\mathcal{M})/1000\,\mathrm{km}} \ \ ,
 \end{equation}
-against the initial mass $M_{\rm ZAMS}$. We use
+against the initial total mass $M_{\rm ZAMS}$. We use
 $\mathcal{M}=1.75\,M_{\odot}$ to calculate the compactness following
 \cite{burrows:24}, highlighted also by the vertical black dashed line
 in the top right panel of \Figref{fig:multipanel}. Large values of
@@ -786,7 +785,7 @@ literature \citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20}
 may not be appropriate in every stellar environment
 \citep[e.g.][]{joyce:18,chun:18} or for every convective layer
 in the stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26},
-and does not include the latest updates from stellar hydrodynamic simulations
+and does not include the latest advances from stellar hydrodynamic simulations
 \citep[e.g.][]{schultz:20,anders:22, rizzuti:23, johnston:24}.
 
 Perhaps more importantly, our models adopt an artificial strategy to
@@ -796,7 +795,7 @@ efforts to improve \textsc{MESA} are aimed at addressing this issue.
 
 Despite these inevitable caveats, which are inherent to numerical models
 that depend on input physics and physical processes under active
-investigation, our models provide a significant update in the context
+investigation, our models provide a significant advance in the context
 of fast-rotating CHE stars evolved to the onset of core collapse.
 
 
@@ -823,7 +822,7 @@ necessary.
 Despite the inevitable algorithmic and input physics limitations
 inherent in numerical models (especially of astrophysical systems
 represented by very stiff sets of equations), our progenitor grid
-constitutes a significant update in both input physics and numerical
+constitutes a significant advance in both input physics and numerical
 accuracy for rapidly rotating collapsing stellar progenitors. By
 providing controlled pre-collapse models with substantial angular
 momentum, this grid offers useful initial conditions for numerical
