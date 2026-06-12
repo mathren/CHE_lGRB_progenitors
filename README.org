@@ -87,7 +87,6 @@ wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/14286306/files/g
 #+end_src
 when the zenodo repo becomes public.
 
-
 ** How to reproduce the simulations
 
 These where done with [[./mesastar.org][MESA]], version =r24.03.1=, with the MESA SDK
