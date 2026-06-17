@@ -30,32 +30,25 @@
 \affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 \email{mrenzo@arizona.edu}
 
-
-\author[]{\todo{order TBD}}
-\affiliation{\todo{somewhere}}
-\email{\todo{someone@somewhere.edu}}
-
-
 \author[0000-0003-3115-2456]{O.~Gottlieb}
-\affil{Department of Physics and Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
+\affiliation{Department of Physics and Kavli Institute for Astrophysics and Space Research, Massachusetts Institute of Technology, Cambridge, MA 02139, USA}
+\affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 \email{ogot@mit.edu}
 
-
 \author[0000-0003-2776-082X]{H.~S.~Chan}
-\affiliation{ILA, University of Colorado and National Institute of Standards and Technology, 440 UCB, Boulder, CO 80309-0440, USA
-Department of Astrophysical and Planetary Sciences, University of Colorado, 391 UCB, Boulder, CO 80309, USA}
+\affiliation{ILA, University of Colorado and National Institute of Standards and Technology, 440 UCB, Boulder, CO 80309-0440, USA}
+\affiliation{Department of Astrophysical and Planetary Sciences, University of Colorado, 391 UCB, Boulder, CO 80309, USA}
 \affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 \email{hschanastrophy1997@gmail.com}
-
-\author[0000-0002-2215-1841]{A.~Grichener}
-\affiliation{Steward Observatory, Department of Astronomy, University of Arizona, 933 N. Cherry Ave., Tucson, AZ 85721, USA}
-\email{\todo{agrichener@arizona.edu}}
-
 
 \author[0000-0003-1012-3031]{J.~A.~Goldberg}
 \affiliation{Department of Physics and Astronomy, Michigan State University, East Lansing, MI 48824, USA}
 \affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
 \email{goldstar@msu.edu}
+
+\author[0000-0002-2215-1841]{A.~Grichener}
+\affiliation{Steward Observatory, Department of Astronomy, University of Arizona, 933 N. Cherry Ave., Tucson, AZ 85721, USA}
+\email{\todo{agrichener@arizona.edu}}
 
 \author[0000-0002-8134-4854]{K.~Sen}
 \affiliation{Steward Observatory, Department of Astronomy, University of Arizona, 933 N. Cherry Ave., Tucson, AZ 85721, USA}
@@ -65,13 +58,19 @@ Department of Astrophysical and Planetary Sciences, University of Colorado, 391 
 \affiliation{Steward Observatory, Department of Astronomy, University of Arizona, 933 N. Cherry Ave., Tucson, AZ 85721, USA}
 \email{neevshah@arizona.edu}
 
-\author[]{E.~Farag}
+\author[0000-0002-5794-4286]{E.~Farag}
+\affiliation{Department of Astronomy, Yale University, New Haven, CT 06511, USA}
+\email{ebraheem.farag@yale.edu}
+
+\author[0000-0002-8171-8596]{Matteo Cantiello}
+\affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
+\affiliation{Department of Astrophysical Sciences, Princeton University, Princeton, NJ 08544, USA}
+\email{mcantiello@flatironinstitute.org}
+
+\author[]{\todo{order TBD}}
 \affiliation{\todo{somewhere}}
 \email{\todo{someone@somewhere.edu}}
 
-\author[]{M.~Cantiello}
-\affiliation{Center for Computational Astrophysics, Flatiron Institute, 162 5th Avenue, New York, NY 10010, USA}
-\email{mcantiello@flatironinstitute.org}
 
 \begin{abstract}
   %
@@ -98,8 +97,9 @@ Department of Astrophysical and Planetary Sciences, University of Colorado, 391 
   %
   Therefore, these progenitor structures provide a homogeneous set of
   models with updated input physics and improved algorithmic accuracy
-  to understand (jetted) stellar explosions,
-  (magneto-hydrodynamical) supernovae, collapsars, and long
+  to understand (possibly jetted) stellar explosions,
+  (magneto-hydrodynamical) stripped-envelope supernovae, type Ib/c,
+  possibly broad-lined, collapsars, and long
   $\gamma$-ray bursts.
 \end{abstract}
 \keywords{
@@ -142,7 +142,7 @@ that uncertainties in the stellar progenitor structure are dominant is
 emerging \citep[e.g.,][]{sukhbold:16, farmer:16, renzo:17, mueller:17,
   limongi:18, davis:19, laplace:21, fields:22, bruenn:23,
   schneider:24, boccioli:24, renzo:24, burrows:25, maltsev:25,
-  griffiths:26}.
+  griffiths:26, myers:26}.
 
 The structure of the stellar core of a progenitor model at the onset
 of collapse determines the initial conditions for expensive
@@ -186,7 +186,7 @@ For \emph{ii}), stellar progenitor models used to study the explosion
 physics must accurately capture the progenitor's density and angular
 momentum structure. Any star evolving through silicon core burning
 will experience copious amounts of electron captures
-\cite[e.g.,][]{arnett:77,hix:93,hix:99,grichener:25} which
+\cite[e.g.,][]{arnett:77,hix:93,hix:99,grichener:25, myers:26} which
 progressively de-leptonize the core (i.e., decrease the amount of free
 electrons). The notable exceptions to this are ``electron-capture'' SN
 progenitors which collapse with an ONeMg-rich core (however, these too
@@ -387,7 +387,7 @@ To produce progenitors sufficiently close to core-bounce (condition
 \emph{i}) in \Secref{sec:intro}), we evolve each model until the
 infall velocity in the iron core decreases below
 $v_{\rm infall}\le-300\,\mathrm{km\ s^{-1}}$
-\citep[e.g.,][]{farmer:23, gottlieb:24}. This threshold is motivated
+\citep[e.g.,][]{farmer:23, gottlieb:24, myers:26}. This threshold is motivated
 by the numerical experiments performed in \cite{gottlieb:24}, where we
 showed that the physical time remaining between this point and the
 canonical threshold of $-1000\,\mathrm{km \ s^{-1}}$ is much shorter
@@ -780,9 +780,9 @@ further has a negligible impact on the electron fraction $Y_{e}$. This
 has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
 \citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted
-here may still under-resolve the pre-collapse neutrino flux
-\citep[e.g.,][]{farag:20} and may not be suitable for detailed
-nucleosynthesis studies \citep[e.g.,][]{myers:26}.
+here may still under-resolve the pre-collapse high-energy neutrino
+flux \citep[e.g.,][]{farag:20, myers:26} and may not be suitable for
+detailed nucleosynthesis studies \citep[e.g.,][]{woosley:02, woosley:07}.
 
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
@@ -875,6 +875,8 @@ of rotating massive stars.\\
 \begin{acknowledgements}
   MR is grateful to N.~Britavskyi for many inspiring conversations on
   stellar rotation, and was partially supported by NSF-AST-2510584.
+  J.A.G. acknowledges financial support from NASA grant 23-ATP23-0070.
+  The Flatiron Institute is supported by the Simons Foundation.
 \end{acknowledgements}
 
 \bibliographystyle{aasjournalv7}
