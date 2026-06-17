@@ -67,11 +67,6 @@
 \affiliation{Department of Astrophysical Sciences, Princeton University, Princeton, NJ 08544, USA}
 \email{mcantiello@flatironinstitute.org}
 
-\author[]{\todo{order TBD}}
-\affiliation{\todo{somewhere}}
-\email{\todo{someone@somewhere.edu}}
-
-
 \begin{abstract}
   %
   The understanding of the mechanism(s) by which massive stars
@@ -97,10 +92,9 @@
   %
   Therefore, these progenitor structures provide a homogeneous set of
   models with updated input physics and improved algorithmic accuracy
-  to understand (possibly jetted) stellar explosions,
-  (magneto-hydrodynamical) stripped-envelope supernovae, type Ib/c,
-  possibly broad-lined, collapsars, and long
-  $\gamma$-ray bursts.
+  to understand stellar explosions of (some types of)
+  stripped-envelope supernovae, possibly jetted and/or broad-lined,
+  collapsars or magnetar-powered, and/or long $\gamma$-ray bursts.
 \end{abstract}
 \keywords{
   \uat{High Energy astrophysics}{739} ---
@@ -127,7 +121,7 @@ transients \citep[e.g.,][]{cano:17}. The interest in the origin of
 transients and compact objects is even more timely in the era of
 large time-domain surveys (e.g., Rubin/LSST, \citealt{ivezic:19}) and
 routine detections of gravitational-wave mergers
-\citep[e.g.,][]{abac:25, GWTC-5}.
+\citep[e.g.,][]{gw150914, mandel:22, abac:25, GWTC-5}.
 
 Recent progress in SN theory has produced unprecedented agreement
 among numerical simulations of neutrino-radiative transfer of core
@@ -139,19 +133,19 @@ onto the shock can lead to successful stellar explosions
 mechanism, including the role of rotation and magnetic fields remain
 debated \cite[e.g.,][]{soker:24, gottlieb:25}, a consensus on the fact
 that uncertainties in the stellar progenitor structure are dominant is
-emerging \citep[e.g.,][]{sukhbold:16, farmer:16, renzo:17, mueller:17,
-  limongi:18, davis:19, laplace:21, fields:22, bruenn:23,
-  schneider:24, boccioli:24, renzo:24, burrows:25, maltsev:25,
-  griffiths:26, myers:26}.
+emerging \citep[e.g.,][]{woosley:02, sukhbold:16,
+  farmer:16, renzo:17, mueller:17, limongi:18, davis:19, laplace:21,
+  woosley:21, fields:22, bruenn:23, schneider:24, boccioli:24,
+  renzo:24, burrows:25, maltsev:25, griffiths:26, myers:26}.
 
 The structure of the stellar core of a progenitor model at the onset
 of collapse determines the initial conditions for expensive
-multi-dimensional, multi-physics (and often multi-million-CPU/GPU
+multi-dimensional, multi-physics (and often multi-million-CPU
 hours) simulations \citep[e.g.,][]{janka:12, mueller:16rev,
   takiwaki:16, vartanyan:21, gottlieb:25}. Specifically, the profile
 (of density, entropy, velocity, angular momentum, magnetic fields,
 etc.,~as a function of Lagrangian mass coordinate or radius)
-determines the dynamics of the infalling gas, and the ``over-burden''
+determines the dynamics of the infalling gas and the ``over-burden''
 caused by the accretion of outer layers through a putative
 nascent outflow \citep[e.g.,][]{bruenn:13, bruenn:16}. Therefore, it
 is the structure of the collapsing progenitor that determines whether
@@ -162,7 +156,7 @@ the associated transients, and final remnants
 \citep[e.g.,][]{kuroda:18, ott:18, vartanyan:19, burrows:24}.
 
 A current bottleneck in numerical simulations of stellar explosions
-studies is the lack of models of stellar progenitors computed
+is the lack of models of stellar progenitors computed
 \emph{i}) sufficiently late into the collapse and \emph{ii}) including
 sufficient (nuclear and weak) physics to capture the known critical
 ingredients for the explosion. This is especially true for fast
@@ -265,7 +259,7 @@ unexplored in explosion simulations \citep[see
 however][]{vartanyan:21, gottlieb:24, chan:26}.
 
 Despite the importance of fast-rotating progenitors for jetted
-explosions, collapsars, magnetohydrodynamic-explosions, and/or long
+explosions, collapsars, magneto-hydrodynamic-explosions, and/or long
 $\gamma$-ray burst (LGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
 such stellar models exist. To the best of our knowledge, these are
@@ -287,9 +281,9 @@ detail\footnote{Neglecting sparsity, the size of the matrix to solve
 the equations (see \citealt{grichener:25}), which results in large
 fractions of progenitor stars encountering numerical issues before
 reaching the desired infall velocity. These can manifest at the
-surface or in the core, and can often be an unclear mixture of
-poorly-resolved physical phenomena or purely algorithmic problems.
-Development of numerical strategies to address these issues are
+surface or in the core (or both), and can often be an unclear mixture of
+poorly-resolved physical phenomena and purely algorithmic problems.
+Development of numerical strategies to clarify and address these issues are
 ongoing \citep[e.g.,][]{paxton:13, jermyn:23,
   grichener:25,griffiths:25}.
 
@@ -347,7 +341,7 @@ plus additional tabulated weak reaction rates \citet{Fuller1985,
 deleptonization of the core from the structural point of view
 (condition \emph{ii}) in \Secref{sec:intro}), we adopt the
 fully-coupled 128-isotope nuclear reaction network
-\texttt{mesa\_128.net} \citep{farmer:16}. For central temperatures
+\texttt{mesa\_128.net} \citep[see Appendix.~\ref{appendix:iso} and]{farmer:16}. For central temperatures
 above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split
 mode, that is we iteratively solve for the structure at fixed composition, and
 viceversa \citep[e.g., Sec.~10 in][]{jermyn:23}.
@@ -372,14 +366,13 @@ transport by convection or by a ``classical'' Tayler-Spruit dynamo
 All the models presented here result by construction in a
 rotationally-driven chemically homogeneous evolution \cite[CHE,
 e.g.,][]{maeder:00, yoon:06}. This limits (but does not eliminate) the
-number of numerical issues occurring in the envelope.
-After the formation of a carbon-oxygen core, we prevent the
-development of spurious numerical velocities in the outer layers. We
-artificially set to zero the velocity in any layer that has a
-sound-propagation time from the outer edge of the carbon-oxygen core,
-or the location where the specific entropy drops below
-$s\le10.5\,k_{B}N_{A}$, whichever is further in, longer than the
-current timestep. Similar artificial damping exists in most
+number of numerical issues occurring in the envelope. After the
+formation of a carbon-oxygen core, we prevent the development of
+spurious numerical velocities in the outer layers. We artificially set to zero the
+velocity in any layer with sound-propagation time to the surface longer
+than the current timestep, either from the outer edge of
+this core, or the location where the specific entropy drops below
+$s\le10.5\,k_{B}N_{A}$, whichever is further in. Similar artificial damping exists in most
 calculations of post-core-carbon burning massive stars
 \citep[e.g.,][]{aguilera-dena:18}.
 
@@ -397,11 +390,11 @@ fields. % We re-implement the checks on the infall velocity in
 % our \texttt{run\_star\_extras.f90} to avoid known bugs (already fixed
 % in newer \textsc{MESA} versions).
 
-Numerical resolution should always be tested in stellar models
-\citep[e.g.,][]{farmer:16}. We refer readers to the appendix of
-\cite{gottlieb:24} for tests on the spatial and temporal resolution of
-these models, performed with the same setup and code on the initially
-$40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ star.
+Spatial and temporal resolution should always be tested in numerical
+models of stellar evolution \citep[e.g.,][]{farmer:16}. We refer
+readers to the appendix of \cite{gottlieb:24} for resolution tests
+performed with the same setup and code on the initially
+$40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
 
 \section{Results}
 \label{sec:results}
@@ -968,6 +961,9 @@ some helium-rich material can appear in the core very late due to
 photodisintegration of iron-group nuclei).
 
 \input{table.tex}
+
+\section{\texttt{mesa\_128.net}}
+\input{mesa_128.tex}
 
 \end{document}
 
