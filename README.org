@@ -160,6 +160,12 @@ Run [[scripts/B-fields.py]] to generate
 Run [[scripts/xi_M.py]] to generate
 [[./manuscript/figures/xi_M.png]]
 
+*** Figure 6 - =mesa_128.net= and =approx21_cr60_plus_co56
+
+Run [[scripts/plot_network_128.py]] to generate
+
+[[./manuscript/figures/network_128.png]]
+
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
 the content can be generated with [[./scripts/make_table_content.py]] and
