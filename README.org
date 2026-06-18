@@ -184,9 +184,5 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
   tar (GNU tar) 1.35
 #+END_SRC
 
-** TODO lGRB progenitors
-- [X] make [[./scripts/data_prep.sh]] download only =grid.tar=
-- [X] add =scripts= tarball to zenodo
-- [X] Confirm OS on =rusty= (@matteocantiello)
-- [ ] fix download script for when repo is public
+** TODO list
 - [ ] add zenodo repo to MESA community
