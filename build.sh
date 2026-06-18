@@ -98,6 +98,8 @@ if ! $NO_FIGURES && ask "Generate figures?"; then
 	mamba run -n CHE_jet python B-fields.py
 	echo "  ▶ Figure 5: ./scripts/xi_M.py"
 	mamba run -n CHE_jet python xi_M.py
+	echo "  ▶ Figure 6: ./scripts/plot_network_128.py"
+	mamba run -n CHE_jet python plot_network_128.py
 	cd ..
 	echo "✓ Figures done."
     else
