@@ -1,0 +1,7 @@
+# ignore everything here
+*
+# force the data for the nuclear reaction networks
+!store_net_info.txt
+!mesa_128.net
+!approx21.net
+!approx21_cr60_plus_co56.net
