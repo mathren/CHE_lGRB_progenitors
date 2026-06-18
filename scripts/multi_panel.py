@@ -131,8 +131,6 @@ if __name__ == "__main__":
 
     ax3.set_xscale('log')
     ax3.set_xlim(1e-1, 50)
-    ax3.set_yticks([1e15, 1e17, 1e19], minor=True)
-    ax3.set_yticklabels([], minor=True)
     ax3.set_xlabel(r"$m\ [M_{\odot}]$")
     ax3.set_ylabel(r"$\log_{10}(j/\mathrm{[cm^{2}\ s^{-1}]})$")
 
