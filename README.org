@@ -10,6 +10,9 @@
 </p>
 #+END_html
 
+Analysis and manuscript for Renzo, Gottlieb et al. 2026, submitted to
+AAS Journals.
+
 ** How to build the paper
 
 *TL;DR*: run =build.sh=, it will interactively ask whether to download
