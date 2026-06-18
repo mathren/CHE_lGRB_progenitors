@@ -496,7 +496,7 @@ $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ model used as progenitor in
 \cite{gottlieb:24}, highlighted as a guideline. The thin black
 dot-dashed line is the same model computed with a 22-isotope network
 from \cite{renzo:24} available from
-\href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522}.
+\href{https://doi.org/10.5281/zenodo.11375522}{doi.org/10.5281/zenodo.11375522}.
 
 The stars evolve from the bottom right toward the top left. Because of
 the large rotation imposed at birth, these models experience CHE
@@ -602,7 +602,7 @@ contribution of electron degeneracy pressure to the support of the
 core, and it determines the infall velocity profile once electron
 captures (and later photodisintegration) remove pressure support
 \citep[e.g.,][]{janka:12}. Moreover, the density determines the
-initial accretion onto the shock generated at core-bounce, and thus
+initial accretion onto the shock generated at core bounce, and thus
 the neutrino luminosity \citep[e.g.][]{vartanyan:21, burrows:24}.
 Finally, the density profile is also related to the angular momentum
 profile via the mass-continuity equation relating $\rho(m)$ and the
@@ -610,7 +610,7 @@ radial distribution of mass $r(m)$. The comparison between the two
 $40\,M_{\odot}$, $\omega=0.6\,\omega_{\rm crit}$ models suggests that
 the collapse dynamics can be completely different in these, creating a
 large systematic uncertainty on explosion models when relying on small
-nuclear reaction networks.
+nuclear reaction networks \citep[e.g.,][]{renzo:24}.
 
 The bottom right panel of \Figref{fig:multipanel} shows the specific
 angular momentum per unit mass $j=r^{2}\omega$ at the onset of
@@ -664,11 +664,14 @@ phases of a core collapse.
 \end{equation}
 against the initial total mass $M_{\rm ZAMS}$. We use
 $\mathcal{M}=1.75\,M_{\odot}$ to calculate the compactness following
-\cite{burrows:24}, highlighted also by the vertical black dashed line
-in the top right panel of \Figref{fig:multipanel}. Large values of
-$\xi_{1.75}$ are more likely to result in BH formation, but this does
-not imply that the collapse does not result in a successful explosion since the accretion rate on the shock, and consequently the neutrino luminosity, thought to drive the shock, correlates positively with
-$\xi_{1.75}$ \cite[e.g.,][]{kuroda:18, ott:18, burrows:25}.
+\cite{burrows:24} (see also \citealt{ugliano:12}), highlighted also by
+the vertical black dashed line in the top right panel of
+\Figref{fig:multipanel}. Large values of $\xi_{1.75}$ are more likely
+to result in BH formation, but this does not imply that the collapse
+does not result in a successful explosion since the accretion rate on
+the shock, and consequently the neutrino luminosity, thought to drive
+the shock, correlates positively with $\xi_{1.75}$
+\cite[e.g.,][]{kuroda:18, ott:18, burrows:25}.
 % The colors in \Figref{fig:xi_M} indicate the initial rotation rate.
 Overall, slower rotation (darker colors) tends to result in higher
 compactness, while increasing rotational support decreases the core
@@ -885,46 +888,46 @@ of rotating massive stars.\\
 \section{\texttt{mesa\_128.net}}
 \label{sec:mesa128}
 
-  Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
-  reaction links in \texttt{mesa\_128.net} and for comparison, the
-  22-isotope list and reaction links of
-  \texttt{approx21\_cr60\_plus\_co56.net} used for our small nuclear
-  network model (in pink), which includes also $^{60}\mathrm{Cr}$ (not
-  included in \texttt{mesa\_128.net}, red outline), as an example of
-  isotope that can be included to tweak compound weak reactions.
+Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
+reaction links in \texttt{mesa\_128.net} and for comparison, the
+22-isotope list and reaction links of
+\texttt{approx21\_cr60\_plus\_co56.net} used for our small nuclear
+network model (in pink), which includes also $^{60}\mathrm{Cr}$ (not
+included in \texttt{mesa\_128.net}, red outline), as an example of
+isotope that can be included to tweak compound weak reactions.
 
 
-  \begin{figure}[htbp]
-    \includegraphics[width=0.5\textwidth]{network_128}
-    \caption{Isotope list and reaction links for the 128-isotope network
-      used in this study and an example of 22-isotope small network.}
-    \label{fig:iso}
-  \end{figure}
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{network_128}
+  \caption{Isotope list and reaction links for the 128-isotope network
+    used in this study and an example of 22-isotope small network.}
+  \label{fig:iso}
+\end{figure}
 
-  \input{mesa_128.tex}
+\input{mesa_128.tex}
 
 
-  \section{Explodability metrics and surface composition}
-  \label{sec:table}
+\section{Explodability metrics and surface composition}
+\label{sec:table}
 
-  \Tabref{tab:explodability} lists for each successful model in our grid
-  a few key quantities related to their ``explodability'' and their
-  surface composition. Specifically, we list $\xi_{1.75}$ and
-  $M_{\rm Fe}$ shown also in \Figref{fig:xi_M}, $M_{4}$ is the outermost
-  mass coordinate where the specific entropy is $s=4\,k_{B}N_A$ and the
-  mass-gradient at that location $\mu_{4}$, which together can be
-  combined in the two-parameter explodability criterion by
-  \cite{ertl:16, ertl:20}.
+\Tabref{tab:explodability} lists for each successful model in our grid
+a few key quantities related to their ``explodability'' and their
+surface composition. Specifically, we list $\xi_{1.75}$ and
+$M_{\rm Fe}$ shown also in \Figref{fig:xi_M}, $M_{4}$ is the outermost
+mass coordinate where the specific entropy is $s=4\,k_{B}N_A$ and the
+mass-gradient at that location $\mu_{4}$, which together can be
+combined in the two-parameter explodability criterion by
+\cite{ertl:16, ertl:20}.
 
-  The last three columns provide the surface mass fractions of the most
-  abundant elements, which are Helium
-  $Y_{\rm surf}\equiv X_{\rm surf}(^{4}\mathrm{He})$, Carbon, and
-  Oxygen. These do not necessarily sum to 1 because of other isotopes
-  present in our calculations, and are presumably sensitive to the wind
-  mass-loss rates and mixing processes. Interestingly, most of our
-  models still retain a significant amount of helium at the surface (plus,
-  some helium-rich material can appear in the core very late due to
-  photodisintegration of iron-group nuclei).
+The last three columns provide the surface mass fractions of the most
+abundant elements, which are Helium
+$Y_{\rm surf}\equiv X_{\rm surf}(^{4}\mathrm{He})$, Carbon, and
+Oxygen. These do not necessarily sum to 1 because of other isotopes
+present in our calculations, and are presumably sensitive to the wind
+mass-loss rates and mixing processes. Interestingly, most of our
+models still retain a significant amount of helium at the surface (plus,
+some helium-rich material can appear in the core very late due to
+photodisintegration of iron-group nuclei).
 \newpage
 \section{Description of the data products}
 \label{sec:public_datafiles}
@@ -981,15 +984,20 @@ initializing self-consistent (non-MLT) convection velocity profiles
 \cite[e.g.,][]{cote:20, yadav:20, fields:22, issa:25, griffiths:26,
   issa:26}
 
-Finally, \texttt{scripts.tar.xz} contains thescripts used in the setup
-and analysis of our \textsc{MESA} models and for the build of this
-manuscript. All figures can be reproduced with the dataset
-provided in \texttt{grid.tar} (and the dataset from
-\citealt{renzo:24} from
-\href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522}
-for the 22-isotope model), and the \texttt{scripts.tar.xz} available
+The scripts used for the setup and analysis of our \textsc{MESA}
+models are in \texttt{scripts.tar.xz}, which also contains
+specifications for the dependencies. All figures can be reproduced
+starting with the computed \textsc{MESA} results in \texttt{grid.tar}
+(and the dataset from \citealt{renzo:24} from
+\href{https://doi.org/10.5281/zenodo.11375522}{doi.org/10.5281/zenodo.11375522}
+for the 22-isotope model).
+
+Finally, the (interactive) \texttt{build.sh} script allows for full
+reproduction of this manuscript, including downloading of the data
+from their \texttt{doi}. An evolving version of the code is available
 also at
 \href{https://github.com/mathren/CHE_LGRB_progenitors}{github.com/mathren/CHE\_lGRB\_progenitors}.
+
 
 \input{table.tex}
 
