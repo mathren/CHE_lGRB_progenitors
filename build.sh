@@ -123,7 +123,7 @@ if ! $NO_LATEX && ask "Build manuscript?"; then
     pdflatex CHE_GRB_progenitors.tex
     cd ..
     echo "✓ Done → manuscript/CHE_GRB_progenitors.pdf"
-    if $OPEN_PDF ask "Open manuscript"; then
+    if $OPEN_PDF && ask "Open manuscript"; then
 	xdg-open manuscript/CHE_GRB_progenitors.pdf &
     fi
 else
