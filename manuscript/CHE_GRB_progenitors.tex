@@ -341,7 +341,7 @@ plus additional tabulated weak reaction rates \citet{Fuller1985,
 deleptonization of the core from the structural point of view
 (condition \emph{ii}) in \Secref{sec:intro}), we adopt the
 fully-coupled 128-isotope nuclear reaction network
-\texttt{mesa\_128.net} \citep[see Appendix.~\ref{appendix:iso} and]{farmer:16}. For central temperatures
+\texttt{mesa\_128.net} \citep[see Appendix.~\ref{sec:mesa128} and]{farmer:16}. For central temperatures
 above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split
 mode, that is we iteratively solve for the structure at fixed composition, and
 viceversa \citep[e.g., Sec.~10 in][]{jermyn:23}.
@@ -698,7 +698,7 @@ evolution is still debated \cite[e.g.,][]{hunter:08, martins:09,
   martins:13,almeida:15, mahy:20, sharpe:24}, but this
 evolutionary path becomes more likely at very high stellar masses and
 low metallicities \citep[e.g.,][]{yoon:06}, for which samples are
-sparser.
+sparser \cite[e.g.,][]{evans:11, shenar:24}.
 
 To produce fast-rotating collapsar progenitors, we construct our
 stellar models with initial metallicity $Z=0.001$ and \emph{assuming}
@@ -716,7 +716,9 @@ considered here, and are most likely accretor stars in interacting
 binaries \citep{cantiello:07, ramirez-agudelo:15, renzo:21}. The
 accretion process can change the core-envelope boundary in ways that
 are not accounted for in our single-star models
-\citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, shah:26}.
+\citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, landri:25,
+  nathaniel:25, shah:26,
+  henneco:26}.
 
 Nevertheless, observations of jetted explosions and LGRBs suggest that
 at least some stars reach core collapse with sufficient angular
@@ -762,13 +764,14 @@ suggested in \cite{fuller:19, fuller:22} still results in CHE, but at
 the onset of core-collapse, the cores are too slowly rotating to
 produce accretion disks. Both stellar winds and angular momentum
 transport processes remain highly uncertain in stellar context (see,
-e.g., \citealt{puls:08, smith:14, renzo:17, josiek:24, romagnolo:26} for
+e.g., \citealt{puls:08, smith:14, vink:15, renzo:17, josiek:24, romagnolo:26} for
 wind-related uncertainties, \citealt{spruit:99, cantiello:14,
   fuller:19, denhartogh:20, skoutnev:24, skoutnev:25} for angular
 momentum transport uncertainties).
 
-The 128-isotope nuclear reaction network we adopt is sufficient to
-resolve the density structure of the core. Increasing the network size
+The 128-isotope nuclear reaction network we adopt (see also
+Appendix~\ref{sec:mesa128}) is sufficient to
+resolve the density structure of the core \citep[e.g.,][]{farmer:16}. Increasing the network size
 further has a negligible impact on the electron fraction $Y_{e}$. This
 has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
@@ -780,7 +783,7 @@ detailed nucleosynthesis studies \citep[e.g.,][]{woosley:02, woosley:07}.
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
 \citealt{kunz:02}) are under active scrutiny in the community
-\citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, shen:23,
+\citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, woosley:21, shen:23,
   noll:25, tong:26}. Our choice of rates therefore inevitably
 influences the pre-collapse structures presented here, as is true for
 any stellar models in the literature \citep[see also][]{fields:18}.
@@ -811,10 +814,10 @@ expunge envelope velocities in the outer layers which are possibly seeded by
 numerical noise in the fast-paced late burning evolution. Significant
 efforts to improve \textsc{MESA} are aimed at addressing this issue.
 
-Despite these inevitable caveats, which are inherent to numerical simulations
-that depend on input physics and physical processes under active
-investigation, our models provide a significant advance in the context
-of fast-rotating CHE stars evolved to the onset of core collapse.
+% Despite these inevitable caveats, which are inherent to numerical simulations
+% that depend on input physics and physical processes under active
+% investigation, our models provide a significant advance in the context
+% of fast-rotating CHE stars evolved to the onset of core collapse.
 
 
 \section{Conclusion}\label{sec:conclusion}
@@ -833,18 +836,19 @@ degree, more common evolutionary paths where rotation is produced by
 binary interactions. Since binary interactions have been shown to
 introduce significant differences in progenitor structures compared to
 single stellar evolution \citep[e.g.,][]{laplace:21, vartanyan:21,
-  farmer:23, laplace:25, maltsev:25, ma:25b}, further studies to compare the
-outcome of these pathways with single-fast rotating models are
-necessary.
+  farmer:23, laplace:25, maltsev:25, ma:25b}, further studies to
+compare the outcome of these pathways with single-fast rotating models
+are necessary.
 
-Despite the inevitable algorithmic and input physics limitations
-inherent in numerical simulations (especially of astrophysical systems
-represented by very stiff sets of equations), our progenitor grid
-constitutes a significant advance in both input physics and numerical
-accuracy for rapidly-rotating stars are the onset of core collapse. By
-providing a homogeneous set of pre-collapse models with substantial angular
-momentum, this grid offers useful initial conditions for numerical
-studies of rotating massive-star explosions, including
+Despite the inevitable algorithmic limitations inherent in numerical
+simulations that depend on input physics and processes under active
+investigation (especially when represented by very stiff sets of
+equations), our progenitor grid constitutes a significant advance in
+both input physics and numerical accuracy for rapidly-rotating stars
+are the onset of core collapse. By providing a homogeneous set of
+pre-collapse models with substantial angular momentum, this grid
+offers useful initial conditions for numerical studies of rotating
+hydrogen-free massive-star explosions, including
 magnetohydrodynamic-driven and jetted explosions such as collapsars
 and long $\gamma$-ray bursts. We hope that our publicly available
 results (at
@@ -869,7 +873,6 @@ of rotating massive stars.\\
   MR is grateful to N.~Britavskyi for many inspiring conversations on
   stellar rotation, and was partially supported by NSF-AST-2510584.
   J.A.G. acknowledges financial support from NASA grant 23-ATP23-0070.
-  The Flatiron Institute is supported by the Simons Foundation.
 \end{acknowledgements}
 
 \bibliographystyle{aasjournalv7}
@@ -963,7 +966,23 @@ photodisintegration of iron-group nuclei).
 \input{table.tex}
 
 \section{\texttt{mesa\_128.net}}
+\label{sec:mesa128}
 \input{mesa_128.tex}
+
+Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
+reaction links in \texttt{mesa\_128.net} and for comparison, the
+22-isotope list and reaction links of
+\texttt{approx21\_cr60\_plus\_co56.net} used for our small nuclear
+network model, which includes also $^{60}\mathrm{Cr}$ (not included in
+\texttt{mesa\_128.net}), as an example of isotope that can be included
+to tweak compound weak reactions.
+
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{network_128}
+  \caption{Isotope list and reaction links for the 128-isotope network
+    used in this study and an example of 22-isotope small network.}
+  \label{fig:iso}
+\end{figure}
 
 \end{document}
 
