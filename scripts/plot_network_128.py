@@ -1,6 +1,5 @@
 import re
 from pathlib import Path
-
 import matplotlib.patches as patches
 import matplotlib.pyplot as plt
 
@@ -353,10 +352,8 @@ def plot_network(isotopes, edges, output_path=None, highlight_isotopes=None, hig
     ax.set_xlabel("Neutrons (N) - Protons (Z)", fontsize=40)
     ax.set_ylabel("Proton Number (Z)", fontsize=40)
     ax.set_xlim(min(xs) - 2.5, max(xs) + 5.0)
+    xmin, xmax = ax.get_xlim()
     ax.set_ylim(min(zs) - 0.5, max(zs) + 1.25)
-    ax.set_xticks([-3, 0, 5, 10, 15])
-    ax.set_xticks([], minor=True)
-    ax.set_yticks([], minor=True)
     ax.tick_params(axis="both", labelsize=30)
     ax.grid(False)
 
@@ -387,7 +384,7 @@ if __name__ == "__main__":
         highlight_isotopes=highlight_isotopes,
         highlight_label=rf"22 iso",
     )
-    outsidex_net = sorted(set(highlight_isotopes) - set(isotopes))
+    outside_net = sorted(set(highlight_isotopes) - set(isotopes))
     print(
         f"wrote {output_path} with {len(isotopes)} base isotopes, "
         f"{len(edges)} linkages, and {len(highlight_isotopes)} approx21 highlighted isotopes"
