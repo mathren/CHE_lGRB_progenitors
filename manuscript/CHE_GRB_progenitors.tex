@@ -937,9 +937,32 @@ initializing self-consistent (non-MLT) convection velocity profiles
 Finally, \texttt{scripts.tar.xz} contains thescripts used in the
 analysis of our grid, including an \texttt{environment.yml} file, to
 ensure the full reproducibility of our results. This entire paper can
-be reproduced with the dataset provided with the in \texttt{grid.tar}
-and the scripts available at
+be reproduced with the dataset provided within \texttt{grid.tar}
+(and the data from
+\href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522}
+for the 22-isotope model), and the scripts available at
 \href{https://github.com/mathren/CHE_LGRB_progenitors}{github.com/mathren/CHE\_lGRB\_progenitors}.
+
+
+\section{\texttt{mesa\_128.net}}
+\label{sec:mesa128}
+\input{mesa_128.tex}
+
+Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
+reaction links in \texttt{mesa\_128.net} and for comparison, the
+22-isotope list and reaction links of
+\texttt{approx21\_cr60\_plus\_co56.net} used for our small nuclear
+network model (in pink), which includes also $^{60}\mathrm{Cr}$ (not
+included in \texttt{mesa\_128.net}, red outline), as an example of
+isotope that can be included to tweak compound weak reactions.
+
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{network_128}
+  \caption{Isotope list and reaction links for the 128-isotope network
+    used in this study and an example of 22-isotope small network.}
+  \label{fig:iso}
+\end{figure}
+
 
 \section{Explodability metrics and surface composition}
 \label{sec:table}
@@ -964,25 +987,6 @@ some helium-rich material can appear in the core very late due to
 photodisintegration of iron-group nuclei).
 
 \input{table.tex}
-
-\section{\texttt{mesa\_128.net}}
-\label{sec:mesa128}
-\input{mesa_128.tex}
-
-Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
-reaction links in \texttt{mesa\_128.net} and for comparison, the
-22-isotope list and reaction links of
-\texttt{approx21\_cr60\_plus\_co56.net} used for our small nuclear
-network model, which includes also $^{60}\mathrm{Cr}$ (not included in
-\texttt{mesa\_128.net}), as an example of isotope that can be included
-to tweak compound weak reactions.
-
-\begin{figure}[htbp]
-  \includegraphics[width=0.5\textwidth]{network_128}
-  \caption{Isotope list and reaction links for the 128-isotope network
-    used in this study and an example of 22-isotope small network.}
-  \label{fig:iso}
-\end{figure}
 
 \end{document}
 
