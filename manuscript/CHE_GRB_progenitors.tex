@@ -87,7 +87,7 @@
   rotationally-induced chemically-homogeneous evolution, and reach the
   onset of collapse
   ($v_{\rm infall}\lesssim -300\,\mathrm{km\ s^{-1}}$) with large and
-  structured amounts of angular momentum, sufficient to form
+  structured amounts of angular momentum, possibly sufficient to form
   accretion disks on a proto-compact object.
   %
   Therefore, these progenitor structures provide a homogeneous set of
@@ -128,13 +128,13 @@ among numerical simulations of neutrino-radiative transfer of core
 collapse \citep[e.g.,][]{janka:12, melson:15, burrows:25, nakamura:25,
   mezzacappa:26}. For non-rotating stellar progenitors,
 neutrino-driven turbulent convection, sustained by continued accretion
-onto the shock can lead to successful stellar explosions
+onto the shock, can lead to successful stellar explosions
 \citep[e.g.,][]{kuroda:18, ott:18, burrows:25}. While limits of this
 mechanism, including the role of rotation and magnetic fields remain
 debated \cite[e.g.,][]{soker:24, gottlieb:25}, a consensus on the fact
 that uncertainties in the stellar progenitor structure are dominant is
-emerging \citep[e.g.,][]{woosley:02, sukhbold:16,
-  farmer:16, renzo:17, mueller:17, limongi:18, davis:19, laplace:21,
+emerging \citep[e.g.,][]{woosley:02, chieffi:13, sukhbold:16,
+  farmer:16, renzo:17, mueller:17, limongi:18, davis:19, limongi:20, laplace:21,
   woosley:21, fields:22, bruenn:23, schneider:24, boccioli:24,
   renzo:24, burrows:25, maltsev:25, griffiths:26, myers:26}.
 
@@ -143,17 +143,18 @@ of collapse determines the initial conditions for expensive
 multi-dimensional, multi-physics (and often multi-million-CPU
 hours) simulations \citep[e.g.,][]{janka:12, mueller:16rev,
   takiwaki:16, vartanyan:21, gottlieb:25}. Specifically, the profile
-(of density, entropy, velocity, angular momentum, magnetic fields,
-etc.,~as a function of Lagrangian mass coordinate or radius)
+-- of density, entropy, velocity, angular momentum, magnetic fields,
+etc.,~as a function of Lagrangian mass coordinate or radius --
 determines the dynamics of the infalling gas and the ``over-burden''
 caused by the accretion of outer layers through a putative
 nascent outflow \citep[e.g.,][]{bruenn:13, bruenn:16}. Therefore, it
-is the structure of the collapsing progenitor that determines whether
+is the structure of the collapsing progenitor that decides whether
 a stellar model explodes or not; separately, whether it leaves behind
 a neutron star (NS) or a black hole (BH), either directly or through a
-proto-NS phase; and ultimately the properties of both the outflows,
-the associated transients, and final remnants
-\citep[e.g.,][]{kuroda:18, ott:18, vartanyan:19, burrows:24}.
+proto-NS phase; and ultimately the properties of the outflows,
+the associated transient(s), and final remnants
+\citep[e.g.,][]{kuroda:18, ott:18, vartanyan:19, burrows:24,
+  nakamura:25, burrows:25}.
 
 A current bottleneck in numerical simulations of stellar explosions
 is the lack of models of stellar progenitors computed
@@ -167,42 +168,44 @@ Specifically, condition \emph{i}) requires computing stellar
 evolution models well into the sub-sonic phase of the collapse, at
 least until the remaining time to core-bounce becomes shorter than the
 characteristic timescales of all relevant stellar processes. This
-typically means evolving the star beyond the point where the iron-core
+typically means evolving a stellar model beyond the point where the iron-core
 infall velocity
-$v_{\rm infall} = \min(v) \lesssim -300\,\mathrm{km\ s^{-1}}$
+$v_{\rm infall} = \min(v)$ is lower than $\lesssim -300\,\mathrm{km\ s^{-1}}$
 \citep[e.g.,][]{farmer:21, farmer:23, gottlieb:24} if not
 $-1000\,\mathrm{km\ s^{-1}}$ \citep[e.g.,][]{woosley:02}. Beyond this
 point, matter typically becomes partially optically thick to
 neutrinos, and the thermodynamic quantities exceed the bounds of
 tabulated equations of state in stellar evolution codes.
 
-For \emph{ii}), stellar progenitor models used to study the explosion
-physics must accurately capture the progenitor's density and angular
-momentum structure. Any star evolving through silicon core burning
-will experience copious amounts of electron captures
+For condition \emph{ii}), stellar progenitor models used to study the
+explosion physics must accurately capture the progenitor's density and
+angular momentum structure. Any star evolving through silicon core
+burning will experience copious amounts of electron captures
 \cite[e.g.,][]{arnett:77,hix:93,hix:99,grichener:25, myers:26} which
 progressively de-leptonize the core (i.e., decrease the amount of free
 electrons). The notable exceptions to this are ``electron-capture'' SN
 progenitors which collapse with an ONeMg-rich core (however, these too
 require appropriate treatment of the weak reactions, including URCA
 processes, \citealt{nomoto:84, takahashi:13}) and progenitors above
-the pair-instability gap \citep[e.g.,][]{rakavy:67, woosley:17,
-  renzo:24}, which collapse because of the photodisintegration
-instability in an oxygen-rich core \citep[e.g.,][]{bond:84,
-  gottlieb:25}. In both these cases, the stars reach their demise
-bypassing the hydrostatic silicon core-burning phase.
+the pair-instability gap \citep[e.g.,][]{rakavy:67, renzo:24}, which
+collapse because of the photodisintegration instability in an
+oxygen-rich core \citep[e.g.,][]{bond:84, gottlieb:25}. In both these
+cases, the stars reach their demise bypassing the hydrostatic silicon
+core-burning phase.
 
-In all other progenitors, electron captures occur at a significant
-rate even during the hydrostatic silicon core burning phase, and
+In all other progenitors, electron captures occur %at a significant
+rate even during the hydrostatic silicon core burning phase, %and
 before a model is sufficiently evolved according to \emph{i}). Even
 adopting a ``quasi-statistical equilibrium'' approximation, the weak
-reactions do not reach a steady-state since most occur when matter is
-still transparent to neutrinos. Capturing these weak interactions in
-sufficient detail to characterize the stellar \emph{structure} at the
-onset of collapse requires considering $N\sim100$ isotopes
-\citep[e.g.,][]{farmer:16, grichener:25}. To decrease the computing
-time required to calculate a grid of stellar progenitors, a commonly adopted shortcut
-is to use small ($N\sim$20-isotope) nuclear reaction networks
+reactions that determine $Y_{e}$ do not reach detailed balance, since
+most occur when matter is still transparent to neutrinos, and the
+equilibrium itself depends on $Y_{e}$ \citep[e.g.,][]{hix:96}.
+Capturing the weak interactions in sufficient detail to characterize
+the stellar \emph{structure} at the onset of collapse requires
+considering $N\sim100$ isotopes \citep[e.g.,][]{farmer:16,
+  grichener:25}. To decrease the computing time required to calculate
+a grid of stellar progenitors, a commonly adopted shortcut is to use
+small ($N\sim$20-isotope) nuclear reaction networks
 \citep[e.g.,][]{pols:95, timmes:00, griffiths:25}. These bypass the
 complex nuclear and weak physics of silicon core burning by lumping
 all weak interactions in a custom compound reaction (see
@@ -210,7 +213,7 @@ all weak interactions in a custom compound reaction (see
 sacrificing the accuracy of the core structure that decides the
 explosion. Even if such a compound reaction is tuned on the central
 value of the electron fraction $Y_{e, c}$ from models computed with
-more accurate nuclear reaction networks
+larger nuclear reaction networks
 \citep[e.g.,][]{aguilera-dena:18, schneider:21, schneider:24}, small
 networks cannot predict the \emph{profile} of the electron fraction
 $Y_{e}(m)$ in the collapsing core where the explosions are determined
@@ -256,7 +259,7 @@ public grids of progenitors fulfilling both conditions \emph{i}) and
 \textsc{MESA} \citep[e.g.,][]{farmer:16, renzo:17, farag:20,
   laplace:21, farmer:21, farmer:23, myers:26} remain largely
 unexplored in explosion simulations \citep[see
-however][]{vartanyan:21, gottlieb:24, chan:26}.
+however][]{perna:18, vartanyan:21, gottlieb:24, chan:26}.
 
 Despite the importance of fast-rotating progenitors for jetted
 explosions, collapsars, magneto-hydrodynamic-explosions, and/or long
@@ -273,9 +276,8 @@ are not consistent with the progenitor evolution are often used
 \cite[e.g.,][]{siegel:22, gottlieb:25}.
 
 The reason for the small number of stellar progenitor grids is the
-substantial computational cost of evolving massive stars with large
-nuclear-reaction networks required to follow weak reactions in
-detail\footnote{Neglecting sparsity, the size of the matrix to solve
+substantial computational effort needed to evolve massive stars with large
+nuclear-reaction networks\footnote{Neglecting sparsity, the size of the matrix to solve
   scales as $\sim{}N^{2}$, see Appendix B in \citealt{renzo:17} for
   the exact scaling in \textsc{MESA}.}, coupled with the stiffness of
 the equations (see \citealt{grichener:25}), which results in large
@@ -288,15 +290,13 @@ ongoing \citep[e.g.,][]{paxton:13, jermyn:23,
   grichener:25,griffiths:25}.
 
 In the meantime, we present here a publicly available grid of
-fast-rotating models fulfilling both criteria \emph{i}) ``late
-enough'' and \emph{ii}) ``including sufficient weak and nuclear
-physics to accurately simulate the structure'' for studies of the
-collapse and possible explosion of fast-rotating stellar cores.
-In \Secref{sec:methods} we describe our physical assumptions and
-numerical setup. \Secref{sec:results} presents the grid of progenitors, and
-in \Secref{sec:scenario} we briefly outline the astrophysical scenarios
-that could be approximated with our models. We contextualize our
-result in terms of the input and code physics in
+fast-rotating models fulfilling both criteria \emph{i}) and \emph{ii})
+for studies of the collapse and possible explosion of fast-rotating
+stellar cores. In \Secref{sec:methods} we describe our physical
+assumptions and numerical setup. \Secref{sec:results} presents the
+grid of progenitors, and in \Secref{sec:scenario} we briefly outline
+the astrophysical scenarios that they could approximated. We
+contextualize our result in terms of the input and code physics in
 \Secref{sec:discussion_inputs} before concluding in
 \Secref{sec:conclusion}. Appendix~\ref{sec:public_datafiles} describes
 in detail the input and output files of our simulations and our
@@ -770,15 +770,16 @@ wind-related uncertainties, \citealt{spruit:99, cantiello:14,
 momentum transport uncertainties).
 
 The 128-isotope nuclear reaction network we adopt (see also
-Appendix~\ref{sec:mesa128}) is sufficient to
-resolve the density structure of the core \citep[e.g.,][]{farmer:16}. Increasing the network size
-further has a negligible impact on the electron fraction $Y_{e}$. This
-has been shown both with full stellar model calculations
+Appendix~\ref{sec:mesa128}) is sufficient to resolve the density
+structure of the core \citep[e.g.,][]{farmer:16}. Increasing the
+network size further has a negligible impact on the electron fraction
+$Y_{e}$. This has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
 \citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted
 here may still under-resolve the pre-collapse high-energy neutrino
 flux \citep[e.g.,][]{farag:20, myers:26} and may not be suitable for
-detailed nucleosynthesis studies \citep[e.g.,][]{woosley:02, woosley:07}.
+detailed nucleosynthesis studies \citep[e.g.,][]{hix:95, woosley:02,
+  woosley:07}.
 
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
@@ -936,19 +937,26 @@ initializing self-consistent (non-MLT) convection velocity profiles
 \cite[e.g.,][]{cote:20, yadav:20, fields:22, issa:25, griffiths:26,
   issa:26}
 
-Finally, \texttt{scripts.tar.xz} contains thescripts used in the
-analysis of our grid, including an \texttt{environment.yml} file, to
-ensure the full reproducibility of our results. This entire paper can
-be reproduced with the dataset provided within \texttt{grid.tar}
-(and the data from
+Finally, \texttt{scripts.tar.xz} contains thescripts used in the setup
+and analysis of our \textsc{MESA} models and for the build of this
+manuscript. All figures can be reproduced with the dataset
+provided in \texttt{grid.tar} (and the dataset from
+\citealt{renzo:24} from
 \href{https://doi.org/10.5281/zenodo.11375522}{10.5281/zenodo.11375522}
-for the 22-isotope model), and the scripts available at
+for the 22-isotope model), and the \texttt{scripts.tar.xz} available
+also at
 \href{https://github.com/mathren/CHE_LGRB_progenitors}{github.com/mathren/CHE\_lGRB\_progenitors}.
 
 
+\begin{figure}[htbp]
+  \includegraphics[width=0.5\textwidth]{network_128}
+  \caption{Isotope list and reaction links for the 128-isotope network
+    used in this study and an example of 22-isotope small network.}
+  \label{fig:iso}
+\end{figure}
+
 \section{\texttt{mesa\_128.net}}
 \label{sec:mesa128}
-\input{mesa_128.tex}
 
 Fig.~\ref{fig:iso} shows these isotopes (in blue) with the connecting
 reaction links in \texttt{mesa\_128.net} and for comparison, the
@@ -958,13 +966,7 @@ network model (in pink), which includes also $^{60}\mathrm{Cr}$ (not
 included in \texttt{mesa\_128.net}, red outline), as an example of
 isotope that can be included to tweak compound weak reactions.
 
-\begin{figure}[htbp]
-  \includegraphics[width=0.5\textwidth]{network_128}
-  \caption{Isotope list and reaction links for the 128-isotope network
-    used in this study and an example of 22-isotope small network.}
-  \label{fig:iso}
-\end{figure}
-
+\input{mesa_128.tex}
 
 \section{Explodability metrics and surface composition}
 \label{sec:table}
