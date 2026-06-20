@@ -194,5 +194,5 @@ Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
 #+END_SRC
 ** TODO list
 - [X] add to zenodo MESA community
-- [ ] submit to arxiv
+- [X] submit to arxiv
 - [ ] archive git repo in zenodo and release new version (at acceptance)
