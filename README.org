@@ -119,20 +119,20 @@ Create the python environment first with
 
 *** Figure 1 - Grid overview
 
-Run [[./scripts/grid_success.py]] manually to create:
+Run =./scripts/grid_success.py= manually to create:
 
 [[./manuscript/figures/overview_grid.png]]
 
 *** Figure 2 - Herzsprung-Russel diagram
-Run [[./scripts/HRD.py]] manually to create
+Run =./scripts/HRD.py= manually to create
 
 [[./manuscript/figures/HRD.png]]
 
 *** Figure 3 - Multi-panel
 
 Individual panels can be generated from the notebook
-[[./scripts/grid_plots.ipynb]] (⚠️ may be out of date). Run
-[[./scripts/multi_panel.py]] to generate the multipanel figure.
+=./scripts/grid_plots.ipynb= (⚠️ may be out of date). Run
+=./scripts/multi_panel.py= to generate the multipanel figure.
 
 **** Entropy profiles
 
@@ -152,23 +152,24 @@ Individual panels can be generated from the notebook
 
 *** Figure 4 - Tayler-Spruit generated magnetic fields
 
-Run [[./scripts/B-fields.py]] to generate
+Run =./scripts/B-fields.py= to generate
+
 [[./manuscript/figures/B_grid.png]]
 
 *** Figure 5 - Compactness
 
-Run [[./scripts/xi_M.py]] to generate
+Run =./scripts/xi_M.py= to generate
 [[./manuscript/figures/xi_M.png]]
 
 *** Figure 6 - =mesa_128.net= and =approx21_cr60_plus_co56
 
-Run [[./scripts/plot_network_128.py]] to generate
+Run  =scripts/plot_network_128.py= to generate
 
 [[./manuscript/figures/network_128.png]]
 
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
-the content can be generated with [[./scripts/make_table_content.py]] and
+the content can be generated with =./scripts/make_table_content.py= and
 manually copied in that file.
 
 The =build.sh= script assumes =./manuscript/table.tex= is ready to be
@@ -176,7 +177,7 @@ compiled.
 
 ** Dependencies
 *** Python
-Environment managed with =mamba 2.1.1=, see [[./scripts/environment.yml]].
+Environment managed with =mamba 2.1.1=, see =./scripts/environment.yml=.
 *** Latex
 #+begin_src bash
   ❯ pdflatex --version
