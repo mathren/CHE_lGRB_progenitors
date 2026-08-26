@@ -1,9 +1,11 @@
-\documentclass[% linenumbers,
+\documentclass[linenumbers,
 trackchanges,twocolumn]{aastex701}
 \usepackage{graphicx}
 \usepackage{multirow}
 \usepackage{hyperref}
-\graphicspath{{figures/}}
+% Put this in your preamble
+\usepackage{xcolor}
+
 \newcommand{\todo}[1]{{$\blacksquare$~\textbf{\color{red}#1}~$\blacksquare$}}
 
 \DeclareRobustCommand{\Eqref}[1]{Eq.~\ref{#1}}
@@ -21,6 +23,9 @@ trackchanges,twocolumn]{aastex701}
 % Then in the manuscript do \yourname{your text}.
 % Please don't leave overleaf comments as I will not see them.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{figures/}}
+
 
 \begin{document}
 
@@ -93,19 +98,19 @@ populations and supernovae (SNe, \citealt{baade:34}), understanding
 how massive stars' end their life remains a capstone problem in
 astrophysics. How does the iron core collapse and, at least in some
 cases, how does the collapse successfully revert into an explosion? In
-the past $\sim$century, the increased cadence, wavelength coverage,
+the past century, the increased cadence, wavelength coverage,
 and depth of time-domain astronomy have transformed this question into
 a family of related problems, spanning a diversity of astronomical
 transients \citep[e.g.,][]{cano:17}. The interest in the origin of
 transients and compact objects is even more timely in the era of
 large time-domain surveys (e.g., Rubin/LSST, \citealt{ivezic:19}) and
-routine detections of gravitational-wave mergers
+routine detections of gravitational-wave \added{signals from compact-object} mergers
 \citep[e.g.,][]{gw150914, mandel:22, abac:25, GWTC-5}.
 
 Recent progress in SN theory has produced unprecedented agreement
 among numerical simulations of neutrino-radiative transfer of core
 collapse \citep[e.g.,][]{janka:12, melson:15, burrows:25, nakamura:25,
-  mezzacappa:26}. For non-rotating stellar progenitors,
+  mezzacappa:26, chen:26}. For non-rotating stellar progenitors,
 neutrino-driven turbulent convection, sustained by continued accretion
 onto the shock, can lead to successful stellar explosions
 \citep[e.g.,][]{kuroda:18, ott:18, burrows:25}. While limits of this
@@ -114,8 +119,8 @@ debated \cite[e.g.,][]{soker:24, gottlieb:25}, a consensus on the fact
 that uncertainties in the stellar progenitor structure are dominant is
 emerging \citep[e.g.,][]{woosley:02, chieffi:13, sukhbold:16,
   farmer:16, renzo:17, mueller:17, limongi:18, davis:19, limongi:20, laplace:21,
-  woosley:21, fields:22, bruenn:23, schneider:24, boccioli:24,
-  renzo:24, burrows:25, maltsev:25, griffiths:26, myers:26}.
+  woosley:21, fields:22, bruenn:23, schneider:24, limongi:24, boccioli:24,
+  renzo:24, limongi:25, burrows:25, maltsev:25, griffiths:26, myers:26}.
 
 The structure of the stellar core of a progenitor model at the onset
 of collapse determines the initial conditions for expensive
@@ -143,18 +148,22 @@ ingredients for the explosion. This is especially true for fast
 rotating progenitors of explosions where magnetic fields and angular
 momentum may play a dominant role.
 
-Specifically, condition \emph{i}) requires computing stellar
-evolution models well into the sub-sonic phase of the collapse, at
-least until the remaining time to core-bounce becomes shorter than the
+Specifically, condition \emph{i}) requires computing stellar evolution
+models well into the sub-sonic phase of the collapse, at least until
+the remaining time to core-bounce becomes shorter than the
 characteristic timescales of all relevant stellar processes. This
-typically means evolving a stellar model beyond the point where the iron-core
-infall velocity
-$v_{\rm infall} = \min(v)$ is lower than $\lesssim -300\,\mathrm{km\ s^{-1}}$
-\citep[e.g.,][]{farmer:21, farmer:23, gottlieb:24} if not
-$-1000\,\mathrm{km\ s^{-1}}$ \citep[e.g.,][]{woosley:02}. Beyond this
-point, matter typically becomes partially optically thick to
-neutrinos, and the thermodynamic quantities exceed the bounds of
-tabulated equations of state in stellar evolution codes.
+typically means evolving a stellar model beyond the point where the
+iron-core infall velocity $v_{\rm infall} = \min(v)$ is lower than
+$\lesssim -300\,\mathrm{km\ s^{-1}}$ \citep[e.g.,][]{farmer:21,
+  farmer:23, gottlieb:24} if not $-1000\,\mathrm{km\ s^{-1}}$
+\citep[e.g.,][]{woosley:02}. Beyond this point, matter typically
+becomes partially optically thick to neutrinos, and the thermodynamic
+quantities exceed the bounds of tabulated equations of state in
+stellar evolution codes. \added{However, already before the beginning
+  of the collapse, several inherently multidimensional processes
+  (e.g., convection, and especially rotation and magnetic fields
+  \citealt{yadav:20, fields:22, chen:26}). For initial conditions to simulate
+  these, criterion \emph{i}) may need modifications to earlier times.}
 
 For condition \emph{ii}), stellar progenitor models used to study the
 explosion physics must accurately capture the progenitor's density and
@@ -165,14 +174,14 @@ progressively de-leptonize the core (i.e., decrease the amount of free
 electrons). The notable exceptions to this are ``electron-capture'' SN
 progenitors which collapse with an ONeMg-rich core (however, these too
 require appropriate treatment of the weak reactions, including URCA
-processes, \citealt{nomoto:84, takahashi:13}) and progenitors above
-the pair-instability gap \citep[e.g.,][]{rakavy:67, renzo:24}, which
-collapse because of the photodisintegration instability in an
-oxygen-rich core \citep[e.g.,][]{bond:84, gottlieb:25}. In both these
-cases, the stars reach their demise bypassing the hydrostatic silicon
-core-burning phase.
+processes, \citealt{nomoto:84, takahashi:13, jones:14, zha:19}) and
+progenitors above the pair-instability gap \citep[e.g.,][]{rakavy:67,
+  renzo:24}, which collapse because of the photodisintegration
+instability in an oxygen-rich core \citep[e.g.,][]{bond:84,
+  gottlieb:25}. In both these cases, the stars reach their demise
+bypassing the hydrostatic silicon core-burning phase.
 
-In all other progenitors, electron captures occur %at a significant
+In all other progenitors, electron captures occur at a significant
 rate even during the hydrostatic silicon core burning phase, %and
 before a model is sufficiently evolved according to \emph{i}). Even
 adopting a ``quasi-statistical equilibrium'' approximation, the weak
@@ -220,12 +229,12 @@ Several grids of stellar progenitors evolved sufficiently late
 (condition \emph{i}) and with \emph{detailed} nuclear physics
 (condition \emph{ii}) exist, mostly from closed-source codes (e.g.,
 \textsc{KEPLER} \citealt{weaver:78, woosley:02, sukhbold:16,
-  sukhbold:18}, \textsc{FRANEC}\footnote{which does not include
+  sukhbold:18} -- \textsc{FRANEC}\footnote{which does not include
   hydrodynamics and thus cannot reach condition \emph{i}), thus
   requiring an extra step to be used as progenitors in
   multi-dimensional simulations
   \citep[e.g.,][]{oconnor:10,limongi:20}.} \citealt{limongi:03,
-  limongi:18}, \textsc{HOSHI}, \citealt{takahashi:13}). While these
+  chieffi:13, limongi:18, limongi:24, limongi:25} -- \textsc{HOSHI}, \citealt{takahashi:13}). While these
 stellar models have been invaluable in allowing the progress made so
 far, challenges remain in the exploration of how the results depend on
 the underlying \emph{physical} and \emph{numerical} choices in
@@ -244,7 +253,8 @@ Despite the importance of fast-rotating progenitors for jetted
 explosions, collapsars, magneto-hydrodynamic-explosions, and/or long
 $\gamma$-ray burst (LGRB,
 \citealt{woosley:93,macfadyen:94,gottlieb:25b}), even fewer grids of
-such stellar models exist. To the best of our knowledge, these are
+such stellar models exist
+\cite[e.g.,][]{heger:05,hirschi:04,hirschi:05,hirschi:05b,hirschi:05c}. To the best of our knowledge, these are
 limited to the \textsc{KEPLER} models from \cite{woosley:06}, which
 use the adaptive nuclear reaction network from \cite{heger:00}, and
 the \textsc{MESA} models of \cite{aguilera-dena:18, aguilera-dena:20},
@@ -321,10 +331,11 @@ plus additional tabulated weak reaction rates \citet{Fuller1985,
 deleptonization of the core from the structural point of view
 (condition \emph{ii}) in \Secref{sec:intro}), we adopt the
 fully-coupled 128-isotope nuclear reaction network
-\texttt{mesa\_128.net} \citep[see Appendix.~\ref{sec:mesa128} and]{farmer:16}. For central temperatures
+\texttt{mesa\_128.net} \citep[see Appendix.~\ref{sec:mesa128} and][]{farmer:16}. For central temperatures
 above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split
 mode, that is we iteratively solve for the structure at fixed composition, and
-viceversa \citep[e.g., Sec.~10 in][]{jermyn:23}.
+viceversa \added{(e.g., Sec.~10 in \citealt{jermyn:23}, see also
+  \citealt{farmer:16, limongi:24, limongi:25}).}
 
 Throughout the evolution, we include the wind mass loss rate following
 \cite{vink:00} unless the surface $^{4}\mathrm{He}$ mass
@@ -360,12 +371,12 @@ To produce progenitors sufficiently close to core-bounce (condition
 \emph{i}) in \Secref{sec:intro}), we evolve each model until the
 infall velocity in the iron core decreases below
 $v_{\rm infall}\le-300\,\mathrm{km\ s^{-1}}$
-\citep[e.g.,][]{farmer:23, gottlieb:24, myers:26}. This threshold is motivated
-by the numerical experiments performed in \cite{gottlieb:24}, where we
-showed that the physical time remaining between this point and the
-canonical threshold of $-1000\,\mathrm{km \ s^{-1}}$ is much shorter
-than the timescale governing the local evolution of the rotation and
-magnetic
+\citep[e.g.,][]{farmer:23, gottlieb:24, myers:26}. This threshold is
+motivated by the numerical experiments performed in
+\cite{gottlieb:24}, where we showed that the physical time remaining
+between this point and the canonical threshold of
+$-1000\,\mathrm{km \ s^{-1}}$ is much shorter than the timescale
+governing the local evolution of the rotation and magnetic
 fields. % We re-implement the checks on the infall velocity in
 % our \texttt{run\_star\_extras.f90} to avoid known bugs (already fixed
 % in newer \textsc{MESA} versions).
@@ -380,7 +391,7 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
 \label{sec:results}
 
 \begin{figure}[tp]
-  \includegraphics[width=0.47\textwidth]{figures/overview_grid}
+  \includegraphics[width=0.47\textwidth]{overview_grid}
   \caption{Overview of the grid success rate. Green checkmarks
     correspond to successful models. Red crosses correspond to models
     that either do not reach infall velocities of
@@ -427,7 +438,7 @@ numerical errors in the solution of the stiff equations rather than
 physical hypothesis.
 
 \begin{figure}[bp]
-  \includegraphics[width=0.5\textwidth]{HRD}
+  \includegraphics[width=0.5\textwidth]{HRD.pdf}
   \caption{Herzsprung-Russel diagram of rotationally-induced
     chemically-homogeneous evolving single star models. Dark (light)
     colors correspond to lower (higher) initial rotation rates. The
@@ -675,10 +686,9 @@ much angular momentum to directly collapse into a BH.
 \subsection{What astrophysical scenario can these models represent?}
 \label{sec:scenario}
 
-Direct observational evidence (e.g., from stellar
-spectroscopy) for rotationally-induced chemically-homogeneous
-evolution is still debated \cite[e.g.,][]{hunter:08, martins:09,
-  martins:13,almeida:15, mahy:20, sharpe:24}, but this
+Direct observational evidence (e.g., from stellar spectroscopy) for
+rotationally-induced CHE is still debated \cite[e.g.,][]{hunter:08,
+  martins:09, martins:13,almeida:15, mahy:20, sharpe:24}, but this
 evolutionary path becomes more likely at very high stellar masses and
 low metallicities \citep[e.g.,][]{yoon:06}, for which samples are
 sparser \cite[e.g.,][]{evans:11, shenar:24}.
@@ -700,8 +710,7 @@ binaries \citep{cantiello:07, ramirez-agudelo:15, renzo:21}. The
 accretion process can change the core-envelope boundary in ways that
 are not accounted for in our single-star models
 \citep[e.g.,][]{cantiello:07, renzo:21, renzo:23, wagg:24, landri:25,
-  nathaniel:25, shah:26,
-  henneco:26}.
+  nathaniel:25, shah:26, henneco:26}.
 
 Nevertheless, observations of jetted explosions and LGRBs suggest that
 at least some stars reach core collapse with sufficient angular
@@ -730,27 +739,50 @@ in the regimes where rotation and magnetic field are expected to play an importa
 
 \subsection{Known physical and numerical caveats}
 \label{sec:discussion_inputs}
-The specific angular momentum profile of our models is a product of
-the assumed initial rotation and the interplay between wind-mass loss
-and angular momentum transport. We assumed a combination of
-\cite{vink:00, vink:01} and \cite{nugis:00} for line-driven wind mass
-loss, as opposed to most previous grids of fast-rotating progenitors
-adopting a combination of \cite{nieuwenhuijzen:90}
-\citep[e.g.,][]{woosley:06} and \cite{hamann:95}
-\citep[e.g.,][]{aguilera-dena:18, aguilera-dena:20}. For angular
-momentum transport, we adopt a Tayler-Spruit dynamo in radiative
-regions \citep{spruit:02}. As noted in \cite{gottlieb:24} based on the
-$40\,M_{\odot}$ model with $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$
-(orange line in \Figref{fig:multipanel}-\ref{fig:B}), adopting the
-stronger magnetic field saturation of the Tayler-Spruit instability
-suggested in \cite{fuller:19, fuller:22} still results in CHE, but at
-the onset of core-collapse, the cores are too slowly rotating to
-produce accretion disks. Both stellar winds and angular momentum
-transport processes remain highly uncertain in stellar context (see,
-e.g., \citealt{puls:08, smith:14, vink:15, renzo:17, josiek:24, romagnolo:26} for
-wind-related uncertainties, \citealt{spruit:99, cantiello:14,
-  fuller:19, denhartogh:20, skoutnev:24, skoutnev:25} for angular
-momentum transport uncertainties).
+The \added{rotationally-induced CHE path \citep[e.g.,][]{maeder:00,
+    yoon:06} and the resulting profiles at the onset of collapse are}
+a product of the assumed initial rotation and the interplay between
+wind-mass loss and angular momentum transport \added{within the
+  limited framework of 1D treatment of these processes
+  \cite[e.g.,][]{mombarg:24,rieutord:25}. Lowering the
+  initial rotation rate (see \Secref{sec:scenario}) and/or the
+  efficiency of mixing (of composition and angular momentum) and/or
+  increasing the early angular momentum losses could prevent
+  rotationally-induced CHE and lead to a redward expansion and a clear
+  core-envelope structure% We note also that no redsupergiant with
+  % $\log(L/L_{\odot})\gtrsim 5.5$ is known \cite{davies:18}, while
+  % post-main sequence all our models exceed
+  % $\log(L/L_{\odot})\gtrsim 5.8$. This does not imply
+  % rotationally-induced CHE causes this
+}.
+
+For line-driven wind mass loss, we assumed a combination of
+\cite{vink:00, vink:01} and \cite{nugis:00}, as opposed to most
+previous grids of fast-rotating progenitors adopting a combination of
+\cite{nieuwenhuijzen:90} \citep[e.g.,][]{woosley:06} and
+\cite{hamann:95} \citep[e.g.,][]{aguilera-dena:18, aguilera-dena:20}.
+\added{The lack of extended low-density hydrogen-rich envelopes
+  removes the need for a ``cool'' wind mass loss, and also allows us
+  to avoid known numerically challenging issues
+  \citep[e.g.,][]{paxton:13, cheng:24}.}
+
+\added{We treat rotation in ``shellular approximation''
+  \citep[e.g.,][]{maeder:00}, may not accurately represent the
+  multi-dimensional flows at rotation rates close to critical.} We
+adopt a Tayler-Spruit dynamo in radiative regions \citep{spruit:02}
+for angular momentum transport.q As noted in \cite{gottlieb:24} based
+on the $40\,M_{\odot}$ model with
+$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ (orange line in
+\Figref{fig:multipanel}-\ref{fig:B}), adopting the stronger magnetic
+field saturation of the Tayler-Spruit instability suggested in
+\cite{fuller:19, fuller:22} still results in CHE, but at the onset of
+core-collapse, the cores are too slowly rotating to produce accretion
+disks. Both stellar winds and angular momentum transport processes
+remain highly uncertain in stellar context (see, e.g.,
+\citealt{puls:08, smith:14, vink:15, renzo:17, josiek:24,
+  romagnolo:26} for wind-related uncertainties, \citealt{spruit:99,
+  cantiello:14, fuller:19, denhartogh:20, skoutnev:24, skoutnev:25}
+for angular momentum transport uncertainties).
 
 The 128-isotope nuclear reaction network we adopt (see also
 Appendix~\ref{sec:mesa128}) is sufficient to resolve the density
@@ -760,9 +792,10 @@ $Y_{e}$. This has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
 \citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted
 here may still under-resolve the pre-collapse high-energy neutrino
-flux \citep[e.g.,][]{farag:20, myers:26} and may not be suitable for
-detailed nucleosynthesis studies \citep[e.g.,][]{hix:96, woosley:02,
-  woosley:07}.
+flux \citep[e.g.,][]{farag:20, myers:26} and \added{may be missing
+  important seed nuclei for the subsequent explosive} nucleosynthesis
+\citep[e.g.,][]{nomoto:86, hix:96, thielemann:96, woosley:02,
+  yoshida:05, woosley:07, farmer:23, limongi:25}.
 
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
@@ -779,24 +812,24 @@ approach is common in stellar evolution because of the large
 difference in the timescale for nuclear burning and other processes,
 it may introduce small numerical artifacts \citep[e.g.,][]{jermyn:23}.
 
-As with any set of stellar evolution calculations, the representation of
-the inherently three-dimensional convective flow
+As with any set of stellar evolution calculations, the representation
+of the inherently three-dimensional convective flow
 \cite[e.g.,][]{jermyn:22,joyce:23} and convective boundaries
 \cite[e.g.,][]{davis:19, myers:26} are potential causes of concern.
-The key hypothesis of subsonic flows holds throughout the
-evolution of our models. However, our choice of free parameters
-($\alpha_{\rm MLT}$ and $\alpha_{\rm ov}$) to match existing
-literature \citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20}
-may not be appropriate in every stellar environment
-\citep[e.g.][]{joyce:18,chun:18} or for every convective layer
-in the stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26},
-and does not include the latest advances from stellar hydrodynamic simulations
-\citep[e.g.][]{schultz:20,anders:22, rizzuti:23, johnston:24}.
-
-Perhaps more importantly, our models adopt an artificial strategy to
-expunge envelope velocities in the outer layers which are possibly seeded by
-numerical noise in the fast-paced late burning evolution. Significant
-efforts to improve \textsc{MESA} are aimed at addressing this issue.
+The key hypothesis of subsonic flows holds throughout the evolution of
+our models. However, our choice of free parameters ($\alpha_{\rm MLT}$
+and $\alpha_{\rm ov}$) to match existing literature
+\citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20} may not
+be appropriate in every stellar environment
+\citep[e.g.][]{joyce:18,chun:18} or for every convective layer in the
+stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26}, and
+does not include the latest advances from stellar hydrodynamic
+simulations \citep[e.g.][]{yadav:20, schultz:20,anders:22, rizzuti:23,
+  johnston:24}. Perhaps more importantly, our
+models adopt an artificial strategy to expunge envelope velocities in
+the outer layers which are possibly seeded by numerical noise in the
+fast-paced late burning evolution. Significant efforts to improve
+\textsc{MESA} are aimed at addressing this issue.
 
 % Despite these inevitable caveats, which are inherent to numerical simulations
 % that depend on input physics and physical processes under active
@@ -878,7 +911,7 @@ isotope that can be included to tweak compound weak reactions.
 
 
 \begin{figure}[htbp]
-  \includegraphics[width=0.5\textwidth]{network_128}
+  \includegraphics[width=0.5\textwidth]{network_128.png}
   \caption{Isotope list and reaction links for the 128-isotope network
     used in this study and an example of 22-isotope small network.}
   \label{fig:iso}
@@ -968,9 +1001,8 @@ The scripts used for the setup and analysis of our \textsc{MESA}
 models are in \texttt{scripts.tar.xz}, which also contains
 specifications for the dependencies. All figures can be reproduced
 starting with the computed \textsc{MESA} results in \texttt{grid.tar}
-(and the dataset from \citealt{renzo:24} from
-\href{https://doi.org/10.5281/zenodo.11375522}{doi.org/10.5281/zenodo.11375522}
-for the 22-isotope model).
+(and the zenodo \added{dataset \citep{10.5281/zenodo.11375522} from \citealt{renzo:24}
+for the 22-isotope model available at \href{https://doi.org/10.5281/zenodo.11375522}{doi.org/10.5281/zenodo.11375522}}).
 
 Finally, the (interactive) \texttt{build.sh} script allows for full
 reproduction of this manuscript, including downloading of the data
