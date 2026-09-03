@@ -364,12 +364,13 @@ rotationally-driven chemically homogeneous evolution \cite[CHE,
 e.g.,][]{maeder:00, yoon:06}. This limits (but does not eliminate) the
 number of numerical issues occurring in the envelope. After the
 formation of a carbon-oxygen core, we prevent the development of
-spurious numerical velocities in the outer layers. We artificially set to zero the
-velocity in any layer with sound-propagation time to the surface longer
-than the current timestep, either from the outer edge of
-this core, or the location where the specific entropy drops below
-$s\le10.5\,k_{B}N_{A}$, whichever \addedd{occurs at smaller radius}. Similar artificial damping exists in most
-calculations of post-core-carbon burning massive stars
+spurious numerical velocities in the outer layers. We artificially set
+to zero the velocity in any layer with sound-propagation time to the
+surface longer than the current timestep, either from the outer edge
+of this core, or the location where the specific entropy drops below
+$s\le10.5\,k_{B}N_{A}$, whichever \added{occurs at smaller radius}.
+Similar artificial damping exists in most calculations of
+post-core-carbon burning massive stars
 \citep[e.g.,][]{aguilera-dena:18}.
 
 To produce progenitors sufficiently close to core-bounce (condition
