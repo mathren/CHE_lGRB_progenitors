@@ -347,8 +347,12 @@ fraction $Y_{\rm surf}\le0.4$, in which case we adopt the rate from
 
 We use the Schwarzschild criterion and the \cite{henyey:65}
 formulation of mixing-length theory for convective layers, with
-$\alpha_{\rm MLT}=1.5$. For convective boundary mixing, we include
-core overshooting as a step-function following \cite{brott:11}
+$\alpha_{\rm MLT}=1.5$. \added{\cite{anders:22} showed that for times
+  long compared to the convective turnover timescale, convective
+  penetration leads to the growth of the core to the
+  Schwarzschild-defined boundary even starting from the
+  \cite{ledoux:47}-boundary.} For convective boundary mixing, we
+include core overshooting as a step-function following \cite{brott:11}
 ($\alpha_{\rm ov}=0.335$) and treat rotational mixing in diffusion
 approximation following \cite{heger:00}, including angular momentum
 transport by convection or by a ``classical'' Tayler-Spruit dynamo
@@ -364,7 +368,7 @@ spurious numerical velocities in the outer layers. We artificially set to zero t
 velocity in any layer with sound-propagation time to the surface longer
 than the current timestep, either from the outer edge of
 this core, or the location where the specific entropy drops below
-$s\le10.5\,k_{B}N_{A}$, whichever is further in. Similar artificial damping exists in most
+$s\le10.5\,k_{B}N_{A}$, whichever \addedd{occurs at smaller radius}. Similar artificial damping exists in most
 calculations of post-core-carbon burning massive stars
 \citep[e.g.,][]{aguilera-dena:18}.
 
@@ -500,7 +504,7 @@ enriched in $^{4}\mathrm{He}$ (and $^{14}\mathrm{N}$ at the expense of
 $^{12}\mathrm{C}$ and $^{16}\mathrm{O}$ because of the CNO cycle,
 \citealt{bethe:39}), reducing the envelope opacity and preventing the
 red-ward evolution and radial expansion. Nevertheless, the increase in
-mean molecular weight leads to an increase in luminosity
+mean molecular weight \added{over time} leads to an increase in luminosity
 \citep[e.g.,][]{kippenhahn:13, xin:2022}.
 
 At the end of the hydrogen-core burning main sequence, each track
@@ -530,9 +534,9 @@ layers of the star. The hottest point and smallest radius is reached
 roughly at core Neon ignition \citep{gottlieb:24}, after which stars
 typically expand slightly again because of the enhanced core
 contraction as neutrino cooling and nuclear neutrino losses increase.
-We note that the majority of the failing models (red crosses in
+We note that the majority of the \added{unsuccessful} models (red crosses in
 \Figref{fig:grid_success}, excluded from \Figref{fig:multipanel} and
-beyond) occur during or after Neon core burning. This is because this
+beyond) \added{fail} during or after Neon core burning. This is because this
 burning phase occurs through photodisintegration
 $^{20}\mathrm{Ne}(\gamma, \alpha)^{16}\mathrm{O}$ which produces
 $\alpha$ particles. These have extremely high reaction rates at the
@@ -594,7 +598,8 @@ contribution of electron degeneracy pressure to the support of the
 core, and it determines the infall velocity profile once electron
 captures (and later photodisintegration) remove pressure support
 \citep[e.g.,][]{janka:12}. Moreover, the density determines the
-initial accretion onto the shock generated at core bounce, and thus
+initial accretion onto the shock generated at core bounce \added{and
+  thus the ram pressure impinging on the shock} and
 the neutrino luminosity \citep[e.g.][]{vartanyan:21, burrows:24}.
 Finally, the density profile is also related to the angular momentum
 profile via the mass-continuity equation relating $\rho(m)$ and the
