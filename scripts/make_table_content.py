@@ -5,6 +5,38 @@ import matplotlib.gridspec as gridspec
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
 from scipy.interpolate import interp1d
 
+
+def get_CO_core(pfile, he4_boundary=0.1, min_boundary_fraction=0.1):
+    """ calculate CO core like MESA """
+    src, col = get_src_col(pfile)
+    he4 = src[:, col.index("he4")]
+    c12 =src[:, col.index("c12")]
+    o16 =src[:, col.index("o16")]
+    co = c12+c16
+    m = src[:, col.index("mass")]
+    return max(m[(he4<=he4_boundary) & (co > min_boundary_fraction)])
+
+
+def get_Si_core(pfile, co_boundary=0.1, min_boundary_fraction=0.1):
+    """ calculate Si core like MESA """
+    src, col = get_src_col(pfile)
+    c12 =src[:, col.index("c12")]
+    o16 =src[:, col.index("o16")]
+    co = c12+c16
+    si28 = src[:, col.index("si28")]
+    m = src[:, col.index("mass")]
+    return max(m[(co<=co_boundary) & (si28 <= min_boundary_fraction)])
+
+
+def get_TAMS(hfile, TAMS_threshold=1e-2):
+    src, col = get_src_col(hfile)
+    h = src[:, col.index("h1")]
+    m = src[:, col.index("mass")]
+    hecore = src[:, col.index("he_core_mass")]
+    iTAMS = np.argmin(np.absolute(h-TAMS_threshold))
+    return m[iTAMS], hecore[iTAMS]
+
+
 def compute_profile_quantities(pfile, M_compact=1.75, s_thresh=4.0):
     """
     Parameters
@@ -82,14 +114,18 @@ if __name__ == "__main__":
     for mod in models:
         hfile = mod+"LOGS/history.data"
         src, col = get_src_col(hfile)
+        mtams, mhetams = get_TAMS(hfile)
+        if mtams != mhetams: print(mtams-mhetams)
         Mfe = src[-1, col.index("fe_core_mass")]
         he4 = src[-1, col.index("surface_he4")]
         c12 = src[-1, col.index("surface_c12")]
         o16 = src[-1, col.index("surface_o16")]
         pfile = mod+"LOGS/CHE_single_core_collapse.data"
         xi, M4, mu4 = compute_profile_quantities(pfile, M_compact=1.75, s_thresh=4.0)
+        mco = get_CO_core(pfile)
+        msi = get_Si_core(pfile)
         M, o = get_model_initial_values(mod)
         if M != Mprev:
             print(r"\hline")
             Mprev = M
-        print(f"{M:.2f} & {o:.2f} & {xi:.3f} & {Mfe:.2f} & {M4:.2f} & {mu4:.3f} & {he4:.2f} & {c12:.2f} & {o16:.2f}"+r"\\")
+        print(f"{M:.2f} & {o:.2f} & {xi:.3f} & {Mfe:.2f} & {msi:.2f} & {mco:.2f} & {mtams:.2f} & {M4:.2f} & {mu4:.3f} & {he4:.2f} & {c12:.2f} & {o16:.2f}"+r"\\")
