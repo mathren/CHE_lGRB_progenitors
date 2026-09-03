@@ -103,7 +103,7 @@ if ! $NO_FIGURES && ask "Generate figures?"; then
 	cd ..
 	echo "✓ Figures done."
 	# make scripts tarball
-	tar czvf scripts.tar.xz ./scripts
+	tar czvf scripts.tar.xz ./scripts/
     else
 	echo "✘ python environment CHE_jet not found"
 	echo "Please create with mamba env create -f ./scripts/environment.yml"
