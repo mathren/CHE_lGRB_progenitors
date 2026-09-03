@@ -160,10 +160,11 @@ $\lesssim -300\,\mathrm{km\ s^{-1}}$ \citep[e.g.,][]{farmer:21,
 becomes partially optically thick to neutrinos, and the thermodynamic
 quantities exceed the bounds of tabulated equations of state in
 stellar evolution codes. \added{However, already before the beginning
-  of the collapse, several inherently multidimensional processes
-  (e.g., convection, and especially rotation and magnetic fields
-  \citealt{yadav:20, fields:22, chen:26}). For initial conditions to simulate
-  these, criterion \emph{i}) may need modifications to earlier times.}
+  of the collapse, several inherently multidimensional processes may
+  play a critical role (e.g., convection, and especially rotation and
+  magnetic fields \citealt{yadav:20, fields:22, chen:26}). For initial
+  conditions to simulate these in multiple dimension, criterion
+  \emph{i}) may need modifications to earlier times.}
 
 For condition \emph{ii}), stellar progenitor models used to study the
 explosion physics must accurately capture the progenitor's density and
@@ -744,12 +745,35 @@ The \added{rotationally-induced CHE path \citep[e.g.,][]{maeder:00,
 a product of the assumed initial rotation and the interplay between
 wind-mass loss and angular momentum transport \added{within the
   limited framework of 1D treatment of these processes
-  \cite[e.g.,][]{mombarg:24,rieutord:25}. Lowering the
-  initial rotation rate (see \Secref{sec:scenario}) and/or the
-  efficiency of mixing (of composition and angular momentum) and/or
-  increasing the early angular momentum losses could prevent
-  rotationally-induced CHE and lead to a redward expansion and a clear
-  core-envelope structure% We note also that no redsupergiant with
+  \cite[e.g.,][]{mombarg:24,rieutord:25}.} Both stellar winds and
+angular momentum transport processes remain highly uncertain in
+stellar context (see, e.g., \citealt{puls:08, smith:14, vink:15,
+  renzo:17, josiek:24, romagnolo:26} for wind-related uncertainties,
+\citealt{spruit:99, cantiello:14, fuller:19, denhartogh:20,
+  skoutnev:24, skoutnev:25} for angular momentum transport
+uncertainties). \added{Other stellar physics ingredients influencing
+  the size of the convective main-sequence core (e.g., overshooting),
+  can also have an secondary role by changing the amount of mass that
+  needs to be mixed to reach CHE}.
+
+\added{In our spherically-symmetric models, we treat rotation in
+  ``shellular approximation'' \citep[e.g.,][]{maeder:00}, which may
+  not accurately represent the multi-dimensional flows at rotation
+  rates $\omega\gtrsim0.8\,\omega_{\rm crit}$.} We adopt a
+Tayler-Spruit dynamo in radiative regions \citep{spruit:02} for
+angular momentum transport. As noted in \cite{gottlieb:24} based on
+the $40\,M_{\odot}$ model with
+$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ (orange line in
+\Figref{fig:multipanel}-\ref{fig:B}), the stronger magnetic field
+saturation of the Tayler-Spruit instability suggested in
+\cite{fuller:19, fuller:22} still results in CHE, but at the onset of
+core-collapse, the cores are too slowly rotating to produce accretion
+disks. \added{ Lowering the initial rotation rate (see
+  \Secref{sec:scenario}) and/or the efficiency of mixing (of
+  composition and angular momentum) and/or increasing the early
+  angular momentum losses could prevent rotationally-induced CHE and
+  lead to a redward expansion and a clear core-envelope
+  structure% We note also that no redsupergiant with
   % $\log(L/L_{\odot})\gtrsim 5.5$ is known \cite{davies:18}, while
   % post-main sequence all our models exceed
   % $\log(L/L_{\odot})\gtrsim 5.8$. This does not imply
@@ -766,23 +790,6 @@ previous grids of fast-rotating progenitors adopting a combination of
   to avoid known numerically challenging issues
   \citep[e.g.,][]{paxton:13, cheng:24}.}
 
-\added{We treat rotation in ``shellular approximation''
-  \citep[e.g.,][]{maeder:00}, may not accurately represent the
-  multi-dimensional flows at rotation rates close to critical.} We
-adopt a Tayler-Spruit dynamo in radiative regions \citep{spruit:02}
-for angular momentum transport.q As noted in \cite{gottlieb:24} based
-on the $40\,M_{\odot}$ model with
-$\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ (orange line in
-\Figref{fig:multipanel}-\ref{fig:B}), adopting the stronger magnetic
-field saturation of the Tayler-Spruit instability suggested in
-\cite{fuller:19, fuller:22} still results in CHE, but at the onset of
-core-collapse, the cores are too slowly rotating to produce accretion
-disks. Both stellar winds and angular momentum transport processes
-remain highly uncertain in stellar context (see, e.g.,
-\citealt{puls:08, smith:14, vink:15, renzo:17, josiek:24,
-  romagnolo:26} for wind-related uncertainties, \citealt{spruit:99,
-  cantiello:14, fuller:19, denhartogh:20, skoutnev:24, skoutnev:25}
-for angular momentum transport uncertainties).
 
 The 128-isotope nuclear reaction network we adopt (see also
 Appendix~\ref{sec:mesa128}) is sufficient to resolve the density
@@ -792,25 +799,26 @@ $Y_{e}$. This has been shown both with full stellar model calculations
 \citep[e.g.,][]{farmer:16} and focused one-zone experiments
 \citep[e.g.,][]{grichener:25}. However, the list of isotopes adopted
 here may still under-resolve the pre-collapse high-energy neutrino
-flux \citep[e.g.,][]{farag:20, myers:26} and \added{may be missing
-  important seed nuclei for the subsequent explosive} nucleosynthesis
-\citep[e.g.,][]{nomoto:86, hix:96, thielemann:96, woosley:02,
-  yoshida:05, woosley:07, farmer:23, limongi:25}.
+flux \citep[e.g.,][]{patton:17, farag:20, myers:26} and \added{may be
+  missing important seed nuclei for the subsequent explosive}
+nucleosynthesis \citep[e.g.,][]{nomoto:86, hix:96, thielemann:96,
+  woosley:02, yoshida:05, woosley:07, farmer:23, limongi:25}.
 
 Moreover, the nuclear reaction rates adopted (specifically the
 $^{12}\mathrm{C}(\alpha,\gamma)^{16}\mathrm{O}$ from
-\citealt{kunz:02}) are under active scrutiny in the community
+\citealt{kunz:02}) are under active scrutiny
 \citep[e.g.,][]{deboer:17, takahashi:18, farmer:19, costa:21, woosley:21, shen:23,
   noll:25, tong:26}. Our choice of rates therefore inevitably
 influences the pre-collapse structures presented here, as is true for
 any stellar models in the literature \citep[see also][]{fields:18}.
-
 Finally, we also employ the ``split-burn'' mode of \textsc{MESA}, that
 is we solve separately for the composition (at fixed structure), and
 iterate on the structure (at fixed updated composition). While this
 approach is common in stellar evolution because of the large
 difference in the timescale for nuclear burning and other processes,
-it may introduce small numerical artifacts \citep[e.g.,][]{jermyn:23}.
+it may introduce small numerical artifacts
+\citep[e.g.,][]{takahashi:13, farmer:16,
+  jermyn:23, limongi:24, limongi:25}.
 
 As with any set of stellar evolution calculations, the representation
 of the inherently three-dimensional convective flow
@@ -819,18 +827,17 @@ of the inherently three-dimensional convective flow
 The key hypothesis of subsonic flows holds throughout the evolution of
 our models. However, our choice of free parameters ($\alpha_{\rm MLT}$
 and $\alpha_{\rm ov}$) to match existing literature
-\citep[e.g.,][]{brott:11, aguilera-dena:18,aguilera-dena:20} may not
+\citep[e.g.,][]{brott:11, aguilera-dena:18, aguilera-dena:20} may not
 be appropriate in every stellar environment
-\citep[e.g.][]{joyce:18,chun:18} or for every convective layer in the
-stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26}, and
-does not include the latest advances from stellar hydrodynamic
+\citep[e.g.][]{joyce:18,chun:18} or for every convective layer in a
+stars \citep[e.g.,][]{goldberg:22,ma:25,stuck:25,griffiths:26}, and we
+do not include the latest advances from stellar hydrodynamic
 simulations \citep[e.g.][]{yadav:20, schultz:20,anders:22, rizzuti:23,
-  johnston:24}. Perhaps more importantly, our
-models adopt an artificial strategy to expunge envelope velocities in
-the outer layers which are possibly seeded by numerical noise in the
-fast-paced late burning evolution. Significant efforts to improve
-\textsc{MESA} are aimed at addressing this issue.
-
+  johnston:24}. Perhaps more importantly, our models adopt an
+artificial strategy to expunge envelope velocities in the outer layers
+which are possibly seeded by numerical noise in the fast-paced late
+burning evolution. Significant efforts to improve \textsc{MESA} are
+aimed at addressing this issue.
 % Despite these inevitable caveats, which are inherent to numerical simulations
 % that depend on input physics and physical processes under active
 % investigation, our models provide a significant advance in the context
