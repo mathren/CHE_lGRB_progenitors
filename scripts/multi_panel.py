@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
     bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["cividis"].resampled(len(bounds) - 1)   # one color per interval
+    cmap = mpl.colormaps["inferno_r"].resampled(len(bounds) - 1)   # one color per interval
     norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
 
     for mod in models:
