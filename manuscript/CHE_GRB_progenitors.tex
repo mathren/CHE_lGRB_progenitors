@@ -150,7 +150,7 @@ momentum may play a dominant role.
 
 Specifically, condition \emph{i}) requires computing stellar evolution
 models well into the sub-sonic phase of the collapse, at least until
-the remaining time to core-bounce becomes shorter than the
+the remaining time to core bounce becomes shorter than the
 characteristic timescales of all relevant stellar processes. This
 typically means evolving a stellar model beyond the point where the
 iron-core infall velocity $v_{\rm infall} = \min(v)$ is lower than
@@ -285,7 +285,7 @@ for studies of the collapse and possible explosion of fast-rotating
 stellar cores. In \Secref{sec:methods} we describe our physical
 assumptions and numerical setup. \Secref{sec:results} presents the
 grid of progenitors, and in \Secref{sec:scenario} we briefly outline
-the astrophysical scenarios that they could approximated. We
+the astrophysical scenarios that they could approximate. We
 contextualize our result in terms of the input and code physics in
 \Secref{sec:discussion_inputs} before concluding in
 \Secref{sec:conclusion}. Appendix~\ref{sec:mesa128} lists the 128
@@ -332,10 +332,11 @@ plus additional tabulated weak reaction rates \citet{Fuller1985,
 deleptonization of the core from the structural point of view
 (condition \emph{ii}) in \Secref{sec:intro}), we adopt the
 fully-coupled 128-isotope nuclear reaction network
-\texttt{mesa\_128.net} \citep[see Appendix.~\ref{sec:mesa128} and][]{farmer:16}. For central temperatures
-above $\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split
-mode, that is we iteratively solve for the structure at fixed composition, and
-viceversa \added{(e.g., Sec.~10 in \citealt{jermyn:23}, see also
+\texttt{mesa\_128.net} \citep[see Appendix.~\ref{sec:mesa128}
+and][]{farmer:16}. For central temperatures above
+$\log_{10}(T)\ge 9.2$, we employ \textsc{MESA} in operator split mode,
+that is we iteratively solve for the structure at fixed composition,
+and vice versa \added{(e.g., Sec.~10 in \citealt{jermyn:23}, see also
   \citealt{farmer:16, limongi:24, limongi:25}).}
 
 Throughout the evolution, we include the wind mass loss rate following
@@ -353,7 +354,7 @@ $\alpha_{\rm MLT}=1.5$. \added{\cite{anders:22} showed that for times
   Schwarzschild-defined boundary even starting from the
   \cite{ledoux:47}-boundary.} For convective boundary mixing, we
 include core overshooting as a step-function following \cite{brott:11}
-($\alpha_{\rm ov}=0.335$) and treat rotational mixing in diffusion
+($\alpha_{\rm ov}=0.335$) and treat rotational mixing in the diffusion
 approximation following \cite{heger:00}, including angular momentum
 transport by convection or by a ``classical'' Tayler-Spruit dynamo
 \citep{spruit:02} in radiative regions.
@@ -403,7 +404,9 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
     that either do not reach infall velocities of
     $-300\,\mathrm{km\ s^{-1}}$ or they exhibit large luminosity and
     effective temperature excursions that are treated unphysically in
-    our setup and can impact the core-structure.}
+    our setup and can impact the core-structure. \textcolor{red}{\bf
+      Other colors indicate the initial rotation rate following the
+      color bar in Fig.~\ref{fig:xi_M}.}}
   \label{fig:grid_success}
 \end{figure}
 
@@ -411,7 +414,7 @@ $40\,M_{\odot}$ and $\omega=0.6\,\omega_{\rm crit}$ model.
 Our grid consists initially of 11 values of
 $\omega_{\rm ZAMS}/\omega_{\rm crit}$ times 71 $M_{\rm ZAMS}$ values,
 for a total of 781 stellar models (\Figref{fig:grid_success}). Of
-these, 113 successfully reach the onset of core-collapse and pass our
+these, 113 successfully reach the onset of core collapse and pass our
 visual inspection to remove models experiencing large $L$ and
 effective temperature ($T_{\rm eff}$) excursions. These may be
 manifestations of physical processes in the envelope (e.g.,
@@ -426,12 +429,15 @@ Because of the fast initial rotation and assumed rotational mixing,
 our models do not develop extended hydrogen envelopes, and our setup
 is not designed to properly capture physical phenomena in the outer
 layers this late in the evolution. Furthermore, large $L$ and
-$T_{\rm eff}$ excursions feed back nonlinearly on the core
-in structurally significant ways, motivating our choice to exclude
-models exhibiting this numerical behavior from our grid. Overall, our
-grid has a 14\% success rate, relatively high for models that are
-\emph{not} manually mentored in any way.
-
+$T_{\rm eff}$ excursions feed back nonlinearly on the core in
+structurally significant ways, motivating our choice to exclude models
+exhibiting this numerical behavior from our grid. Overall, our grid
+has a 14\% success rate, relatively high for models that are
+\emph{not} manually mentored in any way. \textcolor{red}{\bf Below, we
+  focus on describing the overall properties of our grid. We refer
+  interested readers to \cite{renzo:24} and the appendix in
+  \cite{gottlieb:24} for a more detailed description of one example
+  model.}
 
 As shown in \Figref{fig:grid_success}, successful models in our grid (green checkmarks) sample relatively well, the parameter space
 $30\,M_{\odot}\lesssim M_{\rm ZAMS}\lesssim 50\,M_{\odot}$ across all
@@ -452,7 +458,9 @@ physical hypothesis.
     $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ used in
     \cite{gottlieb:24}, and the thin black dot-dashed line shows an
     otherwise identical model computed with only 22-isotopes from
-    \cite{renzo:24}.}
+    \cite{renzo:24}. \textcolor{red}{\bf Other colors indicate the
+      initial rotation rate following the color bar in
+      Fig.~\ref{fig:xi_M}.}}
   \label{fig:HRD}
 \end{figure}
 
@@ -476,7 +484,9 @@ physical hypothesis.
     $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ used in
     \cite{gottlieb:24}, and the thin black dot-dashed line shows an
     otherwise identical model computed with only 22-isotopes from
-    \cite{renzo:24}.}
+    \cite{renzo:24}. \textcolor{red}{\bf Other colors indicate the
+      initial rotation rate following the color bar in
+      Fig.~\ref{fig:xi_M}.}}
   \label{fig:multipanel}
 \end{figure*}
 
@@ -557,7 +567,7 @@ the outer layers of these envelope-less stars can be dynamically
 and/or numerically coupled to the core.
 
 \Figref{fig:multipanel} shows an overview of their evolution and
-structure at the onset of core-collapse. The top left panel shows the
+structure at the onset of core collapse. The top left panel shows the
 specific entropy profiles $s$ of the innermost $m\le4\,M_{\odot}$.
 Nearly flat ``steps'' correspond to stellar regions that have
 experienced \emph{efficient} convection less than a local thermal
@@ -584,7 +594,7 @@ The top right panel of \Figref{fig:multipanel} shows the profiles of
 the electron fraction $Y_{e}=\sum_{j}X_{j}Z_{j}/A_{j}$, where $X_{j}$
 is the mass fraction of the $j$-th isotope with charge $+Z_{j}e$ and
 atomic mass $A_{j}$, in the innermost mass coordinate $m\le4\,M_{\odot}$ at the onset
-of core-collapse. Outside this mass coordinate $Y_e\simeq0.5$, while
+of core collapse. Outside this mass coordinate $Y_e\simeq0.5$, while
 inside, weak reactions deleptonize the core and lower the $Y_{e}$,
 creating a profile consistent with the thermodynamics in the evolving
 cores.
@@ -612,7 +622,7 @@ nuclear reaction networks \citep[e.g.,][]{renzo:24}.
 
 The bottom right panel of \Figref{fig:multipanel} shows the specific
 angular momentum per unit mass $j=r^{2}\omega$ at the onset of
-core-collapse. This can be compared to the angular momentum of the
+core collapse. This can be compared to the angular momentum of the
 innermost stable circular orbit of a putative seed BH to decide
 whether a disk forms before \citep[e.g.,][]{gottlieb:24} or during a
 proto-NS phase \citep[e.g.,][]{kasen:10}, or after the formation of
@@ -628,9 +638,11 @@ angular momentum at the onset of collapse.
     of Lagrangian mass coordinate. Dark (light) colors correspond to
     lower (higher) initial rotation rates. The orange thick line shows
     the $40M_{\odot}$, $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$
-    model from \cite{gottlieb:24} and the thin black dot-dashed line shows an
-    otherwise identical model computed with only 22-isotopes from
-    \cite{renzo:24}.}
+    model from \cite{gottlieb:24} and the thin black dot-dashed line
+    shows an otherwise identical model computed with only 22-isotopes
+    from \cite{renzo:24}. \textcolor{red}{\bf Other colors indicate
+      the initial rotation rate following the color bar in
+      Fig.~\ref{fig:xi_M}.}}
   \label{fig:B}
 \end{figure}
 
@@ -651,7 +663,8 @@ phases of a core collapse.
     for single CHE models. Higher values of compactness
     $\xi_{\mathcal{M}}$ favor BH formation, but this does not imply
     without outflows and/or electromagnetic transients
-    \citep[e.g.,][]{burrows:25, chan:26}.}
+    \citep[e.g.,][]{burrows:25, chan:26}. \textcolor{red}{\bf Colors indicate the
+      initial rotation rate.}}
   \label{fig:xi_M}
 \end{figure}
 
@@ -668,8 +681,9 @@ the vertical black dashed line in the top right panel of
 to result in BH formation, but this does not imply that the collapse
 does not result in a successful explosion since the accretion rate on
 the shock, and consequently the neutrino luminosity, thought to drive
-the shock, correlates positively with $\xi_{1.75}$
-\cite[e.g.,][]{kuroda:18, ott:18, burrows:25}.
+the shock, correlates positively with $\xi_{1.75}$ \textcolor{red}{\bf
+  in multi-dimensional simulations} \cite[e.g.,][]{kuroda:18, ott:18,
+  burrows:25}.
 % The colors in \Figref{fig:xi_M} indicate the initial rotation rate.
 Overall, slower rotation (darker colors) tends to result in higher
 compactness, while increasing rotational support decreases the core
@@ -763,7 +777,7 @@ uncertainties). \added{Other stellar physics ingredients influencing
   needs to be mixed to reach CHE}.
 
 \added{In our spherically-symmetric models, we treat rotation in
-  ``shellular approximation'' \citep[e.g.,][]{maeder:00}, which may
+  the ``shellular approximation'' \citep[e.g.,][]{maeder:00}, which may
   not accurately represent the multi-dimensional flows at rotation
   rates $\omega\gtrsim0.8\,\omega_{\rm crit}$.} We adopt a
 Tayler-Spruit dynamo in radiative regions \citep{spruit:02} for
@@ -773,7 +787,7 @@ $\omega_{\rm ZAMS}=0.6\,\omega_{\rm crit}$ (orange line in
 \Figref{fig:multipanel}-\ref{fig:B}), the stronger magnetic field
 saturation of the Tayler-Spruit instability suggested in
 \cite{fuller:19, fuller:22} still results in CHE, but at the onset of
-core-collapse, the cores are too slowly rotating to produce accretion
+core collapse, the cores are too slowly rotating to produce accretion
 disks. \added{ Lowering the initial rotation rate (see
   \Secref{sec:scenario}) and/or the efficiency of mixing (of
   composition and angular momentum) and/or increasing the early
@@ -853,9 +867,9 @@ aimed at addressing this issue.
 \section{Conclusion}\label{sec:conclusion}
 
 We presented a grid of rotationally-driven chemically-homogeneously
-evolving massive stars at the onset of core-collapse. We have
+evolving massive stars at the onset of core collapse. We have
 described their evolution on the Herzsprung-Russel diagram and
-characterized their internal profiles at the onset of core-collapse,
+characterized their internal profiles at collapse,
 and discussed physical and numerical limitations of our calculations.
 
 The evolution of these initially fast-rotating models represents a
@@ -977,7 +991,7 @@ separate tarball for each star, labeled as \texttt{<M>\_rot<O>.tar.xz}
 where \texttt{<M>} is the ZAMS mass in $M_{\odot}$ with one decimal
 digit, and \texttt{<O>} is the initial value of
 $\omega_{\rm ZAMS}/\omega_{\rm crit}$ with two decimal digits. We only
-include the models reaching the onset of core-collapse successfully
+include the models reaching the onset of core collapse successfully
 ($v_{\rm infall}\lesssim300\,\mathrm{km\ s^{-1}}$) and pass our visual
 inspection (cf.~\Figref{fig:grid_success}).
 
