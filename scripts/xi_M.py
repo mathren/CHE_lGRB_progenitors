@@ -19,7 +19,7 @@ if __name__ == "__main__":
     cax = fig.add_subplot(gs[:, 105:])
 
     bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["cool"].resampled(len(bounds) - 1)   # one color per interval
+    cmap = mpl.colormaps["cividis"].resampled(len(bounds) - 1)   # one color per interval
     norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
 
     for mod in models:
