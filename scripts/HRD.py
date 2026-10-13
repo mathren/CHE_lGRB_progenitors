@@ -31,7 +31,6 @@ def get_cmap_rotation(bound_min=0.5, bound_max=1,  spacing=11):
 
 
 
-
 if __name__ == "__main__":
     root = "../data/"   # final / needed
     models = sorted(glob.glob(root+"*.*rot*/"))
