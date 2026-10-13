@@ -11,16 +11,16 @@ from MESAreader import get_src_col, get_model_initial_values
 def get_cmap_rotation(bound_min=0.5, bound_max=1,  spacing=11):
     bounds = np.linspace(bound_min, bound_max, spacing) - 0.001  # for coloring by rotation
     colors = [
-        "#1C2942",  # 1  darkest
-        "#263C5B",  # 2
-        "#2C5270",  # 3
-        "#2C687E",  # 4
-        "#327D82",  # 5
-        "#4D8D78",  # 6
-        "#70966D",  # 7
-        "#91906E",  # 8
-        "#A87872",  # 9
-        "#B86D82",  # 10 lightest
+        "#1C2942",  # darkest
+        "#263C5B",  #
+        "#2C5270",  #
+        "#2C687E",  #
+        "#327D82",  #
+        "#4D8D78",  #
+        "#70966D",  #
+        "#91906E",  #
+        "#A87872",  #
+        "#B86D82",  # lightest
     ]
     cmap = mpl.colors.ListedColormap(colors)
     norm = mcolors.BoundaryNorm(
