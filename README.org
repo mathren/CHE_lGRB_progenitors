@@ -196,4 +196,5 @@ Environment managed with =mamba 2.1.1=, see =./scripts/environment.yml=.
 ** TODO list
 - [X] add to zenodo MESA community
 - [X] submit to arxiv
+- [ ] update =scripts.tar.xz= on zenodo
 - [ ] archive git repo in zenodo and release new version (at acceptance)
