@@ -6,7 +6,7 @@ import matplotlib.colors as mcolors
 import matplotlib as mpl
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
 from make_table_content import compute_profile_quantities
-
+from HRD import get_cmap_rotation
 
 if __name__ == "__main__":
     root = "../data/" # final / needed
@@ -18,9 +18,7 @@ if __name__ == "__main__":
     ax = fig.add_subplot(gs[:, :100])
     cax = fig.add_subplot(gs[:, 105:])
 
-    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["magma_r"].resampled(len(bounds) - 1)   # one color per interval
-    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+    bounds, cmap, norm = get_cmap_rotation()
 
     for mod in models:
         pfile = mod+"LOGS/CHE_single_core_collapse.data"

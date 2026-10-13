@@ -5,7 +5,7 @@ import matplotlib.gridspec as gridspec
 import matplotlib as mpl
 import matplotlib.colors as mcolors
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
-
+from HRD import get_cmap_rotation
 
 
 if __name__ == "__main__":
@@ -17,10 +17,7 @@ if __name__ == "__main__":
     ax0 = fig.add_subplot(gs[:50, :])
     ax1 = fig.add_subplot(gs[50:, :])
 
-    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
-    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["magma_r"].resampled(len(bounds) - 1)   # one color per interval
-    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+    bounds, cmap, norm = get_cmap_rotation()
 
     for mod in models:
         M, o = get_model_initial_values(mod)

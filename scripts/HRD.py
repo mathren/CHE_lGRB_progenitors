@@ -7,6 +7,31 @@ import matplotlib.gridspec as gridspec
 from MESAreader import get_src_col, get_model_initial_values
 
 
+
+def get_cmap_rotation(bound_min=0.5, bound_max=1,  spacing=11):
+    bounds = np.linspace(bound_min, bound_max, spacing) - 0.001  # for coloring by rotation
+    colors = [
+        "#3B5BA5",  # blue
+        "#247F8C",  # teal
+        "#3A8F5B",  # green
+        "#7A9E35",  # olive
+        "#6B4C9A",  # violet
+        "#9A4E8A",  # magenta
+        "#B33F62",  # crimson
+        "#C24B35",  # red-orange
+        "#8A5A3B",  # brown
+        "#4C536B",  # slate
+    ]
+    cmap = mpl.colors.ListedColormap(colors)
+    norm = mcolors.BoundaryNorm(
+        boundaries=bounds,
+        ncolors=cmap.N,
+    )
+    return bounds, cmap, norm
+
+
+
+
 if __name__ == "__main__":
     root = "../data/"   # final / needed
     models = sorted(glob.glob(root+"*.*rot*/"))
@@ -15,10 +40,7 @@ if __name__ == "__main__":
     gs = gridspec.GridSpec(2, 2)
     ax = fig.add_subplot(gs[:,:])
 
-    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
-    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["magma_r"].resampled(len(bounds) - 1)   # one color per interval
-    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+    bounds, cmap, norm = get_cmap_rotation()
 
     for mod in models:
         hfile = mod+"/LOGS/history.data"

@@ -5,6 +5,8 @@ import matplotlib.gridspec as gridspec
 import matplotlib as mpl
 import matplotlib.colors as mcolors
 from MESAreader import get_src_col, get_model_initial_values, Rsun_cm
+from HRD import get_cmap_rotation
+
 
 def my_mark_inset(parent_axes, inset_axes, loc1a=1, loc1b=1, loc2a=2, loc2b=2, **kwargs):
     from mpl_toolkits.axes_grid1.inset_locator import TransformedBbox, BboxPatch, BboxConnector
@@ -35,10 +37,7 @@ if __name__ == "__main__":
     ax3 = fig.add_subplot(gs[3])
     zx = ax2.inset_axes([0.13, 0.11, 0.68, 0.4])
 
-    # bounds = np.linspace(30, 100, 71)+0.5   # for coloring by mass
-    bounds = np.linspace(0.5, 1, 11)-0.001  # for coloring by rotation
-    cmap = mpl.colormaps["magma_r"].resampled(len(bounds) - 1)   # one color per interval
-    norm = mcolors.BoundaryNorm(boundaries=bounds, ncolors=cmap.N)
+    bounds, cmap, norm = get_cmap_rotation()
 
     for mod in models:
         M, o = get_model_initial_values(mod)
