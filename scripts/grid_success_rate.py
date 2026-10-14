@@ -23,6 +23,7 @@ if __name__ == "__main__":
     # Build a set of (M, omega) pairs from existing models
     existing = set()
     for mod in models:
+        print(mod)
         M, o = get_model_initial_values(mod)
         existing.add((round(M,2), round(o,2)))
 

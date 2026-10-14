@@ -4,7 +4,10 @@ set -e
 cd ./data
 echo "   Downloading data from https://doi.org/10.5281/zenodo.14286306"
 echo "    ⚠️ Warning: this will use ~8GB"
-wget -U firefox -c -O grid.tar https://zenodo.org/records/14286306/files/grid.tar
+wget -c -O mesa_128.net "https://zenodo.org/records/23348863/files/mesa_128.net?download=1"
+wget -c -O approx21_cr60_plus_co56.net "https://zenodo.org/records/23348863/files/approx21_cr60_plus_co56.net?download=1"
+wget -c -O store_net_info.txt "https://zenodo.org/records/23348863/files/store_net_info.txt?download=1"
+wget -c -O grid.tar "https://zenodo.org/records/23348863/files/grid.tar?download=1"
 echo "   Unpacking data"
 tar xvf grid.tar
 echo "    ⚠️ Warning: this will use ~15GB"
