@@ -3,3 +3,4 @@ comments/*
 *.tar.xz
 *.tar.gz
 scripts/.emjupy*
+*.zip

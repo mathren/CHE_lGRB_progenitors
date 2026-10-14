@@ -6,7 +6,7 @@
 <a href="https://github.com/mathren/CHE_lGRB_progenitors/raw/main/manuscript/CHE_GRB_progenitors.pdf">
 <img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
 </a>
-<a href="https://doi.org/10.5281/zenodo.14286306"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.14286306.svg" alt="zenodo-DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.23348863"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23348863.svg" alt="zenodo-DOI"></a>
 </p>
 #+END_html
 
@@ -52,7 +52,7 @@ and compile the pdf of the article at the end.
 
 The python scripts in [[./scripts]] to build the figures assume the data
 exist and are unpacked in [[./data]]. You can download them manually from
-the [[https://doi.org/10.5281/zenodo.14286306][zenodo repository]] the =grid.tar= and unpack in =./data=.
+the [[https://doi.org/10.5281/zenodo.23348863][zenodo repository]] the =grid.tar= and unpack in =./data=.
 
 To plot the model from [[https://ui.adsabs.harvard.edu/abs/2024RNAAS...8..152R/abstract][Renzo et al. 2024]], one stellar model is fetched
 from [[https://doi.org/10.5281/zenodo.11375523][this other zenodo repository]]. The python scripts will =pass= if
@@ -65,7 +65,7 @@ unpacked. If uncompressing manually, make sure to create a folder per
 each tarball in =grid.tar=, otherwise data from each model will be
 overwritten by the next.
 
-Zenodo has been experiencing performance issues.
+Zenodo has been known to experience occasional performance issues.
 
 **** ⚠️ Warning ⚠️
 The zenodo repository is not publicly accessible /yet/. As of
@@ -86,9 +86,10 @@ wget -U firefox -c -O grid.tar --header="Authorization: Bearer $ZENODO_TOKEN" \
 
 which will reduce to
 #+begin_src bash
-wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/14286306/files/grid.tar"
+wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/23348863/files/grid.tar"
 #+end_src
-when the zenodo repo becomes public.
+when the zenodo repo becomes public and a new record (post-acceptance)
+is released (hence the change of number).
 
 ** How to reproduce the simulations
 
@@ -161,11 +162,14 @@ Run =./scripts/B-fields.py= to generate
 Run =./scripts/xi_M.py= to generate
 [[./manuscript/figures/xi_M.png]]
 
-*** Figure 6 - =mesa_128.net= and =approx21_cr60_plus_co56
+*** Figure 6 - =mesa_128.net= and =approx21_cr60_plus_co56.net=
 
-Run  =scripts/plot_network_128.py= to generate
+Run =scripts/plot_network_128.py= to generate
 
 [[./manuscript/figures/network_128.png]]
+
+This requires the files =mesa_128.net=, =approx21_cr60_plus_co56.net=,
+=store_net_info.txt=, also in the zenodo record for convenience.
 
 *** Table 1
 The table header and caption are prepared in =./manuscript/table.tex=,
