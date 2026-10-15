@@ -6,7 +6,7 @@
 <a href="https://github.com/mathren/CHE_lGRB_progenitors/raw/main/manuscript/CHE_GRB_progenitors.pdf">
 <img src="https://img.shields.io/badge/article-pdf-blue.svg?style=flat" alt="Read the article"/>
 </a>
-<a href="https://doi.org/10.5281/zenodo.23348863"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23348863.svg" alt="zenodo-DOI"></a>
+<a href="https://doi.org/10.5281/zenodo.23377519"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.23377519.svg" alt="zenodo-DOI"></a>
 </p>
 #+END_html
 
@@ -86,7 +86,7 @@ wget -U firefox -c -O grid.tar --header="Authorization: Bearer $ZENODO_TOKEN" \
 
 which will reduce to
 #+begin_src bash
-wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/23348863/files/grid.tar"
+wget -U firefox -c -O grid.tar  "https://zenodo.org/api/records/23377519/files/grid.tar"
 #+end_src
 when the zenodo repo becomes public and a new record (post-acceptance)
 is released (hence the change of number).
